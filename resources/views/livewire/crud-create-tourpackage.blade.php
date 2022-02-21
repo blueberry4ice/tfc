@@ -1,7 +1,7 @@
 <div>
     <div>
         <div>
-            <div></div>
+            <div>{{var_dump(ini_get('disable_functions'));}}</div>
         </div>
         <div role="dialog" aria-modal="true" aria-labelledby="modal-headline">
             <form>
