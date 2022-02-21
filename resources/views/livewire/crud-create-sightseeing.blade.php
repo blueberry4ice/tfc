@@ -11,13 +11,13 @@
                             <div>
                                 <label for="agents">agent</label>
                                 @foreach ($dataAgents as $key => $agent)
-                                <input type="checkbox" value="{{ $agent->id }}" id="checkboxagents{{ $agent->id }}" 
-                                    wire:model="agents">
-                                <label for="checkboxagents{{ $agent->id }}">
-                                    <span></span> {{ $agent->name }}
-                                </label>
-                            @endforeach
-                            @error('agents') <span class="text-red-500">{{ $message }}</span>@enderror
+                                    <input type="checkbox" value="{{ $agent->id }}" id="checkboxagents{{ $agent->id }}" 
+                                        wire:model="agents">
+                                    <label for="checkboxagents{{ $agent->id }}">
+                                        <span></span> {{ $agent->name }}
+                                    </label>
+                                @endforeach
+                                @error('agents') <span class="text-red-500">{{ $message }}</span>@enderror
                             </div>
                         </div>
                         <div>
@@ -32,7 +32,7 @@
                         </div>
                         <div>
                             <label for="detail">spesial remark</label>
-                            <textarea id="detail" wire:model="detail" placeholder="detail"></textarea>
+                            <textarea id="detail" wire:model="detail" placeholder="spesial remark"></textarea>
                             @error('detail') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -52,9 +52,13 @@
                         </div>
                         <div>
                             <label for="image">image</label>
-                            <input type="file" wire:model="image">
+                            <input type="file" wire:model="image" name="image">
                             <div wire:loading wire:target="image" class="text-sm italic text-gray-500">Uploading...
                             </div>
+                            <div>@if ($image)
+                                image preview:
+                                <img src="{{ asset('storage/product_image/'.$image) }}" height="80">
+                            @endif</div>
                             @error('image') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -62,6 +66,10 @@
                             <input type="file" wire:model="thumbnail">
                             <div wire:loading wire:target="thumbnail" class="text-sm italic text-gray-500">Uploading...
                             </div>
+                            <div>@if ($thumbnail)
+                                thumbnail preview:
+                                <img src="{{ asset('storage/product_thumbnail/'.$thumbnail) }}" height="80">
+                            @endif</div>
                             @error('thumbnail') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -69,13 +77,17 @@
                             <input type="file" wire:model="flyer">
                             <div wire:loading wire:target="flyer" class="text-sm italic text-gray-500">Uploading...
                             </div>
+                            <div>@if ($flyer)
+                                flyer preview:
+                                <img src="{{ $image }}" height="80">
+                            @endif</div>
                             @error('flyer') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="month">month</label>
-                            @foreach ($dataMonths as $month)
+                            @foreach ($dataMonths as $key => $month)
                                 <input type="checkbox" id="checkboxmonth{{ $month->id }}" value={{ $month->id }}
-                                    wire:model="months.{{ $month->id }}">
+                                    wire:model="months">
                                 <label for="checkboxmonth{{ $month->id }}">
                                     <span></span> {{ $month->name }}
                                 </label>
@@ -85,7 +97,7 @@
                         <div>
                             <div><label for="price">price</label></div>
                             <div>
-                                <input type="text" placeholder="Enter Price Name" wire:model="pricename.0">
+                                <input type="text" wire:model="pricename.0" placeholder="Enter Price Name">
                                 <input type="text" wire:model="priceval.0" placeholder="Enter Price">
                                 
                                 @error('priceval.0') <span
@@ -97,12 +109,12 @@
                                 @foreach ($priceinputs as $key => $value)
                                 <div>
                                     <input type="text" placeholder="Enter Price Name"
-                                        wire:model="pricename.{{ $value }}">
-                                    @error('pricename.' . $value) <span
+                                        wire:model="pricename.{{$key+1}}">
+                                    @error('pricename' . $value) <span
                                         class="text-danger error">{{ $message }}</span>@enderror
-                                    <input type="text" wire:model="priceval.{{ $value }}"
+                                    <input type="text" wire:model="priceval.{{ $key+1 }}"
                                         placeholder="Enter Price">
-                                    @error('priceval.' . $value) <span
+                                    @error('priceval' . $value) <span
                                         class="text-danger error">{{ $message }}</span>@enderror
                                     <button class="btn btn-danger btn-sm"
                                         wire:click.prevent="remove({{ $key }})">Remove Price</button>

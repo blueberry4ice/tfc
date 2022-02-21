@@ -53,6 +53,9 @@ class CrudAttraction extends Component
     public $lastsku;
     public $lastskuvalue;
 
+    public $category = 2;
+
+
 
 
 
@@ -195,14 +198,14 @@ class CrudAttraction extends Component
             $i++;
         }
 
-        DB::table('product_month')->where('id_product', $this->productid)->where('category', 2)->delete();
+        DB::table('product_month')->where('id_product', $this->productid)->where('category', $this->category)->delete();
         $i = 1;
         foreach ($this->months as $month) {
             $dataproductmonth = Productmonth::updateOrCreate(
                 ['id' => $this->productmonthid],
                 [
                     'id_product' => $dataproduct->id,
-                    'category' => 2,
+                    'category' => $this->category,
                     'sr' => $i,
                     'id_month' => $month,
                     'active' => 1,
@@ -214,14 +217,14 @@ class CrudAttraction extends Component
         // dd($this->pricename);
 
 
-        DB::table('product_price')->where('id_product', $this->productid)->where('category', 2)->delete();
+        DB::table('product_price')->where('id_product', $this->productid)->where('category', $this->category)->delete();
         $i = 1;
         foreach ($this->pricename as $key => $value) {
             $dataproductprice = Productprice::updateOrCreate(
                 ['id' => $this->productpriceid],
                 [
                     'id_product' => $dataproduct->id,
-                    'category' => 2,
+                    'category' => $this->category,
                     'sr' => $i,
                     'name' => $this->pricename[$key],
                     'price' => $this->priceval[$key],
@@ -274,11 +277,11 @@ class CrudAttraction extends Component
         $this->agents = json_decode($agents->pluck('id_agent'));
         // Log::debug($id);
 
-        $months = Productmonth::where('id_product', $id)->where('category', 2)->get();
+        $months = Productmonth::where('id_product', $id)->where('category', $this->category)->get();
         $this->months = json_decode($months->pluck('id_month'));
         Log::debug($this->months);
 
-        $prices = Productprice::where('id_product', $id)->where('category', 2)->get();
+        $prices = Productprice::where('id_product', $id)->where('category', $this->category)->get();
         Log::debug($this->pricename);
         // dd($prices->count());
         

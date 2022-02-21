@@ -3,21 +3,25 @@
 namespace App\Http\Livewire;
 
 use App\Models\Agent;
-use App\Models\Agentcar;
 use App\Models\Month;
 use Livewire\Component;
+use App\Models\Attraction;
 use App\Models\Tourpackage;
 use App\Models\Productmonth;
 use App\Models\Productprice;
 use Livewire\WithPagination;
 use App\Models\Touritinerary;
 use Livewire\WithFileUploads;
+use App\Models\Agentattraction;
+use App\Models\Agentcar;
 use App\Models\Agenttourpackage;
 use App\Models\Car;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
 
+use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isEmpty;
+use Illuminate\Support\Facades\Redirect;
 
 class CrudCar extends Component
 {
@@ -25,21 +29,23 @@ class CrudCar extends Component
     use WithFileUploads;
 
 
-    public $sku, $name, $agent,$summary, $continent, $country, $city, $image, $thumbnail, $productid, $flyer, $detail;
+    public $sku, $name, $agent,$summary, $continent, $country, $city, $image, $thumbnail, $flyer, $productid, $detail,$imagename,$thumbnailname;
     public $agentproductid, $idagent, $idpackage;
     public $dataproductmonth, $productmonthid, $productpriceid, $productitinid;
     public $deleteId = '';
     public $deletename = '';
-    public $monthcheckboxes;
-    public $months, $agents;
+    public $monthcheckboxes, $checkedagent;
+    public $months, $agents, $prices;
 
     public $isModalCreateOpen = 0;
     public $isModalDeleteOpen = 0;
 
-    public $contacts, $pricename, $priceval, $contact_id;
+    public $contacts, $contact_id;
     public $updateMode = false;
     public $priceinputs = [];
-    public $iprice = 1;
+    public $pricename = [];
+    public $priceval = [];
+    public $iprice = 0;
 
     public $itinname, $itinval;
     public $updateModeitin = false;
@@ -49,6 +55,8 @@ class CrudCar extends Component
     public $lastsku;
     public $lastskuvalue;
 
+    public $category = 8;
+
 
 
 
@@ -57,7 +65,6 @@ class CrudCar extends Component
         $products = Car::orderBy("id", "desc")->paginate(10);
         $dataAgents = Agent::all();
         $dataMonths = Month::all();
-
         return view('livewire.crud-car', ['products' => $products, 'dataAgents' => $dataAgents, 'dataMonths' => $dataMonths])->layout('layouts.base');
     }
 
@@ -84,19 +91,24 @@ class CrudCar extends Component
         $this->name = '';
         $this->sku = '';
         $this->summary = '';
+        $this->detail = '';
         $this->continent = '';
         $this->country = '';
         $this->city = '';
-        $this->image = '';
-        $this->thumbnail = '';
-        $this->flyer = '';
+        $this->image = null;
+        $this->thumbnail = null;
+        $this->flyer = null;
         $this->monthcheckboxes = '';
-        $this->months = '';
         $this->priceinputs = [];
         $this->pricename = '';
         $this->priceval = '';
         $this->itinname = '';
         $this->itinval = '';
+        $this->agents = [];
+        $this->months = [];
+        $this->resetErrorBag();
+
+
     }
 
     public function store()
@@ -109,11 +121,14 @@ class CrudCar extends Component
             'continent' => 'required',
             'country' => 'required',
             'city' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'image|mimes:jpeg,png,jpg|max:1500',
+            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+
         ]);
 
-        if (!isEmpty($this->image)){
+        if ($this->image){
+            // Log::debug($this->image);
             $imagename = $this->image->getClientOriginalName();
             $this->image->storeAs('product_image', $imagename);
         } else {
@@ -121,7 +136,7 @@ class CrudCar extends Component
         }
         
 
-        if (!isEmpty($this->thumbnail)){
+        if ($this->thumbnail){
             $thumbnailname = $this->thumbnail->getClientOriginalName();
             $this->thumbnail->storeAs('product_thumbnail', $thumbnailname);
         } else {
@@ -137,9 +152,7 @@ class CrudCar extends Component
        
         $lastsku = Car::orderBy('id', 'desc')->first();
         $lastskuvalue =  (int)substr($lastsku->sku,2);
-
         $lastskuvalue++;
-
         $lastskuvalue = 'CA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
 
@@ -161,7 +174,7 @@ class CrudCar extends Component
         );
         $dataproduct->save();
 
-        // $dataagentproduct = Agenttravelinsurance::updateOrCreate(
+        // $dataagentproduct = Agentattraction::updateOrCreate(
         //     ['id' => $this->agentproductid],
         //     [
         //         'id_agent' => $this->agent,
@@ -170,13 +183,13 @@ class CrudCar extends Component
         //     ]
         // );
         // $dataagentproduct->save();
+        DB::table('agent_cars')->where('id_package', $this->productid)->delete();
 
         $i = 1;
         foreach ($this->agents as $agent) {
             $dataagentproduct = Agentcar::updateOrCreate(
                 ['id' => $this->agentproductid],
                 [
-                    
                 'id_agent' => $agent,
                 'id_package' => $dataproduct->id,
                 'active' => 1,
@@ -186,14 +199,14 @@ class CrudCar extends Component
             $i++;
         }
 
-
+        DB::table('product_month')->where('id_product', $this->productid)->where('category', $this->category)->delete();
         $i = 1;
         foreach ($this->months as $month) {
             $dataproductmonth = Productmonth::updateOrCreate(
                 ['id' => $this->productmonthid],
                 [
                     'id_product' => $dataproduct->id,
-                    'category' => 8,
+                    'category' => $this->category,
                     'sr' => $i,
                     'id_month' => $month,
                     'active' => 1,
@@ -202,14 +215,17 @@ class CrudCar extends Component
             $dataproductmonth->save();
             $i++;
         }
+        // dd($this->pricename);
 
+
+        DB::table('product_price')->where('id_product', $this->productid)->where('category', $this->category)->delete();
         $i = 1;
         foreach ($this->pricename as $key => $value) {
             $dataproductprice = Productprice::updateOrCreate(
                 ['id' => $this->productpriceid],
                 [
                     'id_product' => $dataproduct->id,
-                    'category' => 8,
+                    'category' => $this->category,
                     'sr' => $i,
                     'name' => $this->pricename[$key],
                     'price' => $this->priceval[$key],
@@ -245,6 +261,9 @@ class CrudCar extends Component
 
         // $this->closeModalCreate();
         $this->resetCreateForm();
+        // $this->reset();
+
+        // $this->image = null;
         // return Redirect::back()->with('message','Operation Successful !');
 
     }
@@ -253,24 +272,60 @@ class CrudCar extends Component
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-        $tourpackage = Tourpackage::findOrFail($id);
-        $selectedagent = Agenttourpackage::where('id_package', $id)->first();
-        $selectedmonth = Productmonth::where('id_product', $id)->first();
+
+        $product = Car::findOrFail($id);
+        $agents = Agentcar::where('id_package', $id)->get();
+        $this->agents = json_decode($agents->pluck('id_agent'));
+        // Log::debug($id);
+
+        $months = Productmonth::where('id_product', $id)->where('category', $this->category)->get();
+        $this->months = json_decode($months->pluck('id_month'));
+        Log::debug($this->months);
+
+        $prices = Productprice::where('id_product', $id)->where('category', $this->category)->get();
+        Log::debug($this->pricename);
+        // dd($prices->count());
+        
+        $row = $prices->count();
+        $row--;
+        for ($i=0; $i < $row; $i++) { 
+            $this->iprice = $i;
+            array_push($this->priceinputs ,$i);        
+        }
+
+        // $i = 0;
+        // foreach ($prices as $key => $value) {
+        //     $i = $i + 1;
+        //     $this->iprice = $i;
+        //     array_push($this->priceinputs ,$i);
+
+        // } 
+        $this->pricename = json_decode($prices->pluck('name'));
+        $this->priceval = json_decode($prices->pluck('price'));
+
+
 
         
-        // dd($agent);
-        $this->tourpackageid = $id;
-        $this->agent = $selectedagent->id_agent;
-        $this->name = $tourpackage->name;
-        $this->summary = $tourpackage->summary;
-        $this->continent = $tourpackage->continent;
-        $this->country = $tourpackage->country;
-        $this->city = $tourpackage->city;
-        $this->image = $tourpackage->image;
-        $this->thumbnail = $tourpackage->thumbnail;
+        
+        // $this->prices = json_decode($prices->pluck('sr'));
+
+
+                // dd($product->image);
+
+        $this->productid = $id;
+        // $this->agent = $selectedagent->id_agent;
+        $this->name = $product->name;
+        $this->summary = $product->summary;
+        $this->detail = $product->detail;
+        $this->continent = $product->continent;
+        $this->country = $product->country;
+        $this->city = $product->city;
+        $this->image = $product->image;
+        $this->thumbnail = $product->thumbnail;
         // $this->months = $selectedmonth->id_month;
 
-        Log::debug($tourpackage->thumbnail);
+        // dd($this->image);
+
 
         $this->openModalCreate();
     }
@@ -287,7 +342,6 @@ class CrudCar extends Component
 
     public function deleteId($id, $dataname)
     {
-        Log::debug('masuk sini');
 
         $this->deleteId = $id;
         $this->deletename = $dataname;
@@ -310,6 +364,8 @@ class CrudCar extends Component
 
     public function remove($iprice)
     {
+        // dd($iprice);
+        unset($this->pricename[$iprice+1]);
         unset($this->priceinputs[$iprice]);
     }
 

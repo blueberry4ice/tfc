@@ -50,20 +50,20 @@ use App\Models\Product;
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($rails as $rail)
+                                @foreach($products as $product)
                                 <tr>
-                                    <td class="px-4 py-2 border">{{ $rail->sku }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->name }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->summary }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->continent }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->country }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->city }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->image }}</td>
-                                    <td class="px-4 py-2 border">{{ $rail->thumbnail }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->sku }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->name }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->summary }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->continent }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->country }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->city }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->image }}</td>
+                                    <td class="px-4 py-2 border">{{ $product->thumbnail }}</td>
                                     <td class="px-4 py-2 border">
-                                        <button wire:click="edit({{ $rail->id }})"
+                                        <button wire:click="edit({{ $product->id }})"
                                             class="flex px-4 py-2 text-gray-900 bg-gray-500 cursor-pointer">Edit</button>
-                                        <button wire:click="deleteId({{ $rail->id }},'{{ $rail->name }}')"
+                                        <button wire:click="deleteId({{ $product->id }},'{{ $product->name }}')"
                                             class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
 
                                     </td>
@@ -72,7 +72,7 @@ use App\Models\Product;
                             </tbody>
                         </table>
                         
-                        {{ $rails->links() }}
+                        {{ $products->links() }}
 
                     </div>
                 </div>

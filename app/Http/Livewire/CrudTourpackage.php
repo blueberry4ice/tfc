@@ -5,17 +5,21 @@ namespace App\Http\Livewire;
 use App\Models\Agent;
 use App\Models\Month;
 use Livewire\Component;
+use App\Models\Attraction;
 use App\Models\Tourpackage;
 use App\Models\Productmonth;
 use App\Models\Productprice;
 use Livewire\WithPagination;
 use App\Models\Touritinerary;
 use Livewire\WithFileUploads;
+use App\Models\Agentattraction;
 use App\Models\Agenttourpackage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Redirect;
 
+use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isEmpty;
+use Illuminate\Support\Facades\Redirect;
 
 class CrudTourpackage extends Component
 {
@@ -23,40 +27,45 @@ class CrudTourpackage extends Component
     use WithFileUploads;
 
 
-    public $sku, $name, $agent,$summary, $continent, $country, $city, $image, $thumbnail, $tourpackageid, $flyer;
-    public $agentproductid,$agenttourpackageid, $idagent, $idpackage;
+    public $sku, $name, $agent,$summary, $continent, $country, $city, $image, $thumbnail, $flyer, $productid, $detail,$imagename,$thumbnailname;
+    public $agentproductid, $idagent, $idpackage;
     public $dataproductmonth, $productmonthid, $productpriceid, $productitinid;
     public $deleteId = '';
     public $deletename = '';
-    public $monthcheckboxes;
-    public $months, $agents;
+    public $monthcheckboxes, $checkedagent;
+    public $months, $agents, $prices;
 
     public $isModalCreateOpen = 0;
     public $isModalDeleteOpen = 0;
 
-    public $contacts, $pricename, $priceval, $contact_id;
+    public $contacts, $contact_id;
     public $updateMode = false;
     public $priceinputs = [];
-    public $iprice = 1;
+    public $pricename = [];
+    public $priceval = [];
+    public $iprice = 0;
 
-    public $itinname, $itinval;
     public $updateModeitin = false;
     public $itininputs = [];
-    public $iitin = 1;
+    public $iitin = 0;
+    public $itinname = [];
+    public $itinval = [];
 
     public $lastsku;
     public $lastskuvalue;
+
+    public $category = 2;
+
 
 
 
 
     public function render()
     {
-        $tourpackages = Tourpackage::orderBy("id", "desc")->paginate(10);
+        $products = Tourpackage::orderBy("id", "desc")->paginate(10);
         $dataAgents = Agent::all();
         $dataMonths = Month::all();
-
-        return view('livewire.crud-tourpackage', ['tourpackages' => $tourpackages, 'dataAgents' => $dataAgents, 'dataMonths' => $dataMonths])->layout('layouts.base');
+        return view('livewire.crud-tourpackage', ['products' => $products, 'dataAgents' => $dataAgents, 'dataMonths' => $dataMonths])->layout('layouts.base');
     }
 
     public function create()
@@ -82,18 +91,24 @@ class CrudTourpackage extends Component
         $this->name = '';
         $this->sku = '';
         $this->summary = '';
+        $this->detail = '';
         $this->continent = '';
         $this->country = '';
         $this->city = '';
-        $this->image = '';
-        $this->thumbnail = '';
+        $this->image = null;
+        $this->thumbnail = null;
+        $this->flyer = null;
         $this->monthcheckboxes = '';
-        $this->months = '';
         $this->priceinputs = [];
         $this->pricename = '';
         $this->priceval = '';
         $this->itinname = '';
         $this->itinval = '';
+        $this->agents = [];
+        $this->months = [];
+        $this->resetErrorBag();
+
+
     }
 
     public function store()
@@ -105,12 +120,14 @@ class CrudTourpackage extends Component
             'continent' => 'required',
             'country' => 'required',
             'city' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'image|mimes:jpeg,png,jpg|max:1500',
+            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+
         ]);
 
-
-        if (!isEmpty($this->image)){
+        if ($this->image){
+            // Log::debug($this->image);
             $imagename = $this->image->getClientOriginalName();
             $this->image->storeAs('product_image', $imagename);
         } else {
@@ -118,7 +135,7 @@ class CrudTourpackage extends Component
         }
         
 
-        if (!isEmpty($this->thumbnail)){
+        if ($this->thumbnail){
             $thumbnailname = $this->thumbnail->getClientOriginalName();
             $this->thumbnail->storeAs('product_thumbnail', $thumbnailname);
         } else {
@@ -131,17 +148,15 @@ class CrudTourpackage extends Component
         } else {
             $flyername = null;
         }
-
+       
         $lastsku = Tourpackage::orderBy('id', 'desc')->first();
         $lastskuvalue =  (int)substr($lastsku->sku,2);
-        // Log::debug($lastskuvalue);
-
         $lastskuvalue++;
         $lastskuvalue = 'TP'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
 
         $dataproduct = Tourpackage::updateOrCreate(
-            ['id' => $this->tourpackageid],
+            ['id' => $this->productid],
             [
                 'sku' => $lastskuvalue,
                 'name' => $this->name,
@@ -152,25 +167,27 @@ class CrudTourpackage extends Component
                 'image' => $imagename,
                 'thumbnail' => $thumbnailname,
                 'flyer' => $flyername,
+                
             ]
         );
         $dataproduct->save();
 
-        // $dataagenttourpackage = Agenttourpackage::updateOrCreate(
-        //     ['id' => $this->agenttourpackageid],
+        // $dataagentproduct = Agentattraction::updateOrCreate(
+        //     ['id' => $this->agentproductid],
         //     [
         //         'id_agent' => $this->agent,
         //         'id_package' => $dataproduct->id,
         //         'active' => 1,
         //     ]
         // );
-        // $dataagenttourpackage->save();
+        // $dataagentproduct->save();
+        DB::table('agent_tourpackages')->where('id_package', $this->productid)->delete();
+
         $i = 1;
         foreach ($this->agents as $agent) {
             $dataagentproduct = Agenttourpackage::updateOrCreate(
                 ['id' => $this->agentproductid],
                 [
-                    
                 'id_agent' => $agent,
                 'id_package' => $dataproduct->id,
                 'active' => 1,
@@ -180,13 +197,14 @@ class CrudTourpackage extends Component
             $i++;
         }
 
+        DB::table('product_month')->where('id_product', $this->productid)->where('category', $this->category)->delete();
         $i = 1;
         foreach ($this->months as $month) {
             $dataproductmonth = Productmonth::updateOrCreate(
                 ['id' => $this->productmonthid],
                 [
                     'id_product' => $dataproduct->id,
-                    'category' => 6,
+                    'category' => $this->category,
                     'sr' => $i,
                     'id_month' => $month,
                     'active' => 1,
@@ -195,14 +213,17 @@ class CrudTourpackage extends Component
             $dataproductmonth->save();
             $i++;
         }
+        // dd($this->pricename);
 
+
+        DB::table('product_price')->where('id_product', $this->productid)->where('category', $this->category)->delete();
         $i = 1;
         foreach ($this->pricename as $key => $value) {
             $dataproductprice = Productprice::updateOrCreate(
                 ['id' => $this->productpriceid],
                 [
                     'id_product' => $dataproduct->id,
-                    'category' => 6,
+                    'category' => $this->category,
                     'sr' => $i,
                     'name' => $this->pricename[$key],
                     'price' => $this->priceval[$key],
@@ -213,11 +234,10 @@ class CrudTourpackage extends Component
             $i++;
         }
 
+        DB::table('tour_itineraries')->where('id_package', $this->productid)->delete();
         $i = 1;
-        // Log::debug($this->itinname);
+        // dd($this->itinname);
         foreach ($this->itinname as $key => $value) {
-            
-
             $dataproductitin = Touritinerary::updateOrCreate(
                 ['id' => $this->productitinid],
                 [
@@ -227,20 +247,38 @@ class CrudTourpackage extends Component
                     'active' => 1,
                 ]
             );
-            // Log::debug($dataproductitin);
             $dataproductitin->save();
             $i++;
         }
+
+        // $i = 1;
+        // // Log::debug($this->itinname);
+        // foreach ($this->itinname as $key => $value) {
+        //     $dataproductitin = Cruiseitinerary::updateOrCreate(
+        //         ['id' => $this->productitinid],
+        //         [
+        //             'id_package' => $dataproduct->id,
+        //             'desc' => $this->itinname[$key],
+        //             'sr' => $i,
+        //             'active' => 1,
+        //         ]
+        //     );
+        //     // Log::debug($dataproductitin);
+        //     $dataproductitin->save();
+        //     $i++;
+        // }
 
         // 
         // Log::debug($data->id);
 
 
-        session()->flash('message', $this->tourpackageid ? 'Data updated successfully.' : 'Data added successfully.');
+        session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
 
         // $this->closeModalCreate();
         $this->resetCreateForm();
-        $this->resetErrorBag();
+        // $this->reset();
+
+        // $this->image = null;
         // return Redirect::back()->with('message','Operation Successful !');
 
     }
@@ -249,24 +287,49 @@ class CrudTourpackage extends Component
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-        $tourpackage = Tourpackage::findOrFail($id);
-        $selectedagent = Agenttourpackage::where('id_package', $id)->first();
-        $selectedmonth = Productmonth::where('id_product', $id)->first();
 
-        
-        // dd($agent);
-        $this->tourpackageid = $id;
-        $this->agent = $selectedagent->id_agent;
-        $this->name = $tourpackage->name;
-        $this->summary = $tourpackage->summary;
-        $this->continent = $tourpackage->continent;
-        $this->country = $tourpackage->country;
-        $this->city = $tourpackage->city;
-        $this->image = $tourpackage->image;
-        $this->thumbnail = $tourpackage->thumbnail;
+        $product = Tourpackage::findOrFail($id);
+        $agents = Agenttourpackage::where('id_package', $id)->get();
+        $this->agents = json_decode($agents->pluck('id_agent'));
+        // Log::debug($id);
+
+        $months = Productmonth::where('id_product', $id)->where('category', $this->category)->get();
+        $this->months = json_decode($months->pluck('id_month'));
+        Log::debug($this->months);
+
+        $prices = Productprice::where('id_product', $id)->where('category', $this->category)->get();
+        $row = $prices->count();
+        $row--;
+        for ($i=0; $i < $row; $i++) { 
+            $this->iprice = $i;
+            array_push($this->priceinputs ,$i);        
+        }
+        $this->pricename = json_decode($prices->pluck('name'));
+        $this->priceval = json_decode($prices->pluck('price'));
+
+        $itins = Touritinerary::where('id_package', $id)->get();
+        $rowitin = $itins->count();
+        $rowitin--;
+        for ($i=0; $i < $rowitin; $i++) { 
+            $this->iitin = $i;
+            array_push($this->itininputs ,$i);        
+        }
+        $this->itinname = json_decode($itins->pluck('desc'));
+
+        $this->productid = $id;
+        // $this->agent = $selectedagent->id_agent;
+        $this->name = $product->name;
+        $this->summary = $product->summary;
+        $this->detail = $product->detail;
+        $this->continent = $product->continent;
+        $this->country = $product->country;
+        $this->city = $product->city;
+        $this->image = $product->image;
+        $this->thumbnail = $product->thumbnail;
         // $this->months = $selectedmonth->id_month;
 
-        Log::debug($tourpackage->thumbnail);
+        // dd($this->image);
+
 
         $this->openModalCreate();
     }
@@ -283,7 +346,6 @@ class CrudTourpackage extends Component
 
     public function deleteId($id, $dataname)
     {
-        Log::debug('masuk sini');
 
         $this->deleteId = $id;
         $this->deletename = $dataname;
@@ -306,6 +368,8 @@ class CrudTourpackage extends Component
 
     public function remove($iprice)
     {
+        // dd($iprice);
+        unset($this->pricename[$iprice+1]);
         unset($this->priceinputs[$iprice]);
     }
 
@@ -323,6 +387,7 @@ class CrudTourpackage extends Component
 
     public function removeitin($iitin)
     {
+        unset($this->itinname[$iitin+1]);
         unset($this->itininputs[$iitin]);
     }
 

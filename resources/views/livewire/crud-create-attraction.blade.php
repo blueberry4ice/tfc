@@ -32,7 +32,7 @@
                         </div>
                         <div>
                             <label for="detail">spesial remark</label>
-                            <textarea id="detail" wire:model="detail" placeholder="detail"></textarea>
+                            <textarea id="detail" wire:model="detail" placeholder="spesial remark"></textarea>
                             @error('detail') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -68,7 +68,7 @@
                             </div>
                             <div>@if ($thumbnail)
                                 thumbnail preview:
-                                <img src="{{ asset('storage/product_image/'.$thumbnail) }}" height="80">
+                                <img src="{{ asset('storage/product_thumbnail/'.$thumbnail) }}" height="80">
                             @endif</div>
                             @error('thumbnail') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
