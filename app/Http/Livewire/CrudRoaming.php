@@ -86,7 +86,8 @@ class CrudRoaming extends Component
     public function closeModalCreate()
     {
         // $this->isModalCreateOpen = false;
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->to('manage/attraction');
     }
 
     private function resetCreateForm()
@@ -262,7 +263,7 @@ class CrudRoaming extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
-
+        return redirect()->to('manage/roaming');
         // $this->closeModalCreate();
         $this->resetCreateForm();
         // $this->reset();

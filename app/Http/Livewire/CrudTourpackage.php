@@ -82,7 +82,8 @@ class CrudTourpackage extends Component
     public function closeModalCreate()
     {
         // $this->isModalCreateOpen = false;
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->to('manage/tourpackage');
     }
 
     private function resetCreateForm()
@@ -120,9 +121,9 @@ class CrudTourpackage extends Component
             'continent' => 'required',
             'country' => 'required',
             'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            'image' => 'nullable|mimes:jpeg,png,jpg|max:12288',
+            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:12288',
+            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:12288',
 
         ]);
 
@@ -273,7 +274,7 @@ class CrudTourpackage extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
-
+        return redirect()->to('manage/tourpackage');
         // $this->closeModalCreate();
         $this->resetCreateForm();
         // $this->reset();

@@ -55,9 +55,10 @@
                             <input type="file" wire:model="image" name="image">
                             <div wire:loading wire:target="image" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            <div>@if ($image)
+                            <div>@if (asset('storage/product_image/'.$image))
                                 image preview:
                                 <img src="{{ asset('storage/product_image/'.$image) }}" height="80">
+                                @else
                             @endif</div>
                             @error('image') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>

@@ -85,7 +85,8 @@ class CrudCruise extends Component
     public function closeModalCreate()
     {
         // $this->isModalCreateOpen = false;
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->to('manage/cruise');
     }
 
     private function resetCreateForm()
@@ -276,6 +277,7 @@ class CrudCruise extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
+        return redirect()->to('manage/cruise');
 
         // $this->closeModalCreate();
         $this->resetCreateForm();

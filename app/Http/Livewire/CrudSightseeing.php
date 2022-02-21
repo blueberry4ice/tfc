@@ -88,7 +88,8 @@ class CrudSightseeing extends Component
     public function closeModalCreate()
     {
         // $this->isModalCreateOpen = false;
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->to('manage/sightseeing');
     }
 
     private function resetCreateForm()
@@ -264,7 +265,7 @@ class CrudSightseeing extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
-
+        return redirect()->to('manage/sightseeing');
         // $this->closeModalCreate();
         $this->resetCreateForm();
         // $this->reset();

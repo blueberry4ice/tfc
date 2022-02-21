@@ -9,7 +9,7 @@
     </li>
     @auth
     <li class="has-sub">
-        <a href="#" title=""><span class="addon fa fa-list-alt"></a>
+        <a href="#" title="">List</a>
         <ul class="menusub-wrapper">
             <li>
                 <a href="{{ route('manage.tourpackage') }}" title="">Tour Package</a>
@@ -38,7 +38,17 @@
             <li>
                 <a href="{{ route('manage.roaming') }}" title="">Roaming</a>
             </li>
-            
+            <li>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-jet-dropdown-link href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                    this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-jet-dropdown-link>
+                </form>
+            </li>
         </ul>
     </li>
     @endauth

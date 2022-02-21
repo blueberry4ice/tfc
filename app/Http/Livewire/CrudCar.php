@@ -82,7 +82,8 @@ class CrudCar extends Component
     public function closeModalCreate()
     {
         // $this->isModalCreateOpen = false;
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->to('manage/car');
     }
 
     private function resetCreateForm()
@@ -258,6 +259,7 @@ class CrudCar extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
+        return redirect()->to('manage/car');
 
         // $this->closeModalCreate();
         $this->resetCreateForm();

@@ -84,7 +84,8 @@ class CrudRail extends Component
     public function closeModalCreate()
     {
         // $this->isModalCreateOpen = false;
-        return redirect()->back();
+        // return redirect()->back();
+        return redirect()->to('manage/rail');
     }
 
     private function resetCreateForm()
@@ -260,7 +261,7 @@ class CrudRail extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
-
+        return redirect()->to('manage/rail');
         // $this->closeModalCreate();
         $this->resetCreateForm();
         // $this->reset();
