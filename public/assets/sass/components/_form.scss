@@ -1,0 +1,303 @@
+.form-group{
+    position: relative;
+    label{
+        font-weight: 600;
+        font-size: 13px;
+        display: block;
+        margin-bottom: 10px;
+        color: #505050;
+        text-transform: capitalize;
+        span{
+            &.mandatory{
+                font-weight: bold;
+                color: red;
+            }
+        }
+    }
+    .form-control{
+        height: 48px;
+        padding: 8px 15px;
+        background-color: $white;
+        margin-bottom: 10px;
+        border: 1px solid $black;
+        color: $black;
+        font-size: 14px;
+        border-radius: 15px;
+        width: 100%;
+        font-family: 'DM Sans', sans-serif;
+        &:focus{
+            outline: 0;
+        }
+    }
+    
+    select{
+        -webkit-appearance: none !important;
+        -moz-appearance: none !important;
+        appearance: none !important;
+        background: none;
+        font-family: 'DM Sans', sans-serif;
+        position: relative;
+        &.custom-select-agent{
+            background-position: right 10px top 16px !important;
+            height: 42px;
+            border: 1px solid #e4e4e4;
+            border-radius: 10px;
+            background-color: #fff;
+            width: 140px;
+            margin-left: 10px;
+            margin-top: 8px;
+        }
+    }
+
+    textarea{
+        resize: none;
+        min-height: 150px;
+        font-family: 'DM Sans', sans-serif;
+    }
+}
+
+.custom-checkbox2 {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input[type=checkbox] {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+    }
+    input[type=checkbox] + label {
+        cursor: pointer;
+        font-weight: 400;
+        font-size: 13px;
+        span {
+            position: relative;
+            top: 2px;
+            display: inline-block;
+            overflow: hidden;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            background-repeat: no-repeat;
+            background-size: 9px 7px;
+            background-position: center center;
+            border: 1px solid $black;
+            margin-right: 10px;
+        }
+        &:hover {
+            color: $dark-blue;
+        }
+    }
+    input[type=checkbox]:checked + label {
+        span {
+            background-color: $blue;
+            border: 1px solid $black;
+            background-image: url(../img/ic_checklist.png);
+        }
+    }
+    .refunded + label, .refunding + label, .hangus + label{
+        color:gray !important;
+        cursor: default !important;
+        span{
+            border:1px solid gray !important;
+            background-color: gray !important;
+            background-image: none !important;
+        }
+    }
+
+}
+
+// range slider
+.range-slider__slider{
+    margin-top: 90px;
+    width: 100%;
+    $easeOutBack: cubic-bezier(0.175, 0.885, 0.320, 1.275);
+    $color-range-output: $gray;
+    $color-input-placeholder: #c3c4c6;
+    $height-range-bounds: 22px;
+    $background-color-range-thumb: $blue;
+    $radius-range-thumb: 100px;
+    $height-range-thumb: 24px;
+    $width-range-thumb: 24px;
+    $size-range-thumb-shadow: 25px;
+    $color-range-thumb-shadow: rgba(#000, .5);
+    $shadow-offset-y-range-thumb: 4px;
+    $shadow-offset-x-range-thumb: 0px;
+    $border-width-range-thumb: 6px;
+    $border-color-range-thumb: $blue;
+    $width-range-track: 100%;
+    $height-range-track: 4px;
+    $radius-range-track: 100px;
+    $fill-range-track: #e6e6e6;
+    $fill-range-track-active: $blue;
+
+    //Output
+    $height-range-output: 44px;
+    $min-width-range-output: 160px;
+    $padding-x-range-output: 20px;
+    $size-range-output-arrow: 18px;
+    $offset-y-range-output: 4px;
+    .fz20{
+        @media screen and (max-width: 414px) {
+            font-size: 14px;
+        }
+    }
+
+    .range {
+        width: calc(100% - 165px);
+        margin: 0 10px;
+        @media screen and (max-width: 414px) {
+            width: calc(100% - 125px);
+        }
+        @mixin range-track() {
+            width: $width-range-track;
+            height: $height-range-track;
+            background: $fill-range-track;
+            border-radius: $radius-range-track;
+        }
+        @mixin range-thumb() {
+            border: $border-width-range-thumb solid $border-color-range-thumb;
+            height: $height-range-thumb;
+            width: $width-range-thumb;
+            border-radius: $radius-range-thumb;
+            background: $background-color-range-thumb;
+            cursor: pointer;
+        }
+
+        position: relative;
+
+        //Native
+        input[type=range] {
+            appearance: none;
+            padding: 0;
+            width: $width-range-track;
+            height: $height-range-bounds;
+            cursor: pointer;
+            display: block;
+            &:focus {
+                outline: none;
+            }
+            &[disabled] {
+                opacity: .3;
+                cursor: default;
+            }
+        }
+
+        //Plugin wrapper
+        .rangeslider {
+            position: relative;
+            height: $height-range-bounds;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        //Track
+        .rangeslider:before {
+            @include range-track();
+            content: "";
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        input::-webkit-slider-runnable-track, {
+            @include range-track();
+            margin: $height-range-bounds / 2 0;
+        }
+        input::-moz-range-track {
+            @include range-track();
+            margin: $height-range-bounds / 2 0;
+        }
+        input::-ms-track {
+            @include range-track();
+            color: transparent;
+            padding: $height-range-bounds / 2 0;
+            background: transparent;
+            border-color: transparent;
+        }
+
+        //Track fill
+        input::-ms-fill-lower,
+        input::-ms-fill-upper {
+            @include range-track();
+        }
+        input::-ms-fill-lower {
+            background: $fill-range-track-active;
+        }
+        .rangeslider-fill-lower {
+            background-color: $fill-range-track-active;
+            border-radius: $radius-range-track;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: $height-range-track;
+            will-change: width;
+        }
+
+        //Thumb
+        input::-webkit-slider-thumb {
+            @include range-thumb();
+            appearance: none;
+            transform: translateY(-50%);
+            margin-top: $height-range-track / 2;
+        }
+        input::-moz-range-thumb {
+            @include range-thumb();
+        }
+        input::-ms-thumb {
+            @include range-thumb();
+        }
+        .rangeslider-thumb {
+            @include range-thumb();
+            position: absolute;
+            touch-action: pan-x;
+            top: 50%;
+            transform: translateY(-50%);
+            will-change: left;
+        }
+
+        .range-output {
+
+            position: absolute;
+            left: ($width-range-thumb - $border-width-range-thumb * 2) / 2;
+            top: ($width-range-thumb - $border-width-range-thumb * 2) / 2;
+            transform-origin: 0 0;
+            transition: transform .4s $easeOutBack;
+            user-select: none;
+
+            .output {
+                display: block;
+                position: absolute;
+                height: $height-range-output;
+                min-width: $min-width-range-output;
+                padding: 12px $padding-x-range-output;
+                top: - ($width-range-thumb / 2) - $offset-y-range-output - $size-range-output-arrow;
+                transform: translate(-50%, -100%);
+                background: $color-range-output;
+                color: #fff;
+                border-radius: 25px;
+                white-space: nowrap;
+                font-size: 14px;
+                text-align: center;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    bottom: - $size-range-output-arrow + 2px; //Subtract 2 to get slight overlap that renders more nicely
+                    left: 50%;
+                    border: $size-range-output-arrow solid $color-range-output;
+                    border-bottom: none;
+                    border-left-color: transparent;
+                    border-right-color: transparent;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+
+    h2 {
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+}

@@ -1,0 +1,155 @@
+[1mdiff --git a/app/Http/Livewire/SearchComponent.php b/app/Http/Livewire/SearchComponent.php[m
+[1mindex 67e15e3..7802bf5 100644[m
+[1m--- a/app/Http/Livewire/SearchComponent.php[m
+[1m+++ b/app/Http/Livewire/SearchComponent.php[m
+[36m@@ -5,6 +5,7 @@[m [mnamespace App\Http\Livewire;[m
+ use App\Models\Agent;[m
+ use Livewire\Component;[m
+ use App\Models\Airticket;[m
+[32m+[m[32muse App\Models\Category;[m
+ use App\Models\Tourpackage;[m
+ use Illuminate\Http\Request;[m
+ use Livewire\WithPagination;[m
+[36m@@ -24,6 +25,10 @@[m [mclass SearchComponent extends Component[m
+     public $cat;[m
+     public $listAgent = [];[m
+     public $byAgent;[m
+[32m+[m[32m    public $listcategory = [];[m
+[32m+[m[32m    public $byCategory;[m
+[32m+[m[32m    public $explode_cat;[m
+[32m+[m
+ [m
+ [m
+     public function mount()[m
+[36m@@ -31,27 +36,42 @@[m [mclass SearchComponent extends Component[m
+         $this->min_price = 1;[m
+         $this->max_price = 1000000;[m
+         $this->fill(request()->only('destination', 'agent', 'range', 'sku', 'cat'));[m
+[32m+[m[32m        // $agents = Agent::where('name' ,'LIKE', '%'.$this->agent.'%');[m
+     }[m
+ [m
+[31m-//     function find(Request $request){[m
+[31m-//         $request->validate([[m
+[31m-//           'query'=>'required|min:2'[m
+[31m-//        ]);[m
+[32m+[m[32m    //     function find(Request $request){[m
+[32m+[m[32m    //         $request->validate([[m
+[32m+[m[32m    //           'query'=>'required|min:2'[m
+[32m+[m[32m    //        ]);[m
+[32m+[m
+[32m+[m[32m    //        $search_text = $request->input('query');[m
+[32m+[m[32m    //        $countries = DB::table('country')[m
+[32m+[m[32m    //                   ->where('Name','LIKE','%'.$search_text.'%')[m
+[32m+[m[32m    //                 //   ->orWhere('SurfaceArea','<', 10)[m
+[32m+[m[32m    //                 //   ->orWhere('LocalName','like','%'.$search_text.'%')[m
+[32m+[m[32m    //                   ->paginate(2);[m
+[32m+[m[32m    //         return view('search',['countries'=>$countries]);[m
+[32m+[m
+[32m+[m[32m    // }[m
+[32m+[m[32m    // public function updatedListcategory() {[m
+[32m+[m[32m    //     Log::debug('listCategorya ' .  is_array($this->listcategory));[m
+[32m+[m
+[32m+[m[32m    //     if (!is_array($this->listcategory)) return;[m
+ [m
+[31m-//        $search_text = $request->input('query');[m
+[31m-//        $countries = DB::table('country')[m
+[31m-//                   ->where('Name','LIKE','%'.$search_text.'%')[m
+[31m-//                 //   ->orWhere('SurfaceArea','<', 10)[m
+[31m-//                 //   ->orWhere('LocalName','like','%'.$search_text.'%')[m
+[31m-//                   ->paginate(2);[m
+[31m-//         return view('search',['countries'=>$countries]);[m
+[32m+[m[32m    //     $this->listcategory = array_filter($this->listcategory,[m
+[32m+[m[32m    //     function ($category) {[m
+[32m+[m[32m    //         return $category != false;[m
+ [m
+[31m-// }[m
+[32m+[m[32m    //     });[m
+[32m+[m
+[32m+[m[32m    // }[m
+ [m
+ [m
+     public function render()[m
+     {[m
+[31m-        $this->byAgent = implode(",",array_filter($this->listAgent));[m
+[32m+[m[32m        $this->byAgent = implode(",", array_filter($this->listAgent));[m
+[32m+[m[32m        $this->byCategory = implode(",", array_filter($this->listcategory));[m
+[32m+[m
+         // Log::debug('byAgent ' . trim(substr($this->byAgent, -1)));[m
+         // if (trim(substr($this->byAgent, -1)) == ",") {[m
+         //     $this->byAgent = substr($this->byAgent, 0,-1);[m
+[36m@@ -60,6 +80,7 @@[m [mclass SearchComponent extends Component[m
+         // }[m
+ [m
+         // Log::debug('byAgent ' . json_encode($this->byAgent));[m
+[32m+[m
+         // Log::debug('$this->destination ' . $this->destination);[m
+         // Log::debug('$this->agent ' . $this->agent);[m
+ [m
+[36m@@ -141,60 +162,84 @@[m [mclass SearchComponent extends Component[m
+         (tourpackages.price between {min_price} and {max_price})[m
+ [m
+         ) AS VIEW_RESULT";[m
+[31m-        $query = str_replace("{sku}", $this->sku, $query);[m
+[31m-        $query = str_replace("{min_price}", $this->min_price, $query);[m
+[31m-        $query = str_replace("{max_price}", $this->max_price, $query);[m
+[31m-[m
+[32m+[m[32m            $query = str_replace("{sku}", $this->sku, $query);[m
+[32m+[m[32m            $query = str_replace("{min_price}", $this->min_price, $query);[m
+[32m+[m[32m            $query = str_replace("{max_price}", $this->max_price, $query);[m
+         } else {[m
+ [m
+[31m-        $query = "(SELECT airtickets.id, airtickets.sku, airtickets.name, airtickets.summary, airtickets.price, airtickets.thumbnail, 'airtickets' AS category, agents.id as agent_id[m
+[32m+[m[32m            $query = "(SELECT airtickets.id, airtickets.sku, airtickets.name, airtickets.summary, airtickets.price, airtickets.thumbnail, 1 AS category, agents.id as agent_id[m
+         FROM airtickets[m
+         JOIN airlines_airtickets ON airlines_airtickets.id_airticket = airtickets.id[m
+         JOIN airlines ON airlines.id = airlines_airtickets.id_airline[m
+         JOIN agent_airlines ON agent_airlines.id_airline = airlines.id[m
+         JOIN agents ON agents.id = agent_airlines.id_agent[m
+         where (airtickets.price between {min_price} and {max_price})[m
+[31m-        and  (airtickets.destination like '%{dest}%'[m
+[31m-        or airtickets.continent like '%{dest}%'[m
+[31m-        or airtickets.country like '%{dest}%'[m
+[31m-        or airtickets.city like '%{dest}%'[m
+[31m-        or agents.name like '%{agent}%'[m
+[31m-        or  airtickets.price between '0' and {range}[m
+[31m-        )[m
+[32m+[m[32m        and  airtickets.destination like '%{dest}%'[m
+[32m+[m[32m        and airtickets.continent like '%{dest}%'[m
+[32m+[m[32m        and airtickets.country like '%{dest}%'[m
+[32m+[m[32m        and airtickets.city like '%{dest}%'[m
+[32m+[m[32m        and agents.name like '%{agent}%'[m
+[32m+[m[32m        and  airtickets.price between '0' and {range}[m
+[32m+[m[41m        [m
+ [m
+         UNION[m
+ [m
+[31m-        SELECT tourpackages.id, tourpackages.sku, tourpackages.name, tourpackages.summary, tourpackages.price, tourpackages.thumbnail, 'tourpackages' AS category, agents.id as agent_id[m
+[32m+[m[32m        SELECT tourpackages.id, tourpackages.sku, tourpackages.name, tourpackages.summary, tourpackages.price, tourpackages.thumbnail, 6 AS category, agents.id as agent_id[m
+         FROM tourpackages[m
+         JOIN agent_tourpackages ON agent_tourpackages.id_package = tourpackages.id[m
+         JOIN agents ON agents.id = agent_tourpackages.id_agent[m
+         where[m
+         (tourpackages.price between {min_price} and {max_price})[m
+[31m-        and  (tourpackages.destination like '%{dest}%'[m
+[31m-        or tourpackages.continent like '%{dest}%'[m
+[31m-        or tourpackages.country like '%{dest}%'[m
+[31m-        or tourpackages.city like '%{dest}%'[m
+[31m-        or agents.name like '%{agent}%'[m
+[31m-        or tourpackages.price between '0' and {range}[m
+[31m-        )[m
+[32m+[m[32m        and  tourpackages.destination like '%{dest}%'[m
+[32m+[m[32m        and tourpackages.continent like '%{dest}%'[m
+[32m+[m[32m        and tourpackages.country like '%{dest}%'[m
+[32m+[m[32m        and tourpackages.city like '%{dest}%'[m
+[32m+[m[32m        and agents.name like '%{agent}%'[m
+[32m+[m[32m        and tourpackages.price between '0' and {range}[m
+[32m+[m[41m        [m
+ [m
+         ) AS VIEW_RESULT";[m
+[31m-        $query = str_replace("{dest}", $this->destination, $query);[m
+[31m-        $query = str_replace("{range}", $this->range, $query);[m
+[31m-        $query = str_replace("{agent}", $this->agent, $query);[m
+[31m-        $query = str_replace("{min_price}", $this->min_price, $query);[m
+[31m-        $query = str_replace("{max_price}", $this->max_price, $query);[m
+[31m-[m
+[32m+[m[32m            $query = str_replace("{dest}", $this->destinatio

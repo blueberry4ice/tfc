@@ -1,0 +1,51 @@
+.btnAstindo {
+    // min-width: 100px;
+    display: inline-block;
+    padding: 8px 30px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.42857143;
+    text-align: center;
+    text-transform: capitalize;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: none;
+    border-radius: 5px;
+    // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.48);
+    outline: none !important;
+    margin-right: 5px;
+    transition: .2s all;
+    &.btnAstindo-default {
+        background: $blue;
+        color: #fff;
+        height: 42px;
+        font-weight: 600;
+        border-radius: 20px;
+        padding: 10px 40px;
+        &:hover {
+            background: darken($blue, 5%);
+        }
+    }
+    &.btnAstindo-secondary {
+        background: #549292;
+        color: #fff;
+        height: 38px;
+        font-weight: 600;
+        border-radius: 20px;
+        padding: 11px 40px;
+        font-size: 13px;
+        margin-right: 0;
+        &:hover {
+            background: darken(#549292, 5%);
+        }
+    }
+}

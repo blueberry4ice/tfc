@@ -1,0 +1,46 @@
+
+/****
+.noUi-connect {
+	background: purple;
+}
+.noUi-horizontal .noUi-handle, .noUi-vertical .noUi-handle {
+	background: purple;
+}
+.noUi-target.noUi-horizontal .noUi-tooltip {
+	background-color: purple;
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  background-color: skyblue;
+}
+input[type=range]::-moz-range-thumb {
+  background-color: skyblue;
+}
+input[type=range]::-ms-thumb {
+  background-color: skyblue;
+}
+
+input[type=range] + .thumb {
+  background-color: blue;
+}
+input[type=range] + .thumb.active .value {
+  color: #fff;
+}
+****/
+
+#sliderprice {
+    height: 10px;
+}
+
+#sliderprice .noUi-connect {
+    background: #0a91cf;
+}
+
+#sliderprice .noUi-handle {
+    height: 18px;
+    width: 18px;
+    top: -5px;
+    right: -9px; /* half the width */
+    border-radius: 9px;
+}
