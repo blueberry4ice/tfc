@@ -218,14 +218,19 @@ class CrudRoaming extends Component
         }
         $isupload=0;
        
-        $lastsku = Roaming::orderBy('id', 'desc')->first();
-        if ($lastsku) {
-            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if (!$this->isedit) {
+            $lastsku = Roaming::orderBy('id', 'desc')->first();
+            if ($lastsku) {
+                $lastskuvalue =  (int)substr($lastsku->sku,2);
+            } else {
+                $lastskuvalue =  0;
+            }        
+            $lastskuvalue++;
+            $lastskuvalue = 'RO'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
-            $lastskuvalue =  0;
-        }        
-        $lastskuvalue++;
-        $lastskuvalue = 'RO'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
+            $lastskuvalue=$this->sku;
+        }
+        
 
 
         $dataproduct = Roaming::updateOrCreate(
@@ -385,6 +390,7 @@ class CrudRoaming extends Component
                 // dd($product->image);
 
         $this->productid = $id;
+        $this->sku = $product->sku;
         // $this->agent = $selectedagent->id_agent;
         $this->name = $product->name;
         $this->summary = $product->summary;

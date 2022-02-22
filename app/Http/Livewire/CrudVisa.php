@@ -224,14 +224,18 @@ class CrudVisa extends Component
         }
         $isupload=0;
        
-        $lastsku = Visa::orderBy('id', 'desc')->first();
-        if ($lastsku) {
-            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if (!$this->isedit) {
+            $lastsku = Visa::orderBy('id', 'desc')->first();
+            if ($lastsku) {
+                $lastskuvalue =  (int)substr($lastsku->sku,2);
+            } else {
+                $lastskuvalue =  0;
+            }        
+            $lastskuvalue++;
+            $lastskuvalue = 'VI'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
-            $lastskuvalue =  0;
-        }        
-        $lastskuvalue++;
-        $lastskuvalue = 'VI'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
+            $lastskuvalue=$this->sku;
+        }
 
 
         $dataproduct = Visa::updateOrCreate(
@@ -391,6 +395,7 @@ class CrudVisa extends Component
                 // dd($product->image);
 
         $this->productid = $id;
+        $this->sku = $product->sku;
         // $this->agent = $selectedagent->id_agent;
         $this->name = $product->name;
         $this->summary = $product->summary;

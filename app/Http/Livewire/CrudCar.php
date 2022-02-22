@@ -214,14 +214,18 @@ class CrudCar extends Component
         }
         $isupload=0;
        
-        $lastsku = Car::orderBy('id', 'desc')->first();
-        if ($lastsku) {
-            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if (!$this->isedit) {
+            $lastsku = Car::orderBy('id', 'desc')->first();
+            if ($lastsku) {
+                $lastskuvalue =  (int)substr($lastsku->sku,2);
+            } else {
+                $lastskuvalue =  0;
+            }        
+            $lastskuvalue++;
+            $lastskuvalue = 'CA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
-            $lastskuvalue =  0;
-        }        
-        $lastskuvalue++;
-        $lastskuvalue = 'CA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
+            $lastskuvalue=$this->sku;
+        }
 
 
         $dataproduct = Car::updateOrCreate(
@@ -382,6 +386,7 @@ class CrudCar extends Component
                 // dd($product->image);
 
         $this->productid = $id;
+        $this->sku = $product->sku;
         // $this->agent = $selectedagent->id_agent;
         $this->name = $product->name;
         $this->summary = $product->summary;

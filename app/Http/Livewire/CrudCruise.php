@@ -215,14 +215,18 @@ class CrudCruise extends Component
         }
         $isupload=0;
        
-        $lastsku = Cruise::orderBy('id', 'desc')->first();
-        if ($lastsku) {
-            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if (!$this->isedit) {
+            $lastsku = Cruise::orderBy('id', 'desc')->first();
+            if ($lastsku) {
+                $lastskuvalue =  (int)substr($lastsku->sku,2);
+            } else {
+                $lastskuvalue =  0;
+            }        
+            $lastskuvalue++;
+            $lastskuvalue = 'CR'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
-            $lastskuvalue =  0;
-        }        
-        $lastskuvalue++;
-        $lastskuvalue = 'CR'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
+            $lastskuvalue=$this->sku;
+        }
 
 
         $dataproduct = Cruise::updateOrCreate(
@@ -388,6 +392,7 @@ class CrudCruise extends Component
         $this->itinname = json_decode($itins->pluck('desc'));
 
         $this->productid = $id;
+        $this->sku = $product->sku;
         // $this->agent = $selectedagent->id_agent;
         $this->name = $product->name;
         $this->summary = $product->summary;

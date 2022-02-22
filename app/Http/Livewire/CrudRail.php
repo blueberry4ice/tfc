@@ -216,14 +216,18 @@ class CrudRail extends Component
         }
         $isupload=0;
        
-        $lastsku = Rail::orderBy('id', 'desc')->first();
-        if ($lastsku) {
-            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if (!$this->isedit) {
+            $lastsku = Rail::orderBy('id', 'desc')->first();
+            if ($lastsku) {
+                $lastskuvalue =  (int)substr($lastsku->sku,2);
+            } else {
+                $lastskuvalue =  0;
+            }        
+            $lastskuvalue++;
+            $lastskuvalue = 'RA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
-            $lastskuvalue =  0;
-        }        
-        $lastskuvalue++;
-        $lastskuvalue = 'RA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
+            $lastskuvalue=$this->sku;
+        }
 
 
         $dataproduct = Rail::updateOrCreate(
@@ -383,6 +387,7 @@ class CrudRail extends Component
                 // dd($product->image);
 
         $this->productid = $id;
+        $this->sku = $product->sku;
         // $this->agent = $selectedagent->id_agent;
         $this->name = $product->name;
         $this->summary = $product->summary;

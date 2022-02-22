@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isEmpty;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use Laravel\Fortify\Actions\AttemptToAuthenticate;
 
 class CrudAttraction extends Component
 {
@@ -212,14 +213,18 @@ public $isedit;
         }
         $isupload=0;
         
-        $lastsku = Attraction::orderBy('id', 'desc')->first();
-        if ($lastsku) {
-            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if (!$this->isedit) {
+            $lastsku = Attraction::orderBy('id', 'desc')->first();
+            if ($lastsku) {
+                $lastskuvalue =  (int)substr($lastsku->sku,2);
+            } else {
+                $lastskuvalue =  0;
+            }        
+            $lastskuvalue++;
+            $lastskuvalue = 'AT'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
-            $lastskuvalue =  0;
+            $lastskuvalue=$this->sku;
         }
-        $lastskuvalue++;
-        $lastskuvalue = 'AT'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
 
         $dataproduct = Attraction::updateOrCreate(
@@ -380,6 +385,7 @@ public $isedit;
                 // dd($product->image);
 
         $this->productid = $id;
+        $this->sku = $product->sku;
         // $this->agent = $selectedagent->id_agent;
         $this->name = $product->name;
         $this->summary = $product->summary;
