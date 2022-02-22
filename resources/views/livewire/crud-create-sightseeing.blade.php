@@ -79,7 +79,7 @@
                             </div>
                             <div>@if ($flyer)
                                 flyer preview:
-                                <img src="{{ $image }}" height="80">
+                                <img src="{{ asset('storage/file/'.$flyer) }}" height="80">
                             @endif</div>
                             @error('flyer') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>

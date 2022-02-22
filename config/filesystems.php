@@ -71,6 +71,8 @@ return [
         public_path('storage/agent') => storage_path('app/agent'),
         public_path('storage/product_image') => storage_path('app/product_image'),
         public_path('storage/product_thumbnail') => storage_path('app/product_thumbnail'),
+        public_path('storage/file') => storage_path('app/file'),
+
 
     ],
 

@@ -78,10 +78,10 @@
                             <input type="file" wire:model="flyer">
                             <div wire:loading wire:target="flyer" class="text-sm italic text-gray-500">Uploading...
                             </div>
-											 
-											  
-																	
-										
+                            <div>@if ($flyer)
+                                flyer preview:
+                                <img src="{{ asset('storage/file/'.$flyer) }}" height="80">
+                            @endif</div>
                             @error('flyer') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>

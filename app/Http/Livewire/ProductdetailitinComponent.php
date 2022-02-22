@@ -228,7 +228,7 @@ class ProductdetailitinComponent extends Component
                 # code...
                 break;
         }
-        return response()->download(storage_path('file/'.$file->flyer));
+        return response()->download(storage_path('app/file/'.$file->flyer));
     }
 
     // function downloadfile($productid, $category){

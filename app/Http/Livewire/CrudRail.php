@@ -143,28 +143,78 @@ class CrudRail extends Component
             ]);
         }
 
-        if ($this->image){
-            // Log::debug($this->image);
-            $imagename = $this->image->getClientOriginalName();
-            $this->image->storeAs('product_image', $imagename);
+        $isupload=0;
+        if (!$this->isedit) {
+            if ($this->image) {
+                $imagename = $this->image->getClientOriginalName();
+                $this->image->storeAs('product_image', $imagename);
+            } else {
+                $imagename = 'DEFAULT.jpg';
+            }
         } else {
-            $imagename = 'DEFAULT.jpg';
+            try {
+                if ($this->image->getClientOriginalName()){
+                    $isupload=1;
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            if ($isupload) {
+                $imagename = $this->image->getClientOriginalName();
+                $this->image->storeAs('product_image', $imagename);
+            } else {
+                $imagename = $this->image;
+            }
         }
-        
+        $isupload=0;
 
-        if ($this->thumbnail){
-            $thumbnailname = $this->thumbnail->getClientOriginalName();
-            $this->thumbnail->storeAs('product_thumbnail', $thumbnailname);
+        if (!$this->isedit) {
+            if ($this->thumbnail) {
+                $thumbnailname = $this->thumbnail->getClientOriginalName();
+                $this->thumbnail->storeAs('product_thumbnail', $thumbnailname);
+            } else {
+                $thumbnailname = 'Thumbnail-DEFAULT.jpg';
+            }
         } else {
-            $thumbnailname = 'Thumbnail-DEFAULT.jpg';
+            try {
+                if ($this->thumbnail->getClientOriginalName()){
+                    $isupload=1;
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            if ($isupload) {
+                $thumbnailname = $this->thumbnail->getClientOriginalName();
+                $this->thumbnail->storeAs('product_thumbnail', $thumbnailname);
+            } else {
+                $thumbnailname = $this->thumbnail;
+            }
         }
-        
-        if (!isEmpty($this->flyer)){
-            $flyername = $this->flyer->getClientOriginalName();
-            $this->image->storeAs('file', $flyername);
+        $isupload=0;
+
+        if (!$this->isedit) {
+            if ($this->flyer) {
+                $flyername = $this->flyer->getClientOriginalName();
+                $this->flyer->storeAs('file', $flyername);
+            } else {
+                $flyername = null;
+            }
         } else {
-            $flyername = null;
+            try {
+                if ($this->flyer->getClientOriginalName()){
+                    $isupload=1;
+                }
+            } catch (\Throwable $th) {
+                //throw $th;
+            }
+            if ($isupload) {
+                $flyername = $this->flyer->getClientOriginalName();
+                $this->flyer->storeAs('file', $flyername);
+            } else {
+                $flyername = $this->flyer;
+            }
         }
+        $isupload=0;
        
         $lastsku = Rail::orderBy('id', 'desc')->first();
         if ($lastsku) {
@@ -342,6 +392,7 @@ class CrudRail extends Component
         $this->city = $product->city;
         $this->image = $product->image;
         $this->thumbnail = $product->thumbnail;
+        $this->flyer = $product->flyer;
         // $this->months = $selectedmonth->id_month;
 
         // dd($this->image);
