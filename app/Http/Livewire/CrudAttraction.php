@@ -54,7 +54,7 @@ class CrudAttraction extends Component
     public $lastskuvalue;
 
     public $category = 2;
-
+public $isedit;
 
 
 
@@ -69,6 +69,7 @@ class CrudAttraction extends Component
 
     public function create()
     {
+        $this->isedit = false;
         $this->resetCreateForm();
         $this->openModalCreate();
     }
@@ -113,19 +114,30 @@ class CrudAttraction extends Component
 
     public function store()
     {
+        if ($this->isedit) {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+            ]);
+        } else {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            ]);
+        }
 
-        $this->validate([
-            'name' => 'required',
-            'summary' => 'required',
-            'detail' => 'required', 
-            'continent' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
-
-        ]);
+        
 
         if ($this->image){
             // Log::debug($this->image);
@@ -134,16 +146,17 @@ class CrudAttraction extends Component
         } else {
             $imagename = 'DEFAULT.jpg';
         }
+
         
 
-        if ($this->thumbnail){
+        if ($this->thumbnail && !$this->isedit){
             $thumbnailname = $this->thumbnail->getClientOriginalName();
             $this->thumbnail->storeAs('product_thumbnail', $thumbnailname);
         } else {
             $thumbnailname = 'Thumbnail-DEFAULT.jpg';
         }
         
-        if (!isEmpty($this->flyer)){
+        if ($this->flyer  && !$this->isedit){
             $flyername = $this->flyer->getClientOriginalName();
             $this->image->storeAs('file', $flyername);
         } else {
@@ -151,7 +164,11 @@ class CrudAttraction extends Component
         }
        
         $lastsku = Attraction::orderBy('id', 'desc')->first();
-        $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if ($lastsku) {
+            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        } else {
+            $lastskuvalue =  0;
+        }
         $lastskuvalue++;
         $lastskuvalue = 'AT'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
@@ -269,11 +286,11 @@ class CrudAttraction extends Component
 
     }
 
-    public function edit($id)
+    public function edit($id, $isedit)
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-
+        $this->isedit = $isedit;
         $product = Attraction::findOrFail($id);
         $agents = Agentattraction::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));

@@ -60,6 +60,8 @@ class CrudRoaming extends Component
     public $lastskuvalue;
 
     public $category = 11;
+    public $isedit;
+
 
 
 
@@ -74,6 +76,7 @@ class CrudRoaming extends Component
 
     public function create()
     {
+        $this->isedit = false;
         $this->resetCreateForm();
         $this->openModalCreate();
     }
@@ -119,18 +122,28 @@ class CrudRoaming extends Component
     public function store()
     {
 
-        $this->validate([
-            'name' => 'required',
-            'summary' => 'required',
-            'detail' => 'required', 
-            'continent' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
-
-        ]);
+        if ($this->isedit) {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+            ]);
+        } else {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            ]);
+        }
 
         if ($this->image){
             // Log::debug($this->image);
@@ -156,7 +169,11 @@ class CrudRoaming extends Component
         }
        
         $lastsku = Roaming::orderBy('id', 'desc')->first();
-        $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if ($lastsku) {
+            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        } else {
+            $lastskuvalue =  0;
+        }        
         $lastskuvalue++;
         $lastskuvalue = 'RO'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
@@ -273,11 +290,11 @@ class CrudRoaming extends Component
 
     }
 
-    public function edit($id)
+    public function edit($id, $isedit)
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-
+        $this->isedit = $isedit;
         $product = Roaming::findOrFail($id);
         $agents = Agentroaming::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));

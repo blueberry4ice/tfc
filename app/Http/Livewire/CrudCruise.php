@@ -58,6 +58,8 @@ class CrudCruise extends Component
     public $lastskuvalue;
 
     public $category = 3;
+    public $isedit;
+
 
 
 
@@ -73,6 +75,7 @@ class CrudCruise extends Component
 
     public function create()
     {
+        $this->isedit = false;
         $this->resetCreateForm();
         $this->openModalCreate();
     }
@@ -118,17 +121,26 @@ class CrudCruise extends Component
     public function store()
     {
 
-        $this->validate([
+        if ($this->isedit) {
+            $this->validate([
             'name' => 'required',
             'summary' => 'required',
             'continent' => 'required',
             'country' => 'required',
             'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
-
-        ]);
+            ]);
+        } else {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            ]);
+        }
 
         if ($this->image){
             // Log::debug($this->image);
@@ -154,7 +166,11 @@ class CrudCruise extends Component
         }
        
         $lastsku = Cruise::orderBy('id', 'desc')->first();
-        $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if ($lastsku) {
+            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        } else {
+            $lastskuvalue =  0;
+        }        
         $lastskuvalue++;
         $lastskuvalue = 'CR'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
@@ -288,11 +304,11 @@ class CrudCruise extends Component
 
     }
 
-    public function edit($id)
+    public function edit($id, $isedit)
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-
+        $this->isedit = $isedit;
         $product = Cruise::findOrFail($id);
         $agents = Agentcruise::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));

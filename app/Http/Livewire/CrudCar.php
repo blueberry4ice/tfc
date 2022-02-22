@@ -56,6 +56,8 @@ class CrudCar extends Component
     public $lastskuvalue;
 
     public $category = 8;
+    public $isedit;
+
 
 
 
@@ -70,6 +72,7 @@ class CrudCar extends Component
 
     public function create()
     {
+        $this->isedit = false;
         $this->resetCreateForm();
         $this->openModalCreate();
     }
@@ -115,18 +118,28 @@ class CrudCar extends Component
     public function store()
     {
 
-        $this->validate([
-            'name' => 'required',
-            'summary' => 'required',
-            'detail' => 'required', 
-            'continent' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
-
-        ]);
+        if ($this->isedit) {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+            ]);
+        } else {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            ]);
+        }
 
         if ($this->image){
             // Log::debug($this->image);
@@ -144,7 +157,7 @@ class CrudCar extends Component
             $thumbnailname = 'Thumbnail-DEFAULT.jpg';
         }
         
-        if (!isEmpty($this->flyer)){
+        if ($this->flyer){
             $flyername = $this->flyer->getClientOriginalName();
             $this->image->storeAs('file', $flyername);
         } else {
@@ -152,7 +165,11 @@ class CrudCar extends Component
         }
        
         $lastsku = Car::orderBy('id', 'desc')->first();
-        $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if ($lastsku) {
+            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        } else {
+            $lastskuvalue =  0;
+        }        
         $lastskuvalue++;
         $lastskuvalue = 'CA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
@@ -270,11 +287,11 @@ class CrudCar extends Component
 
     }
 
-    public function edit($id)
+    public function edit($id, $isedit)
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-
+        $this->isedit = $isedit;
         $product = Car::findOrFail($id);
         $agents = Agentcar::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));

@@ -60,7 +60,7 @@ use App\Models\Product;
                                     <td class="px-4 py-2 border">{{ $product->image }}</td>
                                     <td class="px-4 py-2 border">{{ $product->thumbnail }}</td>
                                     <td class="px-4 py-2 border">
-                                        <button wire:click="edit({{ $product->id }})"
+                                        <button wire:click="edit({{ $product->id }},{{true}})"
                                             class="flex px-4 py-2 text-gray-900 bg-gray-500 cursor-pointer">Edit</button>
                                         <button wire:click="deleteId({{ $product->id }},'{{ $product->name }}')"
                                             class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>

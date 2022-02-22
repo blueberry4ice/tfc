@@ -58,7 +58,7 @@
                             <div>@if ($image)
                                 image preview:
                                 <img src="{{ asset('storage/product_image/'.$image) }}" height="80">
-                            @endif</div>
+                            @endif
                             @error('image') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>

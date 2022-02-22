@@ -58,6 +58,8 @@ class CrudRail extends Component
     public $lastskuvalue;
 
     public $category = 4;
+    public $isedit;
+
 
 
 
@@ -72,6 +74,7 @@ class CrudRail extends Component
 
     public function create()
     {
+        $this->isedit = false;
         $this->resetCreateForm();
         $this->openModalCreate();
     }
@@ -117,18 +120,28 @@ class CrudRail extends Component
     public function store()
     {
 
-        $this->validate([
-            'name' => 'required',
-            'summary' => 'required',
-            'detail' => 'required', 
-            'continent' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
-
-        ]);
+        if ($this->isedit) {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+            ]);
+        } else {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'detail' => 'required', 
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            ]);
+        }
 
         if ($this->image){
             // Log::debug($this->image);
@@ -154,7 +167,11 @@ class CrudRail extends Component
         }
        
         $lastsku = Rail::orderBy('id', 'desc')->first();
-        $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if ($lastsku) {
+            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        } else {
+            $lastskuvalue =  0;
+        }        
         $lastskuvalue++;
         $lastskuvalue = 'RA'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
@@ -271,11 +288,11 @@ class CrudRail extends Component
 
     }
 
-    public function edit($id)
+    public function edit($id, $isedit)
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-
+        $this->isedit = $isedit;
         $product = Rail::findOrFail($id);
         $agents = Agentrail::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));

@@ -55,6 +55,8 @@ class CrudTourpackage extends Component
     public $lastskuvalue;
 
     public $category = 2;
+    public $isedit;
+
 
 
 
@@ -70,6 +72,7 @@ class CrudTourpackage extends Component
 
     public function create()
     {
+        $this->isedit = false;
         $this->resetCreateForm();
         $this->openModalCreate();
     }
@@ -151,7 +154,11 @@ class CrudTourpackage extends Component
         }
        
         $lastsku = Tourpackage::orderBy('id', 'desc')->first();
-        $lastskuvalue =  (int)substr($lastsku->sku,2);
+        if ($lastsku) {
+            $lastskuvalue =  (int)substr($lastsku->sku,2);
+        } else {
+            $lastskuvalue =  0;
+        }        
         $lastskuvalue++;
         $lastskuvalue = 'TP'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
 
@@ -284,11 +291,11 @@ class CrudTourpackage extends Component
 
     }
 
-    public function edit($id)
+    public function edit($id, $isedit)
     {
         // Log::debug($this->id);
         $this->resetErrorBag();
-
+        $this->isedit = $isedit;
         $product = Tourpackage::findOrFail($id);
         $agents = Agenttourpackage::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));

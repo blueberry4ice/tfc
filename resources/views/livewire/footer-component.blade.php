@@ -21,13 +21,13 @@
 
                     </div>
                 </div>
-                <div class="partner-list">
+                {{-- <div class="partner-list">
                     <div class="bold fz12 partner-name">Insurance Partner</div>
                     <div class="partner-logo">
                         <a href="https://traveljoy.sompo.co.id" target="_blank"><img
                                 src="{{ asset('assets/img/LOGO_FC_HOrizontal.png') }}" alt=""></a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="partner-list">
                     <div class="bold fz12 partner-name">Telecommunication Partner</div>
                     <div class="partner-logo">
