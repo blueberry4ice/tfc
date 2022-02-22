@@ -10,6 +10,8 @@ use App\Models\Cruise;
 use App\Models\Roaming;
 use Livewire\Component;
 use App\Models\Attraction;
+use App\Models\Flight;
+use App\Models\Hotel;
 use App\Models\Productprice;
 use App\Models\Sightseeing;
 use App\Models\Tourpackage;
@@ -182,6 +184,34 @@ class ProductdetailitinComponent extends Component
                 return view('livewire.productdetailitin-component', ['product' => $product, 'itineraries' => $itineraries, 'routes' => $routes, 'category' => $this->cat, 'prices' => $prices])->layout('layouts.base');
 
                 break;
+            case '12':
+                $product = Hotel::where('id', $this->productid)->first();
+                $itineraries = null;
+                $routes = null;
+                $prices = Productprice::join('hotel', 'product_price.id_product', '=', 'hotel.id')
+                    ->where('product_price.category', $this->cat)
+                    ->where('hotel.id', $this->productid)
+                    ->select('product_price.*')
+                    ->orderBy('product_price.sr', 'asc')
+                    ->get();
+                // return view('livewire.productdetailitin-component', ['product' => $product, 'category' => $this->cat])->layout('layouts.base');
+                return view('livewire.productdetailitin-component', ['product' => $product, 'itineraries' => $itineraries, 'routes' => $routes, 'category' => $this->cat, 'prices' => $prices])->layout('layouts.base');
+
+                break;
+            case '13':
+                $product = Flight::where('id', $this->productid)->first();
+                $itineraries = null;
+                $routes = null;
+                $prices = Productprice::join('flight', 'product_price.id_product', '=', 'flight.id')
+                    ->where('product_price.category', $this->cat)
+                    ->where('flight.id', $this->productid)
+                    ->select('product_price.*')
+                    ->orderBy('product_price.sr', 'asc')
+                    ->get();
+                // return view('livewire.productdetailitin-component', ['product' => $product, 'category' => $this->cat])->layout('layouts.base');
+                return view('livewire.productdetailitin-component', ['product' => $product, 'itineraries' => $itineraries, 'routes' => $routes, 'category' => $this->cat, 'prices' => $prices])->layout('layouts.base');
+
+                break;
             default:
                 # code...
                 break;
@@ -197,38 +227,44 @@ class ProductdetailitinComponent extends Component
         Log::debug('cat ' . $this->cat);
         switch ($this->cat) {
             case '2':
-                $file = Attraction::all()->where('id','=',$this->productid)->first();
+                $file = Attraction::all()->where('id', '=', $this->productid)->first();
                 break;
             case '3':
-                $file = Cruise::all()->where('id','=',$this->productid)->first();
+                $file = Cruise::all()->where('id', '=', $this->productid)->first();
                 break;
             case '4':
-                $file = Rail::all()->where('id','=',$this->productid)->first();
+                $file = Rail::all()->where('id', '=', $this->productid)->first();
                 break;
             case '5':
-                $file = Sightseeing::all()->where('id','=',$this->productid)->first();
+                $file = Sightseeing::all()->where('id', '=', $this->productid)->first();
                 break;
             case '6':
-                $file = Tourpackage::all()->where('id','=',$this->productid)->first();
+                $file = Tourpackage::all()->where('id', '=', $this->productid)->first();
                 break;
             case '7':
-                $file = Travelinsurance::all()->where('id','=',$this->productid)->first();
+                $file = Travelinsurance::all()->where('id', '=', $this->productid)->first();
                 break;
             case '8':
-                $file = Car::all()->where('id','=',$this->productid)->first();
+                $file = Car::all()->where('id', '=', $this->productid)->first();
                 break;
             case '10':
-                $file = Visa::all()->where('id','=',$this->productid)->first();
+                $file = Visa::all()->where('id', '=', $this->productid)->first();
                 break;
             case '11':
-                $file = Roaming::all()->where('id','=',$this->productid)->first();
+                $file = Roaming::all()->where('id', '=', $this->productid)->first();
+                break;
+            case '12':
+                $file = Hotel::all()->where('id', '=', $this->productid)->first();
+                break;
+            case '13':
+                $file = Flight::all()->where('id', '=', $this->productid)->first();
                 break;
 
             default:
                 # code...
                 break;
         }
-        return response()->download(storage_path('app/file/'.$file->flyer));
+        return response()->download(storage_path('app/file/' . $file->flyer));
     }
 
     // function downloadfile($productid, $category){

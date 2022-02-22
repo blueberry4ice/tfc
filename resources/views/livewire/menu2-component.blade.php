@@ -1,6 +1,7 @@
 <ul class="menubar">
     <li>
-        <a href="https://www.astindovirtualtravelfair.com/exhibitor" target=”_blank” title="">Air Ticket</a>
+        {{-- <a href="https://www.astindovirtualtravelfair.com/exhibitor" target=”_blank” title="">Air Ticket</a> --}}
+        <a href="{{ route('product.search', ['menu' => 13]) }}" title="">Flight</a>
     </li>
     <li>
         <a href="{{ route('product.search', ['menu' => 6]) }}" title="">Tour Package</a>
@@ -20,7 +21,8 @@
         </div>
     </li>
     <li>
-        <a href="/hotel" title="">Hotel</a>
+        {{-- <a href="/hotel" title="">Hotel</a> --}}
+        <a href="{{ route('product.search', ['menu' => 12]) }}" title="">Hotel</a>
     </li>
     <li class="has-sub">
         <a href="#" title="">Things to do</a>

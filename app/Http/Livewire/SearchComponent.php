@@ -127,7 +127,7 @@ class SearchComponent extends Component
 
     public function updatedListcategory()
     {
-        Log::debug('jalan di updatedListcategory ');
+        // Log::debug('jalan di updatedListcategory ');
 
         // $this->resetPage();
     }
@@ -136,7 +136,7 @@ class SearchComponent extends Component
     {
         // $this->dispatchBrowserEvent('contentChanged');
 
-        Log::debug("countries" . print_r($this->countries, true));
+        // Log::debug("countries" . print_r($this->countries, true));
 
         if ($this->range == 0) $this->range = 9999999999;
 
@@ -416,6 +416,64 @@ class SearchComponent extends Component
             roaming.summary,  roaming.thumbnail,
             category, agent_id,  product_month.id_month, roaming.country, tablename
 
+            UNION
+            SELECT  hotel.id, hotel.sku, hotel.name,
+                    hotel.summary, MIN(product_price.price), hotel.thumbnail,
+                    12 AS category, agents.id as agent_id, product_month.id_month as dept_month, hotel.country, 'hotel' AS tablename
+            FROM agent_hotel
+            JOIN  hotel ON agent_hotel.id_package = hotel.id
+            JOIN agents ON agents.id = agent_hotel.id_agent
+            JOIN product_price ON product_price.id_product = hotel.id AND product_price.category = 12 and product_price.price <> 0
+            JOIN product_month on product_month.id_product = hotel.id AND product_month.category = 12
+            where
+            (hotel.destination like '%{dest}%'
+            or hotel.continent like '%{dest}%'
+            or hotel.country like '%{dest}%'
+            or hotel.city like '%{dest}%'
+            )
+            and agents.name like '%{agent}%'
+            and product_price.price between '0' and {range}
+            and hotel.sku like '%{sku}%'
+            and
+            (hotel.continent like '%{place}%'
+            or hotel.country like '%{place}%'
+            or hotel.city like '%{place}%'
+            or hotel.name like '%{place}%'
+            )
+            {filtercountry}
+            group by hotel.id, hotel.sku, hotel.name,
+            hotel.summary,  hotel.thumbnail,
+            category, agent_id,  product_month.id_month, hotel.country, tablename
+
+            UNION
+            SELECT  flight.id, flight.sku, flight.name,
+                    flight.summary, MIN(product_price.price), flight.thumbnail,
+                    13 AS category, agents.id as agent_id, product_month.id_month as dept_month, flight.country, 'flight' AS tablename
+            FROM agent_flight
+            JOIN  flight ON agent_flight.id_package = flight.id
+            JOIN agents ON agents.id = agent_flight.id_agent
+            JOIN product_price ON product_price.id_product = flight.id AND product_price.category = 13 and product_price.price <> 0
+            JOIN product_month on product_month.id_product = flight.id AND product_month.category = 13
+            where
+            (flight.destination like '%{dest}%'
+            or flight.continent like '%{dest}%'
+            or flight.country like '%{dest}%'
+            or flight.city like '%{dest}%'
+            )
+            and agents.name like '%{agent}%'
+            and product_price.price between '0' and {range}
+            and flight.sku like '%{sku}%'
+            and
+            (flight.continent like '%{place}%'
+            or flight.country like '%{place}%'
+            or flight.city like '%{place}%'
+            or flight.name like '%{place}%'
+            )
+            {filtercountry}
+            group by flight.id, flight.sku, flight.name,
+            flight.summary,  flight.thumbnail,
+            category, agent_id,  product_month.id_month, flight.country, tablename
+
             ) AS VIEW_RESULT ";
                 $query = str_replace("{dest}", $this->destination, $query);
                 $query = str_replace("{range}", $this->range, $query);
@@ -427,7 +485,7 @@ class SearchComponent extends Component
                 if ($this->countries) {
                     $sr = 1;
                     $lncountries = count($this->countries);
-                    Log::debug("panjang countries " . $lncountries);
+                    // Log::debug("panjang countries " . $lncountries);
                     foreach ($this->countries as $country) {
                         if ($lncountries == 1) {
                             Log::debug("panjang countries sama dengan 1");
@@ -462,6 +520,10 @@ class SearchComponent extends Component
                     SELECT  continent FROM tourpackages
                     UNION
                     SELECT  continent FROM travelinsurance
+                    UNION
+                    SELECT  continent FROM hotel
+                    UNION
+                    SELECT  continent FROM flight
                     ) AS tablecontinent
                                                 ) AS VIEW_RESULT ";
 
@@ -879,6 +941,98 @@ class SearchComponent extends Component
                 }
                 $queryContinent = "(SELECT DISTINCT continent, 'roaming' as tablename FROM roaming
                                                             ) AS VIEW_RESULT ";
+                break;
+            case '12':
+                $component = 'livewire.search-component';
+                $query = "(
+                        SELECT   hotel.id, hotel.sku, hotel.name,
+                        hotel.summary, MIN(product_price.price) AS price, hotel.thumbnail,
+                        2 AS category, agents.id AS agent_id, product_month.id_month as dept_month, hotel.country, 'hotel' AS tablename
+                FROM agent_hotel
+                JOIN  hotel ON agent_hotel.id_package = hotel.id
+                JOIN agents ON agents.id = agent_hotel.id_agent
+                JOIN product_price ON product_price.id_product = hotel.id AND product_price.category = '$this->menu' and product_price.price <> 0
+                JOIN product_month on product_month.id_product = hotel.id AND product_month.category = '$this->menu'
+                {filtercountry}   
+                GROUP BY hotel.id, hotel.sku, hotel.name,
+                        hotel.summary, hotel.thumbnail,
+                        category, agent_id, product_month.id_month, hotel.country
+                               
+                ) AS VIEW_RESULT ";
+
+                if ($this->countries) {
+                    $sr = 1;
+                    $lncountries = count($this->countries);
+                    // Log::debug("panjang countries " . $lncountries);
+                    foreach ($this->countries as $country) {
+                        if ($lncountries == 1) {
+                            Log::debug("panjang countries sama dengan 1");
+                            $query =  str_replace("{filtercountry}", " and (country like '%" . $country . "%')", $query);
+                        } else {
+                            if ($sr == 1) {
+                                $query =  str_replace("{filtercountry}", "and (country like '%" . $country . "%' {filtercountry}", $query);
+                            } else {
+                                if ($sr != $lncountries) {
+                                    $query =  str_replace("{filtercountry}", "or country like '%" . $country . "%' {filtercountry}", $query);
+                                } else {
+                                    $query =  str_replace("{filtercountry}", "or country like '%" . $country . "%')", $query);
+                                }
+                            }
+                        }
+
+                        $sr++;
+                    }
+                } else {
+                    $query =  str_replace("{filtercountry}", " ", $query);
+                }
+                $queryContinent = "(SELECT DISTINCT continent, 'hotel' as tablename FROM hotel
+                                                    ) AS VIEW_RESULT ";
+                break;
+            case '13':
+                $component = 'livewire.search-component';
+                $query = "(
+                            SELECT   flight.id, flight.sku, flight.name,
+                            flight.summary, MIN(product_price.price) AS price, flight.thumbnail,
+                            2 AS category, agents.id AS agent_id, product_month.id_month as dept_month, flight.country, 'flight' AS tablename
+                    FROM agent_flight
+                    JOIN  flight ON agent_flight.id_package = flight.id
+                    JOIN agents ON agents.id = agent_flight.id_agent
+                    JOIN product_price ON product_price.id_product = flight.id AND product_price.category = '$this->menu' and product_price.price <> 0
+                    JOIN product_month on product_month.id_product = flight.id AND product_month.category = '$this->menu'
+                    {filtercountry}   
+                    GROUP BY flight.id, flight.sku, flight.name,
+                            flight.summary, flight.thumbnail,
+                            category, agent_id, product_month.id_month, flight.country
+                                   
+                    ) AS VIEW_RESULT ";
+
+                if ($this->countries) {
+                    $sr = 1;
+                    $lncountries = count($this->countries);
+                    Log::debug("panjang countries " . $lncountries);
+                    foreach ($this->countries as $country) {
+                        if ($lncountries == 1) {
+                            Log::debug("panjang countries sama dengan 1");
+                            $query =  str_replace("{filtercountry}", " and (country like '%" . $country . "%')", $query);
+                        } else {
+                            if ($sr == 1) {
+                                $query =  str_replace("{filtercountry}", "and (country like '%" . $country . "%' {filtercountry}", $query);
+                            } else {
+                                if ($sr != $lncountries) {
+                                    $query =  str_replace("{filtercountry}", "or country like '%" . $country . "%' {filtercountry}", $query);
+                                } else {
+                                    $query =  str_replace("{filtercountry}", "or country like '%" . $country . "%')", $query);
+                                }
+                            }
+                        }
+
+                        $sr++;
+                    }
+                } else {
+                    $query =  str_replace("{filtercountry}", " ", $query);
+                }
+                $queryContinent = "(SELECT DISTINCT continent, 'flight' as tablename FROM flight
+                                                        ) AS VIEW_RESULT ";
                 break;
             default:
                 # code...
