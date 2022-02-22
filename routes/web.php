@@ -27,12 +27,15 @@ use App\Http\Livewire\CarComponent;
 use App\Http\Livewire\CrudAttraction;
 use App\Http\Livewire\CrudCar;
 use App\Http\Livewire\CrudCruise;
+use App\Http\Livewire\CrudFlight;
+use App\Http\Livewire\CrudHotel;
 use App\Http\Livewire\CrudRail;
 use App\Http\Livewire\CrudRoaming;
 use App\Http\Livewire\CrudSightseeing;
 use App\Http\Livewire\CrudTourpackage;
 use App\Http\Livewire\CrudTravelinsurance;
 use App\Http\Livewire\CrudVisa;
+use App\Http\Livewire\FlightComponent;
 use App\Http\Livewire\ProductdetailitinComponent;
 use App\Models\Attraction;
 use App\Models\Car;
@@ -93,6 +96,8 @@ Route::get('/travelinsurance', TravelinsuranceComponent::class);
 
 Route::get('/visa', VisaComponent::class);
 
+Route::get('/flight', FlightComponent::class);
+
 Route::get('/chooseagent/{productid}', ChooseagentComponent::class)->name('chooseagent.pick');
 
 Route::get('/agentairticket/{productid}', AgentairticketComponent::class)->name('agentairticket.pick');
@@ -119,6 +124,9 @@ Route::get('manage/sightseeing', CrudSightseeing::class)->middleware(['auth:sanc
 Route::get('manage/travelinsurance', CrudTravelinsurance::class)->middleware(['auth:sanctum', 'verified'])->name('manage.travelinsurance');
 Route::get('manage/visa', CrudVisa::class)->middleware(['auth:sanctum', 'verified'])->name('manage.visa');
 Route::get('manage/attraction', CrudAttraction::class)->middleware(['auth:sanctum', 'verified'])->name('manage.attraction');
+Route::get('manage/hotel', CrudHotel::class)->middleware(['auth:sanctum', 'verified'])->name('manage.hotel');
+Route::get('manage/flight', CrudFlight::class)->middleware(['auth:sanctum', 'verified'])->name('manage.flight');
+
 
 
 

@@ -13,15 +13,19 @@ use Livewire\WithPagination;
 use App\Models\Touritinerary;
 use Livewire\WithFileUploads;
 use App\Models\Agentattraction;
+use App\Models\Agentflight;
 use App\Models\Agenttourpackage;
+use App\Models\Flight;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 use Illuminate\Support\Facades\Auth;
 use function PHPUnit\Framework\isEmpty;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Redirect;
+use Laravel\Fortify\Actions\AttemptToAuthenticate;
 
-class CrudTourpackage extends Component
+class CrudFlight extends Component
 {
     use WithPagination;
     use WithFileUploads;
@@ -45,29 +49,26 @@ class CrudTourpackage extends Component
     public $priceval = [];
     public $iprice = 0;
 
+    public $itinname, $itinval;
     public $updateModeitin = false;
     public $itininputs = [];
-    public $iitin = 0;
-    public $itinname = [];
-    public $itinval = [];
+    public $iitin = 1;
 
     public $lastsku;
     public $lastskuvalue;
 
-    public $category = 6;
-    public $isedit;
-
-
+    public $category = 13;
+public $isedit;
 
 
 
 
     public function render()
     {
-        $products = Tourpackage::orderBy("id", "desc")->paginate(10);
+        $products = Flight::orderBy("id", "desc")->paginate(10);
         $dataAgents = Agent::all();
         $dataMonths = Month::all();
-        return view('livewire.crud-tourpackage', ['products' => $products, 'dataAgents' => $dataAgents, 'dataMonths' => $dataMonths])->layout('layouts.base');
+        return view('livewire.crud-flight', ['products' => $products, 'dataAgents' => $dataAgents, 'dataMonths' => $dataMonths])->layout('layouts.base');
     }
 
     public function create()
@@ -86,7 +87,7 @@ class CrudTourpackage extends Component
     {
         // $this->isModalCreateOpen = false;
         // return redirect()->back();
-        return redirect()->to('manage/tourpackage');
+        return redirect()->to('manage/flight');
     }
 
     private function resetCreateForm()
@@ -117,11 +118,12 @@ class CrudTourpackage extends Component
 
     public function store()
     {
-
+        
         if ($this->isedit) {
             $this->validate([
                 'name' => 'required',
                 'summary' => 'required',
+                'detail' => 'required', 
                 'continent' => 'required',
                 'country' => 'required',
                 'city' => 'required',
@@ -130,6 +132,7 @@ class CrudTourpackage extends Component
             $this->validate([
                 'name' => 'required',
                 'summary' => 'required',
+                'detail' => 'required', 
                 'continent' => 'required',
                 'country' => 'required',
                 'city' => 'required',
@@ -211,27 +214,28 @@ class CrudTourpackage extends Component
             }
         }
         $isupload=0;
-       
+        
         if (!$this->isedit) {
-            $lastsku = Tourpackage::orderBy('id', 'desc')->first();
+            $lastsku = Flight::orderBy('id', 'desc')->first();
             if ($lastsku) {
                 $lastskuvalue =  (int)substr($lastsku->sku,2);
             } else {
                 $lastskuvalue =  0;
             }        
             $lastskuvalue++;
-            $lastskuvalue = 'TP'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
+            $lastskuvalue = 'FL'.str_pad($lastskuvalue, 5, "0", STR_PAD_LEFT);
         } else {
             $lastskuvalue=$this->sku;
         }
 
 
-        $dataproduct = Tourpackage::updateOrCreate(
+        $dataproduct = Flight::updateOrCreate(
             ['id' => $this->productid],
             [
                 'sku' => $lastskuvalue,
                 'name' => $this->name,
                 'summary' => $this->summary,
+                'detail' => $this->detail,
                 'continent' => $this->continent,
                 'country' => $this->country,
                 'city' => $this->city,
@@ -252,11 +256,11 @@ class CrudTourpackage extends Component
         //     ]
         // );
         // $dataagentproduct->save();
-        DB::table('agent_tourpackages')->where('id_package', $this->productid)->delete();
+        DB::table('agent_flight')->where('id_package', $this->productid)->delete();
 
         $i = 1;
         foreach ($this->agents as $agent) {
-            $dataagentproduct = Agenttourpackage::updateOrCreate(
+            $dataagentproduct = Agentflight::updateOrCreate(
                 ['id' => $this->agentproductid],
                 [
                 'id_agent' => $agent,
@@ -305,23 +309,6 @@ class CrudTourpackage extends Component
             $i++;
         }
 
-        DB::table('tour_itineraries')->where('id_package', $this->productid)->delete();
-        $i = 1;
-        // dd($this->itinname);
-        foreach ($this->itinname as $key => $value) {
-            $dataproductitin = Touritinerary::updateOrCreate(
-                ['id' => $this->productitinid],
-                [
-                    'id_package' => $dataproduct->id,
-                    'desc' => $this->itinname[$key],
-                    'sr' => $i,
-                    'active' => 1,
-                ]
-            );
-            $dataproductitin->save();
-            $i++;
-        }
-
         // $i = 1;
         // // Log::debug($this->itinname);
         // foreach ($this->itinname as $key => $value) {
@@ -344,7 +331,8 @@ class CrudTourpackage extends Component
 
 
         session()->flash('message', $this->productid ? 'Data updated successfully.' : 'Data added successfully.');
-        return redirect()->to('manage/tourpackage');
+        return redirect()->to('manage/flight');
+
         // $this->closeModalCreate();
         $this->resetCreateForm();
         // $this->reset();
@@ -359,8 +347,8 @@ class CrudTourpackage extends Component
         // Log::debug($this->id);
         $this->resetErrorBag();
         $this->isedit = $isedit;
-        $product = Tourpackage::findOrFail($id);
-        $agents = Agenttourpackage::where('id_package', $id)->get();
+        $product = Flight::findOrFail($id);
+        $agents = Agentflight::where('id_package', $id)->get();
         $this->agents = json_decode($agents->pluck('id_agent'));
         // Log::debug($id);
 
@@ -369,23 +357,34 @@ class CrudTourpackage extends Component
         Log::debug($this->months);
 
         $prices = Productprice::where('id_product', $id)->where('category', $this->category)->get();
+        Log::debug($this->pricename);
+        // dd($prices->count());
+        
         $row = $prices->count();
         $row--;
         for ($i=0; $i < $row; $i++) { 
             $this->iprice = $i;
             array_push($this->priceinputs ,$i);        
         }
+
+        // $i = 0;
+        // foreach ($prices as $key => $value) {
+        //     $i = $i + 1;
+        //     $this->iprice = $i;
+        //     array_push($this->priceinputs ,$i);
+
+        // } 
         $this->pricename = json_decode($prices->pluck('name'));
         $this->priceval = json_decode($prices->pluck('price'));
 
-        $itins = Touritinerary::where('id_package', $id)->get();
-        $rowitin = $itins->count();
-        $rowitin--;
-        for ($i=0; $i < $rowitin; $i++) { 
-            $this->iitin = $i;
-            array_push($this->itininputs ,$i);        
-        }
-        $this->itinname = json_decode($itins->pluck('desc'));
+
+
+        
+        
+        // $this->prices = json_decode($prices->pluck('sr'));
+
+
+                // dd($product->image);
 
         $this->productid = $id;
         $this->sku = $product->sku;
@@ -399,6 +398,7 @@ class CrudTourpackage extends Component
         $this->image = $product->image;
         $this->thumbnail = $product->thumbnail;
         $this->flyer = $product->flyer;
+        // dd($this->thumbnail);
         // $this->months = $selectedmonth->id_month;
 
         // dd($this->image);
@@ -427,7 +427,7 @@ class CrudTourpackage extends Component
 
     public function delete()
     {
-        Tourpackage::find($this->deleteId)->delete();
+        Flight::find($this->deleteId)->delete();
         session()->flash('message', 'Data deleted successfully.');
         $this->closeModalDelete();
     }
@@ -460,7 +460,6 @@ class CrudTourpackage extends Component
 
     public function removeitin($iitin)
     {
-        unset($this->itinname[$iitin+1]);
         unset($this->itininputs[$iitin]);
     }
 

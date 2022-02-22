@@ -8,6 +8,8 @@ use App\Models\Visa;
 use App\Models\Cruise;
 use Livewire\Component;
 use App\Models\Attraction;
+use App\Models\Flight;
+use App\Models\Hotel;
 use App\Models\Roaming;
 use App\Models\Sightseeing;
 use App\Models\Tourpackage;
@@ -127,12 +129,34 @@ class AgentproductitinComponent extends Component
 
                 $product = Attraction::where('id', '=', $this->productid)->get()->first();
                 break;
+            case '12':
+                $agents = DB::table('hotel')
+                    ->join('agent_hotel', 'agent_hotel.id_package', '=', 'hotel.id')
+                    ->join('agents', 'agents.id', '=', 'agent_hotel.id_agent')
+                    ->where('hotel.id', '=', $this->productid)
+                    ->select('agents.*')
+                    ->distinct(['agents.id'])
+                    ->paginate(100);
+
+                $product = Hotel::where('id', '=', $this->productid)->get()->first();
+                break;
+            case '13':
+                $agents = DB::table('flight')
+                    ->join('agent_flight', 'agent_flight.id_package', '=', 'flight.id')
+                    ->join('agents', 'agents.id', '=', 'agent_flight.id_agent')
+                    ->where('flight.id', '=', $this->productid)
+                    ->select('agents.*')
+                    ->distinct(['agents.id'])
+                    ->paginate(100);
+
+                $product = Flight::where('id', '=', $this->productid)->get()->first();
+                break;
             default:
                 # code...
                 break;
         }
 
 
-        return view('livewire.agentproductitin-component', ['agents' => $agents, 'product' => $product,'category' => $this->cat])->layout("layouts.base");
+        return view('livewire.agentproductitin-component', ['agents' => $agents, 'product' => $product, 'category' => $this->cat])->layout("layouts.base");
     }
 }

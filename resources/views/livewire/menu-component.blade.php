@@ -39,6 +39,12 @@
                 <a href="{{ route('manage.roaming') }}" title="">Roaming</a>
             </li>
             <li>
+                <a href="{{ route('manage.hotel') }}" title="">Hotel</a>
+            </li>
+            <li>
+                <a href="{{ route('manage.flight') }}" title="">Flight</a>
+            </li>
+            <li>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
 
@@ -91,7 +97,9 @@
         </ul>
     </li>
     <li>
-        <a href="/hotel" title="">Hotel</a>
+        {{-- <a href="/hotel" title="">Hotel</a> --}}
+        <a href="{{ route('product.search', ['menu' => 12]) }}" title="">Hotel</a>
+
     </li>
     <li class="has-sub">
         <a href="#" title="">Rail and Cruise</a>
@@ -109,6 +117,8 @@
         <a href="{{ route('product.search', ['menu' => 6]) }}" title="">Tour Package</a>
     </li>
     <li>
-        <a href="https://www.astindovirtualtravelfair.com/exhibitor" target=”_blank” title="">Air Ticket</a>
+        {{-- <a href="https://www.astindovirtualtravelfair.com/exhibitor" target=”_blank” title="">Air Ticket</a> --}}
+        <a href="{{ route('product.search', ['menu' => 13]) }}" title="">Flight</a>
+
     </li>
 </ul>
