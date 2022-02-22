@@ -118,17 +118,26 @@ class CrudTourpackage extends Component
     public function store()
     {
 
-        $this->validate([
-            'name' => 'required',
-            'summary' => 'required',
-            'continent' => 'required',
-            'country' => 'required',
-            'city' => 'required',
-            'image' => 'nullable|mimes:jpeg,png,jpg|max:12288',
-            'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:12288',
-            'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:12288',
-
-        ]);
+        if ($this->isedit) {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+            ]);
+        } else {
+            $this->validate([
+                'name' => 'required',
+                'summary' => 'required',
+                'continent' => 'required',
+                'country' => 'required',
+                'city' => 'required',
+                'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
+                'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+            ]);
+        }
 
         $isupload=0;
         if (!$this->isedit) {

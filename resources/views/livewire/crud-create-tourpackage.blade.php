@@ -31,23 +31,18 @@
                             @error('summary') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
-																	  
-																											  
-																									  
-							  
-							 
                             <label for="continent">continent</label>
-                            <input type="text" id="continent" placeholder="Enter continent" wire:model="continent">
+                            <input type="text" id="continent" placeholder="Enter continent e.g. Asia" size = '50' wire:model="continent">
                             @error('continent') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="country">country</label>
-                            <input type="text" id="country" placeholder="Enter country" wire:model="country">
+                            <input type="text" id="country" placeholder="Enter country e.g. Indonesia" size = '50' wire:model="country">
                             @error('country') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="city">city</label>
-                            <input type="text" id="city" placeholder="Enter city" wire:model="city">
+                            <input type="text" id="city" placeholder="Enter city e.g. Jakarta, Bandung, Surabaya, Medan" size = '50' wire:model="city" >
                             @error('city') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -55,11 +50,6 @@
                             <input type="file" wire:model="image" name="image">
                             <div wire:loading wire:target="image" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            <div>@if (asset('storage/product_image/'.$image))
-                                image preview:
-                                <img src="{{ asset('storage/product_image/'.$image) }}" height="80">
-                                @else
-                            @endif</div>
                             @error('image') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -67,10 +57,6 @@
                             <input type="file" wire:model="thumbnail">
                             <div wire:loading wire:target="thumbnail" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            <div>@if ($thumbnail)
-                                thumbnail preview:
-                                <img src="{{ asset('storage/product_thumbnail/'.$thumbnail) }}" height="80">
-                            @endif</div>
                             @error('thumbnail') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
@@ -78,10 +64,6 @@
                             <input type="file" wire:model="flyer">
                             <div wire:loading wire:target="flyer" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            <div>@if ($flyer)
-                                flyer preview:
-                                <img src="{{ asset('storage/file/'.$flyer) }}" height="80">
-                            @endif</div>
                             @error('flyer') <span class="text-red-500">{{ $message }}</span>@enderror
                         </div>
                         <div>
