@@ -54,7 +54,7 @@ class CrudTourpackage extends Component
     public $lastsku;
     public $lastskuvalue;
 
-    public $category = 2;
+    public $category = 6;
     public $isedit;
 
 
