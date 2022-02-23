@@ -11,7 +11,7 @@ class Tourpackage extends Model
 
     protected $table = "tourpackages";
 
-    protected $fillable = ['sku','name','summary','continent','country','city','image','thumbnail'];
+    protected $fillable = ['sku','name','summary','continent','country','city','image','thumbnail','flyer'];
 
 
 }

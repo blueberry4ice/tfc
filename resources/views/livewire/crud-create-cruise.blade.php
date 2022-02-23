@@ -17,54 +17,54 @@
                                         <span></span> {{ $agent->name }}
                                     </label>
                                 @endforeach
-                                @error('agents') <span class="text-red-500">{{ $message }}</span>@enderror
+                                @error('agents') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                             </div>
                         </div>
                         <div>
                             <label for="name">name</label>
                             <input type="text" id="name" placeholder="Enter name" wire:model="name">
-                            @error('name') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('name') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="summary">summary</label>
                             <textarea id="summary" wire:model="summary" placeholder="summary" cols = '50'></textarea>
-                            @error('summary') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('summary') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="continent">continent</label>
                             <input type="text" id="continent" placeholder="Enter continent e.g. Asia" size = '50' wire:model="continent">
-                            @error('continent') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('continent') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="country">country</label>
                             <input type="text" id="country" placeholder="Enter country e.g. Indonesia" size = '50' wire:model="country">
-                            @error('country') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('country') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="city">city</label>
                             <input type="text" id="city" placeholder="Enter city e.g. Jakarta, Bandung, Surabaya, Medan" size = '50' wire:model="city" >
-                            @error('city') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('city') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="image">image</label>
                             <input type="file" wire:model="image" name="image">
                             <div wire:loading wire:target="image" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            @error('image') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('image') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="thumbnail">thumbnail</label>
                             <input type="file" wire:model="thumbnail">
                             <div wire:loading wire:target="thumbnail" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            @error('thumbnail') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('thumbnail') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="flyer">flyer</label>
                             <input type="file" wire:model="flyer">
                             <div wire:loading wire:target="flyer" class="text-sm italic text-gray-500">Uploading...
                             </div>
-                            @error('flyer') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('flyer') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <label for="month">month</label>
@@ -75,7 +75,7 @@
                                     <span></span> {{ $month->name }}
                                 </label>
                             @endforeach
-                            @error('months') <span class="text-red-500">{{ $message }}</span>@enderror
+                            @error('months') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                         </div>
                         <div>
                             <div><label for="price">price</label></div>
@@ -84,9 +84,9 @@
                                 <input type="text" wire:model="priceval.0" placeholder="Enter Price">
                                 
                                 @error('priceval.0') <span
-                                    class="text-danger error">{{ $message }}</span>@enderror
+                                    class="text-danger error" style="color: red">{{ $message }}</span>@enderror
                                 @error('pricename.0') <span
-                                    class="text-danger error">{{ $message }}</span>@enderror
+                                    class="text-danger error" style="color: red">{{ $message }}</span>@enderror
                             </div>
                             
                                 @foreach ($priceinputs as $key => $value)
@@ -111,7 +111,7 @@
                             <div>
                                 <input type="text" placeholder="Enter Itinerary" wire:model="itinname.0">
                                 @error('itinname.0') <span
-                                    class="text-danger error">{{ $message }}</span>@enderror
+                                    class="text-danger error" style="color: red">{{ $message }}</span>@enderror
                             </div>
                             
                                 @foreach ($itininputs as $key => $value)
@@ -128,7 +128,7 @@
                                 wire:click.prevent="additin({{ $iitin }})">Add Itinerary</button>
                         </div>
                     </div>
-                    @error('price') <span class="text-red-500">{{ $message }}</span>@enderror
+                    @error('price') <span class="text-red-500" style="color: red">{{ $message }}</span>@enderror
                 </div>
         </div>
     </div>

@@ -142,6 +142,15 @@ public $isedit;
                 'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
                 'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
                 'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+                'pricename.0' => 'required',
+                'priceval.0' => 'required|numeric',
+                'agents' => 'required',
+                'months' => 'required',
+            ],
+            [
+                'pricename.0.required' => 'The Price Name field cannot be empty.',
+                'priceval.0.required' => 'The Price Value field cannot be empty.',
+                'priceval.0.numeric' => 'The Price Value field should be numeric only.',
             ]);
         }
 
