@@ -57,6 +57,10 @@ class CrudTourpackage extends Component
     public $category = 6;
     public $isedit;
 
+    protected $messages = [
+        'itiname.o.required' => 'The Price cannot be empty.',
+    ];
+
 
 
 
@@ -117,7 +121,6 @@ class CrudTourpackage extends Component
 
     public function store()
     {
-
         if ($this->isedit) {
             $this->validate([
                 'name' => 'required',
@@ -136,6 +139,17 @@ class CrudTourpackage extends Component
                 'image' => 'nullable|mimes:jpeg,png,jpg|max:1500',
                 'thumbnail' => 'nullable|mimes:jpeg,png,jpg|max:1500',
                 'flyer' => 'nullable|file|mimes:jpeg,png,jpg,pdf|max:1500',
+                'itinname.0' => 'required',
+                'pricename.0' => 'required',
+                'priceval.0' => 'required|numeric',
+                'agents' => 'required',
+                'months' => 'required',
+            ],
+            [
+                'itinname.0.required' => 'The Itinerary field cannot be empty.',
+                'pricename.0.required' => 'The Price Name field cannot be empty.',
+                'priceval.0.required' => 'The Price Value field cannot be empty.',
+                'priceval.0.numeric' => 'The Price Value field should be numeric only.',
             ]);
         }
 
@@ -162,8 +176,8 @@ class CrudTourpackage extends Component
                 $imagename = $this->image;
             }
         }
-        $isupload=0;
 
+        $isupload=0;
         if (!$this->isedit) {
             if ($this->thumbnail) {
                 $thumbnailname = $this->thumbnail->getClientOriginalName();
@@ -195,6 +209,7 @@ class CrudTourpackage extends Component
             } else {
                 $flyername = null;
             }
+
         } else {
             try {
                 if ($this->flyer->getClientOriginalName()){
