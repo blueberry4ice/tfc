@@ -258,7 +258,7 @@
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://www.visitdubai.com/" title="" class="flex-two">
+                <a target="_blank" href="https://www.tourism.gov.my/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -266,8 +266,10 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Dubai</div>
-                                <div class="tip-desc truncate-list" data-height="80">Discover Dubai, with world-class tourism and magnificent tailored destinations. Explore a wide range of choices and start planning your trip.
+                                <div class="tips-title">Malaysia</div>
+                                <div class="tip-desc truncate-list" data-height="80">Be it first time visitors or seasoned travellers, our calendar is packed with activities so that there is always something new to discover.
+
+
                                 </div>
                             </div>
                         </div>
@@ -288,7 +290,7 @@
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://livetour.istaging.com/3f3f101b-3cca-4338-99ba-833737457b2f?group=5a49f680-73a8-49e4-b417-56599091cee5&index=1" title="" class="flex-two">
+                <a target="_blank" href="https://www.visitsingapore.com/en/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -296,8 +298,8 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Taiwan</div>
-                                <div class="tip-desc truncate-list" data-height="80">Taiwan, an island of technology, nurtures a wide array of tourism and ecological resources, a diversity of traditional folk customs.
+                                <div class="tips-title">Singapore</div>
+                                <div class="tip-desc truncate-list" data-height="80">From luxury retail to world-class international cuisines, Singapore’s most famous shopping precinct is home to a wealth of experiences.
                                 </div>
                             </div>
                         </div>
