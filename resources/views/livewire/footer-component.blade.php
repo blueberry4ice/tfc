@@ -54,7 +54,7 @@
                             <img src="{{ asset('assets/img/logo-ati.png') }}" class="img-nto" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="https://www.c-led.co.id/">
-                            <img src="{{ asset('assets/img/caiyida1.png') }}" style="max-width: 75%"
+                            <img src="{{ asset('assets/img/caiyida1.png') }}" style="max-width: 100%"
                                 alt="">
                         </a>
                     
