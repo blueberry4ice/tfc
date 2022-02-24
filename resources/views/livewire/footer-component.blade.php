@@ -115,11 +115,11 @@
                     <div class="bold fz12 partner-name">Supported by</div>
                     <div  style="display: flex;">
                         
-                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 50%" alt="">
+                        <a target="_blank" class="img-nto" href="https://dinaskebudayaan.jakarta.go.id/">
+                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 40%" alt="">
                         </a>
-                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 60%" alt="">
+                        <a target="_blank" class="img-nto" href="https://www.jakarta-tourism.go.id/">
+                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 40%" alt="">
                         </a>
                         
                     </div>
@@ -143,7 +143,7 @@
                     <div class="bold fz12 partner-name">Venue</div>
                     <div class="partner-logo">
                         <a href="https://pikavenue.com" target="_blank"><img
-                                src="{{ asset('assets/img/pik.jpg') }}" alt="" style="max-width: 60%"> </a>
+                                src="{{ asset('assets/img/pik.jpg') }}" alt="" style="max-width: 40%"> </a>
 
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                     <div class="bold fz12 partner-name">Organized by</div>
                     <div class="partner-logo">
                         <a href="https://dexkreasi.com" target="_blank"><img
-                                src="{{ asset('assets/img/Logo DEX.png') }}" alt="" style="max-width: 40%"> </a>
+                                src="{{ asset('assets/img/Logo DEX.png') }}" alt="" style="max-width: 30%"> </a>
 
                     </div>
                 </div>
