@@ -15,7 +15,7 @@ class HomeComponent extends Component
         $this->favdests = [
             0 => [
                 'name' => 'Autralia',
-                'thumbnail' => 'Taiwan.png',
+                'thumbnail' => 'pref australia.jpg',
             ],
             // 1 => [
             //     'name' => 'Korea',

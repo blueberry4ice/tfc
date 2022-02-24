@@ -258,7 +258,7 @@
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://www.tourism.gov.my/" title="" class="flex-two">
+                <a target="_blank" href="https://www.malaysia.travel/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -294,7 +294,7 @@
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/3.png')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/singapore thumbnail.jpg')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
