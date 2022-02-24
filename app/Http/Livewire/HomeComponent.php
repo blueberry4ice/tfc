@@ -14,7 +14,7 @@ class HomeComponent extends Component
         $agents = Agent::all();
         $this->favdests = [
             0 => [
-                'name' => 'Autralia',
+                'name' => 'Australia',
                 'thumbnail' => 'pref australia.jpg',
             ],
             // 1 => [
