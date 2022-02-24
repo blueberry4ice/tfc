@@ -258,7 +258,7 @@
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://www.malaysia.travel/" title="" class="flex-two">
+                {{-- <a target="_blank" href="https://www.malaysia.travel/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -332,7 +332,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </a> --}}
             </div>
         </div>
     </section>
