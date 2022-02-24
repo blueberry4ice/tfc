@@ -42,6 +42,24 @@
                                 src="{{ asset('assets/img/telkomsel.png') }}" alt="" style="max-height: 75%"></a>
                     </div>
                 </div>
+                <div class="partner-list partner-group">
+                    <div class="bold fz12 partner-name">Technology Partner</div>
+                    <div style="display: flex;">
+          
+                        <a target="_blank" class="img-nto" href="http://www.travelportindonesia.com">
+                            <img src="{{ asset('assets/img/galileo.png') }}" style="max-width: 75%" alt="">
+                        </a>
+                       
+                        <a target="_blank" class="img-nto" href="https://atibusinessgroup.com/">
+                            <img src="{{ asset('assets/img/logo-ati.png') }}" class="img-nto" alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.c-led.co.id/">
+                            <img src="{{ asset('assets/img/caiyida1.png') }}" style="max-width: 75%"
+                                alt="">
+                        </a>
+                    
+                    </div>
+                </div>
                 {{-- <div class="partner-list">
                     <div class="bold fz12 partner-name">GDS Partner</div>
                     <div class="partner-logo">
@@ -55,6 +73,20 @@
                     <div class="partner-logo">
                         <a href="https://www.atibusinessgroup.com/" target="_blank"><img
                                 src="{{ asset('assets/img/logo-ati.png') }}" alt="" class="ic_ati"></a>
+                    </div>
+                </div> --}}
+                {{-- <div class="partner-list partner-group">
+                    <div class="bold fz12 partner-name">Technology Partner</div>
+                    <div  style="display: flex;">
+                        
+                        <a target="_blank" href="https://dinaskebudayaan.jakarta.go.id/">
+                            <img src="{{ asset('assets/img/galileo.png') }}"  alt="" class="img-nto">
+                        </a>
+                        <a href="https://www.atibusinessgroup.com/" target="_blank"><img
+                            src="{{ asset('assets/img/logo-ati.png') }}" alt="" class="img-nto"></a>
+                            <a href="https://www.atibusinessgroup.com/" target="_blank"><img
+                                src="{{ asset('assets/img/logo-ati.png') }}" alt="" class="img-nto"></a>
+                        
                     </div>
                 </div> --}}
                 <div class="partner-list partner-group">
