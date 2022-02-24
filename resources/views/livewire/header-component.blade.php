@@ -2,9 +2,15 @@
     <div class="clearfix inner-container">
         <div class="pull-left">
             <div class="logo-area">
-                <a href="/">
+                <a href="/" >
                     <img src="{{ asset('assets/img/logo-astindo-white.png') }}" alt="logo-color">
                 </a>
+                <a href="/" ><img src="{{ asset('assets/img/kemenhub.png') }}" alt=""
+                        ></a>
+                <a href="/" ><img src="{{ asset('assets/img/wonderfull_black.png') }}" alt=""
+                        ></a>
+                <a href="/" ><img src="{{ asset('assets/img/baparekraf.png') }}" alt=""
+                       ></a>
                 {{-- <a href="/">
                     <img src="{{asset('assets/img/wonderful.png')}}" alt="logo-color">
                     </a>

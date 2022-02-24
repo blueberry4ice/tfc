@@ -2,17 +2,17 @@
     <div class="footer-inner inner-container">
         <div class="text-center">
             <div class="partner-wrapper">
-                <div class="partner-list partner-group" style=" width: 100%;">
+                {{-- <div class="partner-list partner-group" style=" width: 100%;">
                     <div class="partner-logo" style="display: flex;">
                         <img src="{{ asset('assets/img/astindo.png') }}" alt="" class="ic_astindo">
                         <a target="_blank" href="https://www.astindovirtualtravelfair.com/" class="img-href">
                             <img src="{{ asset('assets/img/logo-astindo-white.png') }}" alt="logo-color" >
                         </a>
                         <img src="{{ asset('assets/img/kemenhub.png') }}" alt="" class="ic_kemenhub">
-                            <img src="{{ asset('assets/img/wonderfull_black.png') }}" alt="" class="ic_wonder">
+                        <img src="{{ asset('assets/img/wonderfull_black.png') }}" alt="" class="ic_wonder">
                         <img src="{{ asset('assets/img/baparekraf.png') }}" alt="" class="ic_baprek">
                     </div>
-                </div>
+                </div> --}}
                 <div class="partner-list">
                     <div class="bold fz12 partner-name">Bank Partner</div>
                     <div class="partner-logo">
@@ -26,6 +26,13 @@
                     <div class="partner-logo">
                         <a href="https://www.bcainsurance.co.id/" target="_blank"><img
                                 src="{{ asset('assets/img/logo bcai-01.png') }}" alt=""></a>
+                    </div>
+                </div>
+                <div class="partner-list">
+                    <div class="bold fz12 partner-name">Preferred Destination Sponsor</div>
+                    <div class="partner-logo">
+                        <a href="https://www.australia.com/en-us" target="_blank"><img
+                                src="{{ asset('assets/img/nto/AUSSIE-01-01.png') }}" alt=""></a>
                     </div>
                 </div>
                 <div class="partner-list">
@@ -54,22 +61,29 @@
                     <div class="bold fz12 partner-name">Participating Airlines</div>
                     <div class="partner-logo" style="display: flex;">
                         <img src="{{ asset('assets/img/airlines/ana.png') }}" alt="" class="ic_ana">
-                        {{-- <img src="{{ asset('assets/img/ek.png') }}" alt="" class="ic_ek"> --}}
+                        <img src="{{ asset('assets/img/airlines/cathaypacific_master-logo_vertical_green_en.png') }}"
+                            alt="" class="ic_sq">
+                        <img src="{{ asset('assets/img/airlines/01 Intl-Sig-SkyTeam-4C.jpg') }}" alt=""
+                            class="ic_sq">
+                        <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
+                            class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/ey.png') }}" alt="" class="ic_ey">
+                        <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
+                            class="ic_sq">
+                        {{-- <img src="{{ asset('assets/img/ek.png') }}" alt="" class="ic_ek"> --}}
+                    </div>
+                    <div class="partner-logo" style="display: flex;">
+                        {{-- <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq"> --}}
+                        {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
                         <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_ga">
+                        <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt=""
+                            class="ic_sq">
+                        <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
+                            alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr">
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/cathaypacific_master-logo_vertical_green_en.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt="" class="ic_sq"> 
-                    </div>
-                    <div class="partner-logo" style="display: flex;">                       
-                        <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/01 Intl-Sig-SkyTeam-4C.jpg') }}" alt="" class="ic_sq">
+                        <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
+                            class="ic_sq">
                     </div>
                 </div>
                 <div class="partner-list partner-group">
@@ -85,14 +99,32 @@
                             <img src="{{ asset('assets/img/taiwan-nto.jpg') }}" class="ic_taiwan" alt="">
                         </a> --}}
                         <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
-                             <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_thai" alt="">      
+                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_thai" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="https://www.tourism.gov.my/">
-                            <img src="{{ asset('assets/img/nto/Logo TM Transparent.png') }}" class="ic_thai" alt="">      
-                       </a>
-                       <a target="_blank" class="img-nto" href="https://www.stb.gov.sg/">
-                        <img src="{{ asset('assets/img/nto/Stacked_BlackTagline.png') }}" class="ic_thai" alt="">      
-                   </a>
+                            <img src="{{ asset('assets/img/nto/Logo TM Transparent.png') }}" class="ic_thai"
+                                alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.stb.gov.sg/">
+                            <img src="{{ asset('assets/img/nto/Stacked_BlackTagline.png') }}" class="ic_thai"
+                                alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="partner-list">
+                    <div class="bold fz12 partner-name">Venue</div>
+                    <div class="partner-logo">
+                        <a href="https://pikavenue.com" target="_blank"><img
+                                src="{{ asset('assets/img/pik.png') }}" alt="" style="max-width: 40%"> </a>
+
+                    </div>
+                </div>
+                <div class="partner-list">
+                    <div class="bold fz12 partner-name">Organized by</div>
+                    <div class="partner-logo">
+                        <a href="https://dexkreasi.com" target="_blank"><img
+                                src="{{ asset('assets/img/Logo DEX.png') }}" alt="" style="max-width: 40%"> </a>
+
                     </div>
                 </div>
             </div>
