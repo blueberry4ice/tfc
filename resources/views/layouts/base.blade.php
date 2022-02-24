@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>#BackToTravel Catalog</title>
+    <title>Astindo Travel Fair 2022</title>
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/logo-astindo.ico') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
