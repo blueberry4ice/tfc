@@ -13,12 +13,12 @@
                         <img src="{{ asset('assets/img/baparekraf.png') }}" alt="" class="ic_baprek">
                     </div>
                 </div> --}}
+                
                 <div class="partner-list">
                     <div class="bold fz12 partner-name">Bank Partner</div>
                     <div class="partner-logo">
                         <a href="https://www.bca.co.id/en/Individu" target="_blank"><img
                                 src="{{ asset('assets/img/5-bank.png') }}" alt=""> </a>
-
                     </div>
                 </div>
                 <div class="partner-list">
@@ -42,7 +42,7 @@
                                 src="{{ asset('assets/img/telkomsel.png') }}" alt="" style="max-height: 75%"></a>
                     </div>
                 </div>
-                <div class="partner-list">
+                {{-- <div class="partner-list">
                     <div class="bold fz12 partner-name">GDS Partner</div>
                     <div class="partner-logo">
                         <a href="http://www.travelportindonesia.com/" target="_blank"><img
@@ -56,7 +56,7 @@
                         <a href="https://www.atibusinessgroup.com/" target="_blank"><img
                                 src="{{ asset('assets/img/logo-ati.png') }}" alt="" class="ic_ati"></a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="partner-list partner-group">
                     <div class="bold fz12 partner-name">Participating Airlines</div>
                     <div class="partner-logo" style="display: flex;">
@@ -111,11 +111,39 @@
                         </a>
                     </div>
                 </div>
+                <div class="partner-list partner-group">
+                    <div class="bold fz12 partner-name">Supported by</div>
+                    <div  style="display: flex;">
+                        
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 50%" alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 60%" alt="">
+                        </a>
+                        
+                    </div>
+                </div>
+                {{-- <div class="partner-list partner-group" style=" width: 100%;">
+                    <div class="bold fz12 partner-name">Supported by</div>
+                    <div class="partner-logo" style="display: flex;">
+                        <img src="{{ asset('assets/img/Logo Disbud Color Primary.png') }}" alt=""> 
+                        {{-- <img src="{{ asset('assets/img/Logo Disbud Color Primary.png') }}" alt="">                       
+                    </div>
+                </div> --}}
+                {{-- <div class="partner-list">
+                    <div class="bold fz12 partner-name">Supported by</div>
+                    <div class="partner-logo">
+                        <a href="https://pikavenue.com" target="_blank"><img
+                                src="{{ asset('assets/img/Logo Disbud Color Primary.png') }}" alt="" style="max-width: 80%"> </a>
+
+                    </div>
+                </div> --}}
                 <div class="partner-list">
                     <div class="bold fz12 partner-name">Venue</div>
                     <div class="partner-logo">
                         <a href="https://pikavenue.com" target="_blank"><img
-                                src="{{ asset('assets/img/pik.png') }}" alt="" style="max-width: 40%"> </a>
+                                src="{{ asset('assets/img/pik.jpg') }}" alt="" style="max-width: 60%"> </a>
 
                     </div>
                 </div>
