@@ -98,7 +98,7 @@ use App\Models\Product;
                                 @foreach ($dataAgents as $agent1)
                                     <li class="grid-item" data-agent="{{ $agent1->name }}">
                                         <a href="#" class="grid-link">
-                                            <img src="{{ asset('storage/agent/'.$agent1->thumbnail) }}"
+                                            <img src="{{ asset('storage/agent/' . $agent1->thumbnail) }}"
                                                 class="grid-img">
                                         </a>
                                     </li>
@@ -204,74 +204,85 @@ use App\Models\Product;
                             @case(1)
                                 <div class="flex-three card-wrapper c-pointer bordered-box"
                                     onclick="location.href='{{ route('airticket.detail', ['airticketid' => $product->id]) }}'">
-                            @break
-                            @case(2)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(3)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(4)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(5)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(6)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(7)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(8)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @case(10)
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @break
-                            @default
-                                <div class="flex-three card-wrapper c-pointer bordered-box"
-                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
-                            @endswitch
+                                @break
 
-                            <div class="image-portrait-wrapper">
-                                <div class="image-portrait"
-                                    style="background-image: url('{{  asset('storage/product_thumbnail/'.$product->thumbnail) }}')">
-                                </div>
-                            </div>
-                            <div class="card-content-wrapper">
-                                <div class="bold fz20 content-title mb1">
-                                    {{ $product->name }}</div>
+                                @case(2)
+                                    <div class="flex-three card-wrapper c-pointer bordered-box"
+                                        onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                    @break
 
-                                <div class="content-description fz14 mb20px">
-                                    {{ $product->summary }}</div>
-                                <div class="content-starting fz12 mb1">Product Code : {{ $product->sku }}</div>
-                                @if ($product->price != 1)
-                                    <div class="content-starting fz12">Start from</div>
-                                    {{-- <div class="content-price mb1 bold fz18">IDR <span
+                                    @case(3)
+                                        <div class="flex-three card-wrapper c-pointer bordered-box"
+                                            onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                        @break
+
+                                        @case(4)
+                                            <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                            @break
+
+                                            @case(5)
+                                                <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                                @break
+
+                                                @case(6)
+                                                    <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                        onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                                    @break
+
+                                                    @case(7)
+                                                        <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                            onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                                        @break
+
+                                                        @case(8)
+                                                            <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                                onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                                            @break
+
+                                                            @case(10)
+                                                                <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                                    onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                                                @break
+
+                                                                @default
+                                                                    <div class="flex-three card-wrapper c-pointer bordered-box"
+                                                                        onclick="location.href='{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}'">
+                                                                @endswitch
+
+                                                                <div class="image-portrait-wrapper">
+                                                                    <div class="image-portrait"
+                                                                        style="background-image: url('{{ asset('storage/product_thumbnail/' . $product->thumbnail) }}')">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-content-wrapper">
+                                                                    <div class="bold fz20 content-title mb1">
+                                                                        {{ $product->name }}</div>
+
+                                                                    <div class="content-description fz14 mb20px">
+                                                                        {{ $product->summary }}</div>
+                                                                    <div class="content-starting fz12 mb1">Product Code
+                                                                        : {{ $product->sku }}</div>
+                                                                    @if ($product->price != 1)
+                                                                        <div class="content-starting fz12">Start from
+                                                                        </div>
+                                                                        {{-- <div class="content-price mb1 bold fz18">IDR <span
                                                                             class="format-idr">{{$product->price}}</span>
                                                                     </div> --}}
-                                    <div class="mb1 bold fz18">{{ 'IDR ' . number_format($product->price, 0) }}
-                                    </div>
-                                @else
+                                                                        <div class="mb1 bold fz18">
+                                                                            {{ 'IDR ' . number_format($product->price, 0) }}
+                                                                        </div>
+                                                                    @else
+                                                                    @endif
 
-                                @endif
-
-                                <div class="text-center">
-                                    <a href="{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}"
-                                        class="btnAstindo btnAstindo-default">Read
-                                        more</a>
-                                </div>
-                            </div>
-                        </div>
+                                                                    <div class="text-center">
+                                                                        <a href="{{ route('productitin.detail', ['productid' => $product->id, 'category' => $product->category]) }}"
+                                                                            class="btnAstindo btnAstindo-default">Read
+                                                                            more</a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                     @endforeach
 
 
@@ -363,8 +374,35 @@ use App\Models\Product;
 
             });
         });
+
+
+        window.addEventListener('load', () => {
+            Livewire.emit('getassets');
+        })
+
+        window.addEventListener('changeassets', e => {
+            //   alert('loaded');
+            // console.log( event.detail.agent);
+            $('.js-hidden-checkbox').each(function() {
+                _this = $(this);
+                _parent = _this.closest('.filter-agent');
+                _dropdown = _parent.find('.wrapper-filter-agent');
+                _text = _this.attr('data-checkbox');
+                _list = _parent.find('.custom-list');
+
+                console.log("checked");
+                _text2 = _this.attr('data-checkbox');
+                _list.append('<li class="custom-agent-choice" data-choice="' + event.detail.agent + '">' +
+                    '<span>' +
+                    _text + '</span>' + '<img src="/assets/img/cancel.png" class="delete-agent">' +
+                    '</li>');
+                // $('.js-hidden-checkbox[data-checkbox="'+_text+'"]').trigger("click");
+                $('.wrapper-filter-agent .grid-item[data-agent="' + event.detail.agent + '"]').addClass(
+                    'active');
+
+
+
+            });
+        });
     </script>
-
-
-
 @endpush
