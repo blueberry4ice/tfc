@@ -24,7 +24,7 @@
                 <div class="partner-list">
                     <div class="bold fz12 partner-name">Insurance Partner</div>
                     <div class="partner-logo">
-                        <a href="https://www.bcainsurance.co.id/" target="_blank"><img
+                        <a href="https://www.bcainsurance.co.id/" target="_blank" style="height: 78px; display: flex; align-items: center"><img
                                 src="{{ asset('assets/img/logo bcai-01.png') }}" alt=""></a>
                     </div>
                 </div>
@@ -42,20 +42,19 @@
                                 src="{{ asset('assets/img/telkomsel.png') }}" alt="" style="max-height: 75%"></a>
                     </div>
                 </div>
-                <div class="partner-list partner-group">
+                <div class="partner-list partner-group partner-tech">
                     <div class="bold fz12 partner-name">Technology Partner</div>
-                    <div style="display: flex;">
+                    <div class="partner-logo">
           
-                        <a target="_blank" class="img-nto" href="http://www.travelportindonesia.com">
-                            <img src="{{ asset('assets/img/galileo.png') }}" style="max-width: 75%" alt="">
+                        <a target="_blank" class="img-nto" href="http://www.travelportindonesia.com" style="width: 33.3334%">
+                            <img src="{{ asset('assets/img/galileo.png') }}" alt="">
                         </a>
                        
-                        <a target="_blank" class="img-nto" href="https://atibusinessgroup.com/">
-                            <img src="{{ asset('assets/img/logo-ati.png') }}" class="img-nto" alt="">
+                        <a target="_blank" class="img-nto" href="https://atibusinessgroup.com/" style="width: 33.3334%">
+                            <img src="{{ asset('assets/img/logo-ati.png') }}" class="img-nto" style="width: 50%" alt="">
                         </a>
-                        <a target="_blank" class="img-nto" href="https://www.c-led.co.id/">
-                            <img src="{{ asset('assets/img/caiyida1.png') }}" style="max-width: 100%"
-                                alt="">
+                        <a target="_blank" class="img-nto" href="https://www.c-led.co.id/" style="width: 33.3334%">
+                            <img src="{{ asset('assets/img/caiyida1.png') }}" alt="">
                         </a>
                     
                     </div>
@@ -109,7 +108,7 @@
                         {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
                         <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_ga">
                         <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt=""
-                            class="ic_sq">
+                            class="ic_sq" style="width: 35%">
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr">
@@ -143,15 +142,15 @@
                         </a>
                     </div>
                 </div>
-                <div class="partner-list partner-group">
+                <div class="partner-list partner-group partner-support">
                     <div class="bold fz12 partner-name">Supported by</div>
-                    <div  style="display: flex;">
+                    <div class="partner-logo">
                         
-                        <a target="_blank" class="img-nto" href="https://dinaskebudayaan.jakarta.go.id/">
-                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 40%" alt="">
+                        <a target="_blank" class="support1" href="https://dinaskebudayaan.jakarta.go.id/">
+                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 70%" alt="">
                         </a>
-                        <a target="_blank" class="img-nto" href="https://www.jakarta-tourism.go.id/">
-                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 40%" alt="">
+                        <a target="_blank" class="support2" href="https://www.jakarta-tourism.go.id/">
+                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 90%" alt="">
                         </a>
                         
                     </div>
@@ -171,19 +170,19 @@
 
                     </div>
                 </div> --}}
-                <div class="partner-list">
+                <div class="partner-list partner-venue">
                     <div class="bold fz12 partner-name">Venue</div>
                     <div class="partner-logo">
                         <a href="https://pikavenue.com" target="_blank"><img
-                                src="{{ asset('assets/img/pik.jpg') }}" alt="" style="max-width: 40%"> </a>
+                                src="{{ asset('assets/img/pik.jpg') }}" alt="" style="max-width: 50%"> </a>
 
                     </div>
                 </div>
-                <div class="partner-list">
+                <div class="partner-list partner-venue">
                     <div class="bold fz12 partner-name">Organized by</div>
                     <div class="partner-logo">
                         <a href="https://dexkreasi.com" target="_blank"><img
-                                src="{{ asset('assets/img/Logo DEX.png') }}" alt="" style="max-width: 30%"> </a>
+                                src="{{ asset('assets/img/Logo DEX.png') }}" alt="" style="max-width: 35%"> </a>
 
                     </div>
                 </div>
