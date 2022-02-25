@@ -47,6 +47,11 @@ class SearchComponent extends Component
     public $menu;
     public $component;
 
+    public $assets;
+    protected $listeners = [
+        'getassets' => 'passtobrowser'
+    ];
+
     public function updatedCategories()
     {
         $this->resetPage();
@@ -116,6 +121,8 @@ class SearchComponent extends Component
     }
 
 
+
+
     public function mount($menu)
     {
         $this->menu = $menu;
@@ -132,10 +139,14 @@ class SearchComponent extends Component
         // $this->resetPage();
     }
 
+    public function passtobrowser(){
+        $this->dispatchBrowserEvent('changeassets', ['agent' => $this->agent]);
+    }
+
     public function render()
     {
         // $this->dispatchBrowserEvent('contentChanged');
-
+// dd($this->agent);
         // Log::debug("countries" . print_r($this->countries, true));
 
         if ($this->range == 0) $this->range = 9999999999;
@@ -147,6 +158,7 @@ class SearchComponent extends Component
         if ($this->agent == null) {
             $this->agent = $this->magent;
         }
+        
 
 
         switch ($this->menu) {
@@ -1039,6 +1051,10 @@ class SearchComponent extends Component
                 break;
         }
         $this->dispatchBrowserEvent('say-goodbye', ['agent' => $this->agents]);
+        // $this->dispatchBrowserEvent('update-agent-from-home', ['agent' => $this->agents]);
+        $this->emit('agent',  $this->agents);
+        
+        
 
 
         $products = DB::table(DB::raw($query))
