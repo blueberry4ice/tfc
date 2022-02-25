@@ -1,27 +1,20 @@
 <header id="header" class="header header-black2">
     <div class="clearfix inner-container">
-        <div class="pull-left">
-            <div class="logo-area">
-                <a href="/">
-                    <img src="{{ asset('assets/img/logo-astindo-white.png') }}" alt="logo-color">
-                </a>
-                {{-- <a href="/">
-                    <img src="{{asset('assets/img/wonderful.png')}}" alt="logo-color">
-                    </a>
-                    <a href="/">
-                        <img src="{{asset('assets/img/baparekraf.png')}}" alt="logo-color">
-                        </a>
-                        <a href="/">
-                            <img src="{{asset('assets/img/kemenhub.png')}}" alt="logo-color">
-                            </a> --}}
-            </div>
-            {{-- <div class="logo-area">
-
-                <a href="/">
-                    <img src="{{ asset('assets/img/wonderful.png') }}" alt="logo-color">
-                </a>
-
-            </div> --}}
+        <div class="pull-left header-logo-wrapper">
+            <a href="/">
+                <img src="https://astindovirtualtravelfair.com/assets/img/logo-astindo-white.png" alt="logo-color" style="max-width: 50px">
+            </a>
+            <a href="http://dephub.go.id/" target="_blank">
+                <img src="https://astindovirtualtravelfair.com/assets/img/kemenhub.png" alt="" style="max-width: 50px;">
+            </a>
+            <a href="https://www.indonesia.travel/id/id/home" target="_blank">
+                <img src="https://astindovirtualtravelfair.com/assets/img/wonderful.png" alt="" style="max-width: 80px;margin: 0;
+                            top: 50%;
+                            left: 50%;">
+            </a>
+            <a href="https://www.kemenparekraf.go.id/" target="_blank">
+                <img src="https://astindovirtualtravelfair.com/assets/img/baparekraf.png" alt="" style="max-width: 50px">
+            </a>
         </div>
         <div class="pull-right menubar-wrapper">
             <div class="clearfix">
