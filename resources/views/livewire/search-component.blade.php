@@ -376,33 +376,33 @@ use App\Models\Product;
         });
 
 
-        window.addEventListener('load', () => {
-            Livewire.emit('getassets');
-        })
+        // window.addEventListener('load', () => {
+        //     Livewire.emit('getassets');
+        // })
 
-        window.addEventListener('changeassets', e => {
-            //   alert('loaded');
-            // console.log( event.detail.agent);
-            $('.js-hidden-checkbox').each(function() {
-                _this = $(this);
-                _parent = _this.closest('.filter-agent');
-                _dropdown = _parent.find('.wrapper-filter-agent');
-                _text = _this.attr('data-checkbox');
-                _list = _parent.find('.custom-list');
+        // window.addEventListener('changeassets', e => {
+        //     //   alert('loaded');
+        //     // console.log( event.detail.agent);
+        //     $('.js-hidden-checkbox').each(function() {
+        //         _this = $(this);
+        //         _parent = _this.closest('.filter-agent');
+        //         _dropdown = _parent.find('.wrapper-filter-agent');
+        //         _text = _this.attr('data-checkbox');
+        //         _list = _parent.find('.custom-list');
 
-                console.log("checked");
-                _text2 = _this.attr('data-checkbox');
-                _list.append('<li class="custom-agent-choice" data-choice="' + event.detail.agent + '">' +
-                    '<span>' +
-                    _text + '</span>' + '<img src="/assets/img/cancel.png" class="delete-agent">' +
-                    '</li>');
-                // $('.js-hidden-checkbox[data-checkbox="'+_text+'"]').trigger("click");
-                $('.wrapper-filter-agent .grid-item[data-agent="' + event.detail.agent + '"]').addClass(
-                    'active');
+        //         console.log("checked");
+        //         _text2 = _this.attr('data-checkbox');
+        //         _list.append('<li class="custom-agent-choice" data-choice="' + event.detail.agent + '">' +
+        //             '<span>' +
+        //             _text + '</span>' + '<img src="/assets/img/cancel.png" class="delete-agent">' +
+        //             '</li>');
+        //         // $('.js-hidden-checkbox[data-checkbox="'+_text+'"]').trigger("click");
+        //         $('.wrapper-filter-agent .grid-item[data-agent="' + event.detail.agent + '"]').addClass(
+        //             'active');
 
 
 
-            });
-        });
+        //     });
+        // });
     </script>
 @endpush
