@@ -104,11 +104,12 @@
                         {{-- <img src="{{ asset('assets/img/ek.png') }}" alt="" class="ic_ek"> --}}
                     </div>
                     <div class="partner-logo" style="display: flex;">
-                        {{-- <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq"> --}}
                         {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
                         <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_ga">
                         <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
+                        <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
+
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr">
