@@ -1143,8 +1143,6 @@ class SearchComponent extends Component
 
 
 
-
-
         switch ($this->menu) {
                 // case '8':
                 //     return view('livewire.agentproductitin-component', ['agents' => $dataAgents, 'product' => $products])->layout("layouts.base");
