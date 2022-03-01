@@ -101,11 +101,12 @@
                         <img src="{{ asset('assets/img/airlines/ey.png') }}" alt="" class="ic_ey">
                         <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
                             class="ic_sq">
+                            <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_ga">
+
                         {{-- <img src="{{ asset('assets/img/ek.png') }}" alt="" class="ic_ek"> --}}
                     </div>
                     <div class="partner-logo" style="display: flex;">
                         {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
-                        <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_ga">
                         <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
                         <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
@@ -116,6 +117,8 @@
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq">
+                            <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq">
+
                     </div>
                 </div>
                 <div class="partner-list partner-group">
