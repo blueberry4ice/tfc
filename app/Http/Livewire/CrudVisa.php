@@ -65,7 +65,7 @@ class CrudVisa extends Component
     public $lastsku;
     public $lastskuvalue;
 
-    public $category = 7;
+    public $category = 10;
     public $isedit;
 
 
