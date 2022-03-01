@@ -500,7 +500,7 @@ class SearchComponent extends Component
                     // Log::debug("panjang countries " . $lncountries);
                     foreach ($this->countries as $country) {
                         if ($lncountries == 1) {
-                            Log::debug("panjang countries sama dengan 1");
+                            // Log::debug("panjang countries sama dengan 1");
                             $query =  str_replace("{filtercountry}", " and (country like '%" . $country . "%')", $query);
                         } else {
                             if ($sr == 1) {
@@ -959,7 +959,7 @@ class SearchComponent extends Component
                 $query = "(
                         SELECT   hotel.id, hotel.sku, hotel.name,
                         hotel.summary, MIN(product_price.price) AS price, hotel.thumbnail,
-                        2 AS category, agents.id AS agent_id, product_month.id_month as dept_month, hotel.country, 'hotel' AS tablename
+                        12 AS category, agents.id AS agent_id, product_month.id_month as dept_month, hotel.country, 'hotel' AS tablename
                 FROM agent_hotel
                 JOIN  hotel ON agent_hotel.id_package = hotel.id
                 JOIN agents ON agents.id = agent_hotel.id_agent
@@ -1005,7 +1005,7 @@ class SearchComponent extends Component
                 $query = "(
                             SELECT   flight.id, flight.sku, flight.name,
                             flight.summary, MIN(product_price.price) AS price, flight.thumbnail,
-                            2 AS category, agents.id AS agent_id, product_month.id_month as dept_month, flight.country, 'flight' AS tablename
+                            13 AS category, agents.id AS agent_id, product_month.id_month as dept_month, flight.country, 'flight' AS tablename
                     FROM agent_flight
                     JOIN  flight ON agent_flight.id_package = flight.id
                     JOIN agents ON agents.id = agent_flight.id_agent
