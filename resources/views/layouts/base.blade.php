@@ -29,7 +29,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GYVGRNDD8S"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-J9PJN6Q50R"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
 
@@ -38,7 +39,7 @@
         }
         gtag('js', new Date());
 
-        gtag('config', 'G-GYVGRNDD8S');
+        gtag('config', 'G-J9PJN6Q50R');
     </script>
 
     @livewireStyles
