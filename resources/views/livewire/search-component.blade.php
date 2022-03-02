@@ -121,11 +121,11 @@ use App\Models\Product;
 
 
                     </div>
-                    <div class="bold filter-title">Destination</div>
+                    <div class="bold filter-title">Destination </div>
                     <div class="filter-group filter-destination">
 
                         @foreach ($continents as $continent)
-                            {{ Product::createCountry($continent->continent, $continent->tablename) }}
+                            {{ Product::createCountry($continent->continent, $continent->tablename, $menu) }}
                             <div class="region-wrapper">
                                 <div class="region-name">{{ ucwords(strtolower($continent->continent)) }}</div>
                                 <div class="region-list">
