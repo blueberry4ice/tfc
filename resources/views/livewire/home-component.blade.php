@@ -43,7 +43,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="form-group form-group-select custom-select-destination">
+                        <!-- <div class="form-group form-group-select custom-select-destination">
                             <i class="fa fa-angle-down icon-select"></i>
                             <select class="custom-select form-control" name="mdestination">
                                 <option disabled selected hidden></option>
@@ -52,7 +52,7 @@
                                 @endforeach
 
                             </select>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="input-search">
                         <div class="bold label-input">travel agent</div>
