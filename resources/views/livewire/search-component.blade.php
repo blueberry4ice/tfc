@@ -132,7 +132,7 @@ use App\Models\Product;
                                     @foreach (Product::getCountry($continent->continent, $continent->tablename) as $country)
                                         <div class="custom-checkbox2">
                                             <input type="checkbox" id="checkboxcountry{{ $country['country'] }}"
-                                                class="js-option-filter" value={{ $country['country'] }}
+                                                class="js-option-filter" value="{{ $country['country'] }}"
                                                 wire:model="countries.{{ $country['country'] }}">
                                             <label for="checkboxcountry{{ $country['country'] }}"
                                                 class="semibold">

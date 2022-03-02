@@ -50,9 +50,6 @@
                                 @foreach ($favdests as $favdest)
                                 <option>{{ $favdest['name'] }}</option>
                                 @endforeach
-                                {{-- <option>Korea</option>
-                                <option>Taiwan</option>
-                                <option>Thailand</option> --}}
 
                             </select>
                         </div>
