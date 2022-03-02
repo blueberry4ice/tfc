@@ -100,7 +100,6 @@ class SearchComponent extends Component
 
     public function updatedCountries()
     {
-
         $this->resetPage();
 
         if (!is_array($this->countries)) return;
@@ -745,6 +744,7 @@ class SearchComponent extends Component
                     $lncountries = count($this->countries);
                     Log::debug("panjang countries " . $lncountries);
                     foreach ($this->countries as $country) {
+
                         if ($lncountries == 1) {
                             Log::debug("panjang countries sama dengan 1");
                             $query =  str_replace("{filtercountry}", " and (country like '%" . $country . "%')", $query);
