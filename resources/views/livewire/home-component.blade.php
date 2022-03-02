@@ -47,9 +47,12 @@
                             <i class="fa fa-angle-down icon-select"></i>
                             <select class="custom-select form-control" name="mdestination">
                                 <option disabled selected hidden></option>
-                                <option>Korea</option>
+                                @foreach ($favdests as $favdest)
+                                <option>{{ $favdest['name'] }}</option>
+                                @endforeach
+                                {{-- <option>Korea</option>
                                 <option>Taiwan</option>
-                                <option>Thailand</option>
+                                <option>Thailand</option> --}}
 
                             </select>
                         </div>
