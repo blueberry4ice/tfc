@@ -366,10 +366,10 @@ use App\Models\Product;
         });
 
 
-        // window.addEventListener('load', () => {
-        //     Livewire.emit('getassets');
-        //     // console.log("di sini");
-        // })
+        window.addEventListener('load', () => {
+            Livewire.emit('getassets');
+            // console.log("di sini");
+        })
 
         window.addEventListener('changeassets', e => {
             //   alert('loaded');
