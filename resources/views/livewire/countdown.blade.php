@@ -78,7 +78,7 @@
                     <div class="image-list" style="background-image: url('assets/img/home.png')"></div>
                 </div>
                 <div class="inner-container text-center">
-                    <div class="main-caption">ASTINDO HYBRID <br> VIRTUAL TRAVEL FAIR 2022</div>
+                    <div class="main-caption">ASTINDO VIRTUAL <br> TRAVEL FAIR 2022</div>
                     <div class="inner-inner-container">
                         <div class="layout-flex layout-timer">
                             <div class="timer-wrapper">
