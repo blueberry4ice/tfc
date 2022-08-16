@@ -1,4 +1,5 @@
 <div class="container-default container-home">
+    
 
     <div class="overlay-wrapper-home"></div>
 
@@ -19,6 +20,8 @@
                 <h1>Where are you travelling next?</h1>
             </div>
         </div>
+
+        
 
         <div class="bg-white search-form">
             <form action="{{ route('product.search', ['menu' => 0]) }}" method="GET" id="form-search-product"

@@ -54,10 +54,34 @@ class HomeComponent extends Component
             //         'email' => 'jane@example.com'
             //     ),
             // );
-        return view('livewire.home-component', [
-            'agents' => $agents,
-            'favdests' => $this->favdests,
-            'months' => $months
-            ])->layout('layouts.base');
+
+// print(date('Y-m-d H:i:s'));
+
+// $now = strtotime("03:00:00");
+// $livedt   = strtotime("20:00:00");
+
+        if (date('Y-m-d H:i:s') < '2022-08-16 18:00:00')  {
+            // print ('ya');
+            return view('livewire.home-component', [
+                'agents' => $agents,
+                'favdests' => $this->favdests,
+                'months' => $months
+                ])->layout('livewire.countdown');
+        } else {
+            // print ('tidak');
+            return view('livewire.home-component', [
+                'agents' => $agents,
+                'favdests' => $this->favdests,
+                'months' => $months
+                ])->layout('layouts.base');
+        }
+
+
+        // return view('livewire.home-component', [
+        //     'agents' => $agents,
+        //     'favdests' => $this->favdests,
+        //     'months' => $months
+        //     // ])->layout('layouts.base');
+        //     ])->layout('livewire.countdown');
     }
 }

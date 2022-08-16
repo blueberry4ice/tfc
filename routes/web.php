@@ -62,7 +62,7 @@ use App\Models\Visa;
 //     return view('welcome');
 // });
 
-Route::get('/', HomeComponent::class)->name('home');;
+Route::get('/', HomeComponent::class)->name('countdown');;
 
 Route::get('/sku', AllproductComponent::class)->name('sku.search');
 

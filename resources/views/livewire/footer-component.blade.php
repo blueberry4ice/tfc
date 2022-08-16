@@ -28,13 +28,13 @@
                                 src="{{ asset('assets/img/logo bcai-01.png') }}" alt=""></a>
                     </div>
                 </div>
-                <div class="partner-list">
+                {{-- <div class="partner-list">
                     <div class="bold fz12 partner-name">Preferred Destination Sponsor</div>
                     <div class="partner-logo">
                         <a href="https://www.australia.com/en-us" target="_blank"><img
                                 src="{{ asset('assets/img/nto/AUSSIE-01-01.png') }}" alt=""></a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="partner-list">
                     <div class="bold fz12 partner-name">Telecommunication Partner</div>
                     <div class="partner-logo">
@@ -53,9 +53,9 @@
                         <a target="_blank" class="img-nto" href="https://atibusinessgroup.com/" style="width: 33.3334%">
                             <img src="{{ asset('assets/img/logo-ati.png') }}" class="img-nto" style="width: 50%" alt="">
                         </a>
-                        <a target="_blank" class="img-nto" href="https://www.c-led.co.id/" style="width: 33.3334%">
+                        {{-- <a target="_blank" class="img-nto" href="https://www.c-led.co.id/" style="width: 33.3334%">
                             <img src="{{ asset('assets/img/caiyida1.png') }}" alt="">
-                        </a>
+                        </a> --}}
                     
                     </div>
                 </div>
@@ -91,48 +91,50 @@
                 <div class="partner-list partner-group">
                     <div class="bold fz12 partner-name">Participating Airlines</div>
                     <div class="partner-logo" style="display: flex;">
-                        <img src="{{ asset('assets/img/airlines/ana.png') }}" alt="" class="ic_ana">
+                        <img src="{{ asset('assets/img/airlines/ana.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/cathaypacific_master-logo_vertical_green_en.png') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/01 Intl-Sig-SkyTeam-4C.jpg') }}" alt=""
                             class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
+                            <img src="{{ asset('assets/img/airlines/ek.png') }}" alt=""
                             class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/ey.png') }}" alt="" class="ic_ey">
+                        {{-- <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
+                            class="ic_sq"> --}}
+                        <img src="{{ asset('assets/img/airlines/ey.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
                             class="ic_sq">
-                            <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_ga">
+                            <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_sq">
+                            <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt="" class="ic_sq">
 
                         {{-- <img src="{{ asset('assets/img/ek.png') }}" alt="" class="ic_ek"> --}}
                     </div>
                     <div class="partner-logo" style="display: flex;">
                         {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
-                        <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt=""
+                        <img src="{{ asset('assets/img/airlines/MH_Logo.png') }}" alt=""
+                            class="ic_sq" style="width: 35%">
+                            <img src="{{ asset('assets/img/airlines/PAS_Logo_Final_220107.png') }}" alt=""
+                            class="ic_sq" style="width: 35%">
+                            <img src="{{ asset('assets/img/airlines/4-Star PAL logo 2-liner W-01.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
                         <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
-
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr">
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq">
-                            <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq">
+                            {{-- <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq"> --}}
 
                     </div>
                 </div>
-                <div class="partner-list partner-group">
+                {{-- <div class="partner-list partner-group">
                     <div class="bold fz12 partner-name">NTO Partners</div>
                     <div class="partner-logo" style="display: flex;">
-                        {{-- <a target="_blank" class="img-nto" href="https://www.visitdubai.com/en">
-                            <img src="{{ asset('assets/img/dubai-nto.png') }}" class="ic_dubai" alt="">
-                        </a> --}}
+
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
                             <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea" alt="">
                         </a>
-                        {{-- <a target="_blank" class="img-nto" href="https://livetour.istaging.com/3f3f101b-3cca-4338-99ba-833737457b2f?group=5a49f680-73a8-49e4-b417-56599091cee5&index=1">
-                            <img src="{{ asset('assets/img/taiwan-nto.jpg') }}" class="ic_taiwan" alt="">
-                        </a> --}}
+
                         <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
                             <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_thai" alt="">
                         </a>
@@ -145,7 +147,7 @@
                                 alt="">
                         </a>
                     </div>
-                </div>
+                </div> --}}
                 <div class="partner-list partner-group partner-support">
                     <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo">
