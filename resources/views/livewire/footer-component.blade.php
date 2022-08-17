@@ -18,7 +18,7 @@
                     <div class="bold fz12 partner-name">Bank Partner</div>
                     <div class="partner-logo">
                         <a href="https://www.bca.co.id/en/Individu" target="_blank"><img
-                                src="{{ asset('assets/img/5-bank.png') }}" alt=""> </a>
+                                src="{{ asset('assets/img/5-bank.png') }}" alt="" style="max-width: 75%"> </a>
                     </div>
                 </div>
                 <div class="partner-list">
@@ -39,7 +39,7 @@
                     <div class="bold fz12 partner-name">Telecommunication Partner</div>
                     <div class="partner-logo">
                         <a href="https://www.telkomsel.com/" target="_blank"><img
-                                src="{{ asset('assets/img/telkomsel.png') }}" alt="" style="max-height: 75%"></a>
+                                src="{{ asset('assets/img/telkomsel.png') }}" alt="" style="max-width: 80%"></a>
                     </div>
                 </div>
                 <div class="partner-list partner-group partner-tech">
@@ -47,14 +47,14 @@
                     <div class="partner-logo">
           
                         <a target="_blank" class="img-nto" href="http://www.travelportindonesia.com" style="width: 33.3334%">
-                            <img src="{{ asset('assets/img/galileo.png') }}" alt="">
+                            <img src="{{ asset('assets/img/galileo.png') }}" alt="" style="padding: 0;">
                         </a>
                        
                         <a target="_blank" class="img-nto" href="https://atibusinessgroup.com/" style="width: 33.3334%">
                             <img src="{{ asset('assets/img/logo-ati.png') }}" class="img-nto" style="width: 50%" alt="">
                         </a>
                         {{-- <a target="_blank" class="img-nto" href="https://www.c-led.co.id/" style="width: 33.3334%">
-                            <img src="{{ asset('assets/img/caiyida1.png') }}" alt="">
+                            <img src="{{ asset('assets/img/caiyida1.png') }}" alt="" style="width: 60%">
                         </a> --}}
                     
                     </div>
@@ -95,7 +95,7 @@
                         <img src="{{ asset('assets/img/airlines/cathaypacific_master-logo_vertical_green_en.png') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/01 Intl-Sig-SkyTeam-4C.jpg') }}" alt=""
-                            class="ic_sq">
+                            class="ic_sq" style="max-width: 40%">
                         <img src="{{ asset('assets/img/airlines/ek.png') }}" alt=""
                             class="ic_sq">
                         {{-- <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
@@ -109,8 +109,10 @@
                     </div>
                     <div class="partner-logo" style="display: flex;">
                         {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
-                        <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt="" class="ic_sq">
+                        <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" 
+                            class="ic_sq" style="max-width: 35%">
+                        <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt="" 
+                            class="ic_sq" style="max-width: 20%">
                         <img src="{{ asset('assets/img/airlines/MH_Logo.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
                         <img src="{{ asset('assets/img/airlines/PAS_Logo_Final_220107.png') }}" alt=""
@@ -123,7 +125,7 @@
                     <div class="partner-logo" style="display: flex;">
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
                             alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr">
+                        <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr" style="max-width: 30%">
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq">
@@ -155,10 +157,10 @@
                     <div class="partner-logo">
                         
                         <a target="_blank" class="support1" href="https://dinaskebudayaan.jakarta.go.id/">
-                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 70%" alt="">
+                            <img src="{{ asset('assets/img/dinas.png') }}" style="max-width: 65%" alt="">
                         </a>
                         <a target="_blank" class="support2" href="https://www.jakarta-tourism.go.id/">
-                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 90%" alt="">
+                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" style="max-width: 75%" alt="">
                         </a>
                         
                     </div>
