@@ -116,13 +116,14 @@
                             class="ic_sq" style="width: 35%">
                             <img src="{{ asset('assets/img/airlines/4-Star PAL logo 2-liner W-01.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
-                        <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr">
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq">
+                            <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
+
                             {{-- <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq"> --}}
 
                     </div>

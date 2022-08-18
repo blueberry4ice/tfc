@@ -60,7 +60,7 @@ class HomeComponent extends Component
 // $now = strtotime("03:00:00");
 // $livedt   = strtotime("20:00:00");
 
-        if (date('Y-m-d H:i:s') < '2022-08-16 18:00:00')  {
+        if (date('Y-m-d H:i:s') < '2022-08-19 00:00:00')  {
             // print ('ya');
             return view('livewire.home-component', [
                 'agents' => $agents,
