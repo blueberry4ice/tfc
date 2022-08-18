@@ -5,7 +5,7 @@
 
     @livewire('header-component')
 
-    <section class="bg-wrapper-home">
+    <section class="bg-wrapper-home countdown">
 
         <div class="hero-slider-wrapper">
             <div class="hero-slider-list" style="background-image: url('assets/img/0.jpg')"></div>
@@ -13,6 +13,36 @@
             <div class="hero-slider-list" style="background-image: url('assets/img/2.png')"></div>
             <div class="hero-slider-list" style="background-image: url('assets/img/3.png')"></div>
             <div class="hero-slider-list" style="background-image: url('assets/img/4.png')"></div> --}}
+        </div>
+
+        <div class="inner-cd-container">
+            <div class="main-caption">ASTINDO VIRTUAL <br> TRAVEL FAIR 2022</div>
+            <div class="layout-flex layout-timer">
+                <div class="timer-wrapper">
+                    <div>DAYS</div>
+                    <div class="timer-box">
+                        <div id="days"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>HOURS</div>
+                    <div class="timer-box">
+                        <div id="hours"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>MINUTES</div>
+                    <div class="timer-box">
+                        <div id="minutes"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>SECONDS</div>
+                    <div class="timer-box">
+                        <div id="seconds"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="inner-container">
@@ -347,5 +377,41 @@
 @push('scripts')
     <script>
         new RangeInput(document.querySelector('.range'));
+    </script>
+    <script>
+        // countdown
+        function makeTimer() {
+
+            //      var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");  
+            var endTime = new Date("19 August 2022 18:00:00 GMT+07:00");         
+            endTime = (Date.parse(endTime) / 1000);
+
+            var now = new Date();
+            now = (Date.parse(now) / 1000);
+
+            var timeLeft = endTime - now;
+
+            var days = Math.floor(timeLeft / 86400); 
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+
+            $("#days").html(days);
+            $("#hours").html(hours);
+            $("#minutes").html(minutes);
+            $("#seconds").html(seconds);
+
+            if($('.layout-book').length <= 0){
+                if((days == 0 && hours == 0 && minutes == 0 && seconds == 0) || (days < 0)) {
+                    $('.bg-wrapper-home').removeClass('countdown');
+                }
+            }
+        }
+
+        setInterval(function() { makeTimer(); }, 1000);
     </script>
 @endpush
