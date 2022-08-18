@@ -408,6 +408,7 @@
             if($('.layout-book').length <= 0){
                 if((days == 0 && hours == 0 && minutes == 0 && seconds == 0) || (days < 0)) {
                     $('.bg-wrapper-home').removeClass('countdown');
+                    $('.inner-cd-container').remove();
                 }
             }
         }
