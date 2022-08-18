@@ -62,7 +62,7 @@ class HomeComponent extends Component
 
         if (date('Y-m-d H:i:s') < '2022-08-25 00:00:00')  {
             // print ('ya');
-            return view('livewire.home-component', [
+            return view('livewire.countdown', [
                 'agents' => $agents,
                 'favdests' => $this->favdests,
                 'months' => $months
