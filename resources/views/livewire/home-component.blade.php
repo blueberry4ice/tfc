@@ -378,12 +378,12 @@
     <script>
         new RangeInput(document.querySelector('.range'));
     </script>
-    {{-- <script>
+    <script>
         // countdown
         function makeTimer() {
 
             //      var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");  
-            var endTime = new Date("27 August 2022 00:00:00 GMT+07:00");         
+            var endTime = new Date("1 August 2022 00:00:00 GMT+07:00");         
             endTime = (Date.parse(endTime) / 1000);
 
             var now = new Date();
@@ -413,6 +413,6 @@
             }
         }
 
-        setInterval(function() { makeTimer(); }, 1000);
-    </script> --}}
+        setInterval(function() { makeTimer(); }, 0);
+    </script>
 @endpush
