@@ -242,7 +242,7 @@
                 }
             }
 
-            setInterval(function() { makeTimer(); }, 1000);
+            setInterval(function() { makeTimer(); }, 10);
         </script>
 
 

@@ -5,7 +5,7 @@
 
     @livewire('header-component')
 
-    <section class="bg-wrapper-home countdown">
+    <section class="bg-wrapper-home">
 
         <div class="hero-slider-wrapper">
             <div class="hero-slider-list" style="background-image: url('assets/img/0.jpg')"></div>
@@ -13,36 +13,6 @@
             <div class="hero-slider-list" style="background-image: url('assets/img/2.png')"></div>
             <div class="hero-slider-list" style="background-image: url('assets/img/3.png')"></div>
             <div class="hero-slider-list" style="background-image: url('assets/img/4.png')"></div> --}}
-        </div>
-
-        <div class="inner-cd-container">
-            <div class="main-caption">ASTINDO VIRTUAL <br> TRAVEL FAIR 2022</div>
-            <div class="layout-flex layout-timer">
-                <div class="timer-wrapper">
-                    <div>DAYS</div>
-                    <div class="timer-box">
-                        <div id="days"></div>
-                    </div>
-                </div>
-                <div class="timer-wrapper">
-                    <div>HOURS</div>
-                    <div class="timer-box">
-                        <div id="hours"></div>
-                    </div>
-                </div>
-                <div class="timer-wrapper">
-                    <div>MINUTES</div>
-                    <div class="timer-box">
-                        <div id="minutes"></div>
-                    </div>
-                </div>
-                <div class="timer-wrapper">
-                    <div>SECONDS</div>
-                    <div class="timer-box">
-                        <div id="seconds"></div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="inner-container">
@@ -383,7 +353,7 @@
         function makeTimer() {
 
             //      var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");  
-            var endTime = new Date("1 August 2022 00:00:00 GMT+07:00");         
+            var endTime = new Date("1 September 2022 00:00:00 GMT+07:00");         
             endTime = (Date.parse(endTime) / 1000);
 
             var now = new Date();
@@ -410,9 +380,13 @@
                     $('.bg-wrapper-home').removeClass('countdown');
                     $('.inner-cd-container').remove();
                 }
+                else{
+                    $('.bg-wrapper-home').addClass('countdown');
+                    $('.inner-cd-container').show();
+                }
             }
         }
 
-        setInterval(function() { makeTimer(); }, 0);
+        setInterval(function() { makeTimer(); }, 10);
     </script>
 @endpush
