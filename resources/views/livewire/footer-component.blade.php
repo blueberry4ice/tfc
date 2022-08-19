@@ -119,26 +119,16 @@
                             class="ic_sq" style="width: 35%">
                         <img src="{{ asset('assets/img/airlines/4-Star PAL logo 2-liner W-01.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
-<<<<<<< HEAD
-=======
                         <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
                             {{-- <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq"> --}}
                     </div>
                     <div class="partner-logo" style="display: flex;">
->>>>>>> 05d33ab68078396bc08b7d95693022b6e2e0596e
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
                             alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr" style="max-width: 30%">
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq">
-<<<<<<< HEAD
-                            <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
-
-                            {{-- <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq"> --}}
-
-=======
->>>>>>> 05d33ab68078396bc08b7d95693022b6e2e0596e
                     </div>
                 </div>
                 {{-- <div class="partner-list partner-group">
