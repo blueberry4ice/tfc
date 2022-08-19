@@ -94,20 +94,22 @@
                         <img src="{{ asset('assets/img/airlines/ana.png') }}" alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/cathaypacific_master-logo_vertical_green_en.png') }}"
                             alt="" class="ic_sq">
+                            <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
+                            class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/01 Intl-Sig-SkyTeam-4C.jpg') }}" alt=""
                             class="ic_sq" style="max-width: 40%">
                         <img src="{{ asset('assets/img/airlines/ek.png') }}" alt=""
                             class="ic_sq">
-                        {{-- <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
-                            class="ic_sq"> --}}
+                        
                         <img src="{{ asset('assets/img/airlines/ey.png') }}" alt="" class="ic_sq">
-                        <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
-                            class="ic_sq">
+                        
                         
 
                         {{-- <img src="{{ asset('assets/img/ek.png') }}" alt="" class="ic_ek"> --}}
                     </div>
                     <div class="partner-logo" style="display: flex;">
+                        <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
+                            class="ic_sq">
                         {{-- <img src="{{ asset('assets/img/airlines/logo_saudia.png') }}" alt="" class="ic_sq"> --}}
                         <img src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" 
                             class="ic_sq" style="max-width: 35%">
@@ -119,16 +121,18 @@
                             class="ic_sq" style="width: 35%">
                         <img src="{{ asset('assets/img/airlines/4-Star PAL logo 2-liner W-01.png') }}" alt=""
                             class="ic_sq" style="width: 35%">
-                        <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
+                           
                             {{-- <img src="{{ asset('assets/img/airlines/LOGO SUPER AIR JET-01.png') }}" alt="" class="ic_sq"> --}}
                     </div>
                     <div class="partner-logo" style="display: flex;">
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}"
-                            alt="" class="ic_sq">
+                        alt="" class="ic_sq">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr" style="max-width: 30%">
                         <img src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq">
+                        
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq">
+                            <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
                     </div>
                 </div>
                 {{-- <div class="partner-list partner-group">
