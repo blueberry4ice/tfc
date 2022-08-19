@@ -135,15 +135,29 @@
                             <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
                     </div>
                 </div>
-                {{-- <div class="partner-list partner-group">
+                <div class="partner-list partner-group">
                     <div class="bold fz12 partner-name">NTO Partners</div>
                     <div class="partner-logo" style="display: flex;">
 
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                            <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea" alt="">
+                            <img src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea" alt="">
                         </a>
-
-                        <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea" alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea" alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea" alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea" alt="">
+                        </a>
+                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                            <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea" alt="">
+                        </a>
+                        {{-- <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
                             <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_thai" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="https://www.tourism.gov.my/">
@@ -153,9 +167,9 @@
                         <a target="_blank" class="img-nto" href="https://www.stb.gov.sg/">
                             <img src="{{ asset('assets/img/nto/Stacked_BlackTagline.png') }}" class="ic_thai"
                                 alt="">
-                        </a>
+                        </a> --}}
                     </div>
-                </div> --}}
+                </div>
                 <div class="partner-list partner-group partner-support">
                     <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo">
