@@ -381,11 +381,7 @@
         function makeTimer() {
 
             //      var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");  
-<<<<<<< HEAD
-            var endTime = new Date("22 August 2022 00:00:00");         
-=======
             var endTime = new Date("1 September 2022 00:00:00");         
->>>>>>> 8a8889419d5e39423111a525755382f0051e8de0
             endTime = (Date.parse(endTime) / 1000);
 
             var now = new Date();
