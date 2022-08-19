@@ -15,13 +15,41 @@
             <div class="hero-slider-list" style="background-image: url('assets/img/4.png')"></div> --}}
         </div>
 
+        <div class="inner-cd-container">
+            <div class="main-caption">ASTINDO VIRTUAL <br> TRAVEL FAIR 2022</div>
+            <div class="layout-flex layout-timer">
+                <div class="timer-wrapper">
+                    <div>DAYS</div>
+                    <div class="timer-box">
+                        <div id="days"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>HOURS</div>
+                    <div class="timer-box">
+                        <div id="hours"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>MINUTES</div>
+                    <div class="timer-box">
+                        <div id="minutes"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>SECONDS</div>
+                    <div class="timer-box">
+                        <div id="seconds"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="inner-container">
             <div class="caption-home">
                 <h1>Where are you travelling next?</h1>
             </div>
         </div>
-
-        
 
         <div class="bg-white search-form">
             <form action="{{ route('product.search', ['menu' => 0]) }}" method="GET" id="form-search-product"
@@ -353,7 +381,11 @@
         function makeTimer() {
 
             //      var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");  
+<<<<<<< HEAD
             var endTime = new Date("22 August 2022 00:00:00");         
+=======
+            var endTime = new Date("1 September 2022 00:00:00");         
+>>>>>>> 8a8889419d5e39423111a525755382f0051e8de0
             endTime = (Date.parse(endTime) / 1000);
 
             var now = new Date();
