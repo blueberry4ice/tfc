@@ -142,7 +142,7 @@
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
                             <img src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea" alt="">
                         </a>
-                        <a target="" class="img-nto" href="">
+                        <a  class="img-nto">
                             <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="https://taiwantourism.id/">
@@ -151,10 +151,10 @@
                         <a target="_blank" class="img-nto" href="http://www.wisatathailand.id/">
                             <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea" alt="">
                         </a>
-                        <a target="" class="img-nto" href="">
+                        <a  class="img-nto" >
                             <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea" alt="">
                         </a>
-                        <a target="" class="img-nto" href="">
+                        <a  class="img-nto">
                             <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea" alt="">
                         </a>
                         {{-- <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
