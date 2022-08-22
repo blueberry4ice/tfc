@@ -135,12 +135,12 @@
                             <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq">
                     </div>
                 </div>
-                <div class="partner-list partner-group">
+                <div class="partner-list partner-group" style="width: 67%">
                     <div class="bold fz12 partner-name">NTO Partners</div>
                     <div class="partner-logo" style="display: flex;">
 
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                            <img src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea" alt="">
+                            <img src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea" alt="" style="padding: 0">
                         </a>
                         <a  class="img-nto">
                             <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea" alt="">
