@@ -341,5 +341,5 @@ $(document).on('change','.js-custom-select',function(e){
 });
 
 $(function() {
-    $(".partner-logo img").lazyload();
+    $(".partner-logo img").lazy();
 });
