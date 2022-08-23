@@ -340,6 +340,6 @@ $(document).on('change','.js-custom-select',function(e){
 
 });
 
-$(function() {
-    $(".partner-logo img").lazy();
+$(document).ready(function(){
+    $(".lazy").Lazy();
 });
