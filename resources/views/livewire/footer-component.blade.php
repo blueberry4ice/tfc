@@ -142,7 +142,7 @@
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
                             <img src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea" alt="" style="padding: 0">
                         </a>
-                        <a  class="img-nto">
+                        <a target="_blank" class="img-nto" href="https://www.visitdubai.com/">
                             <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="https://taiwantourism.id/">

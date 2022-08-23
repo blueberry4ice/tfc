@@ -255,7 +255,7 @@
                 <div class="section-title">Travel Destinations</div>
             </div>
             <div class="flex-wrap layout-flex space-between">
-                {{-- <a target="_blank" href="https://www.iatatravelcentre.com/world.php" title="" class="flex-two">
+                <a target="_blank" href="https://www.iatatravelcentre.com/world.php" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -271,7 +271,7 @@
                             </div>
                         </div>
                     </div>
-                </a> --}}
+                </a>
                 <a target="_blank" href="https://www.indonesia.travel/gb/en/home" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
@@ -289,7 +289,7 @@
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://www.malaysia.travel/" title="" class="flex-two">
+                <a target="_blank" href="https://www.visitkorea.or.id/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -297,10 +297,8 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Korea Tourism Organization</div>
-                                <div class="tip-desc truncate-list" data-height="80">Be it first time visitors or seasoned travellers, our calendar is packed with activities so that there is always something new to discover.
-
-
+                                <div class="tips-title">Dubai</div>
+                                <div class="tip-desc truncate-list" data-height="80">Welcome to Dubai - where anything is possible
                                 </div>
                             </div>
                         </div>
@@ -310,18 +308,33 @@
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/2.png')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/1.png')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Taiwan Tourism</div>
-                                <div class="tip-desc truncate-list" data-height="80">South Korea has a lot to offer: a rich and unique Asian culture, amazing Buddhist temples, UNESCO World Heritage Sites, delicious and healthy cuisine and a
+                                <div class="tips-title">Korea Tourism Organization</div>
+                                <div class="tip-desc truncate-list" data-height="80">#SaatnyaKeKoreaLagi #TraveltoKoreaBeginsAgain
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://www.visitsingapore.com/en/" title="" class="flex-two">
+                <a target="_blank" href="https://taiwantourism.id/" title="" class="flex-two">
+                    <div class="tips-list bordered-box">
+                        <div class="clearfix">
+                            <div class="pull-left w40 tips-left">
+                                <div class="tips-left-image" style="background-image: url('assets/img/2.png')">
+                                </div>
+                            </div>
+                            <div class="pull-left w60 tips-right">
+                                <div class="tips-title">Taiwan Tourism</div>
+                                <div class="tip-desc truncate-list" data-height="80">Time for Taiwan. Taiwan The Heart of Asia
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <a target="_blank" href="https://www.wisatathailand.id" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -330,13 +343,13 @@
                             </div>
                             <div class="pull-left w60 tips-right">
                                 <div class="tips-title">Tourism Authority of Thailand</div>
-                                <div class="tip-desc truncate-list" data-height="80">From luxury retail to world-class international cuisines, Singapore’s most famous shopping precinct is home to a wealth of experiences.
+                                <div class="tip-desc truncate-list" data-height="80">The Tourism Authority of Thailand (TAT) is an organization that operates under the Thai Ministry of Tourism and Sports. TAT Jakarta or also known as Wisata Thailand, is responsible for promoting Thai tourism destinations for Indonesian tourists.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="http://www.thaiembassyjakarta.com/en/consular-services/important-information-on-visa-application/" title="" class="flex-two">
+                <a target="_blank" href="http://" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -346,25 +359,12 @@
                             <div class="pull-left w60 tips-right">
                                 <div class="tips-title">Philipines Department of Tourism</div>
                                 <div class="tip-desc truncate-list" data-height="80">Sawasdee!
-                                    Per 1 November, Thailand telah menambahkan beberapa negara, termasuk Indonesia ke dalam list negara yang diperbolehkan masuk tanpa wajib menjalani karantina.
-                                    
-                                    Syarat :
-                                    - Mengajukan ThailandPass (pengganti CoE) melalui link https://tp.consular.go.th/en/plan
-                                    - Persyaratan dokumen : 
-                                       * passport dengan masa berlaku min. 6 bulan
-                                       * telah melakukan full vaksinasi 
-                                       * memiliki asuransi senilai min. USD 50.000 (setara dengan Rp 700jt-an)
-                                    - Melakukan booking hotel SHA+ min. 1 malam untuk menunggu hasil RT-PCR (www thailandsha.com)
-                                    - Jika hasil PCR dinyatakan negatif, wisatawan diperbolehkan melanjutkan wisata di Thailand
-                                    
-                                    Informasi selengkapnya silahkan lihat link Royal Thai Embassy Jakarta berikut :
-                                    http://www.thaiembassyjakarta.com/en/consular-services/important-information-on-visa-application/
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="http://www.thaiembassyjakarta.com/en/consular-services/important-information-on-visa-application/" title="" class="flex-two">
+                <a target="_blank" href="http://" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -374,19 +374,6 @@
                             <div class="pull-left w60 tips-right">
                                 <div class="tips-title">Japan National Tourism Organization</div>
                                 <div class="tip-desc truncate-list" data-height="80">Sawasdee!
-                                    Per 1 November, Thailand telah menambahkan beberapa negara, termasuk Indonesia ke dalam list negara yang diperbolehkan masuk tanpa wajib menjalani karantina.
-                                    
-                                    Syarat :
-                                    - Mengajukan ThailandPass (pengganti CoE) melalui link https://tp.consular.go.th/en/plan
-                                    - Persyaratan dokumen : 
-                                       * passport dengan masa berlaku min. 6 bulan
-                                       * telah melakukan full vaksinasi 
-                                       * memiliki asuransi senilai min. USD 50.000 (setara dengan Rp 700jt-an)
-                                    - Melakukan booking hotel SHA+ min. 1 malam untuk menunggu hasil RT-PCR (www thailandsha.com)
-                                    - Jika hasil PCR dinyatakan negatif, wisatawan diperbolehkan melanjutkan wisata di Thailand
-                                    
-                                    Informasi selengkapnya silahkan lihat link Royal Thai Embassy Jakarta berikut :
-                                    http://www.thaiembassyjakarta.com/en/consular-services/important-information-on-visa-application/
                                 </div>
                             </div>
                         </div>
