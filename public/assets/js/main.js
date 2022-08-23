@@ -339,3 +339,7 @@ $(document).on('change','.js-custom-select',function(e){
 	_place.hide();
 
 });
+
+$(function() {
+    $(".partner-logo img").lazyload();
+});

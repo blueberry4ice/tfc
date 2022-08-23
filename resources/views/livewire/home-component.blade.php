@@ -15,13 +15,41 @@
             <div class="hero-slider-list" style="background-image: url('assets/img/4.png')"></div> --}}
         </div>
 
+        <div class="inner-cd-container">
+            <div class="main-caption">ASTINDO VIRTUAL <br> TRAVEL FAIR 2022</div>
+            <div class="layout-flex layout-timer">
+                <div class="timer-wrapper">
+                    <div>DAYS</div>
+                    <div class="timer-box">
+                        <div id="days"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>HOURS</div>
+                    <div class="timer-box">
+                        <div id="hours"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>MINUTES</div>
+                    <div class="timer-box">
+                        <div id="minutes"></div>
+                    </div>
+                </div>
+                <div class="timer-wrapper">
+                    <div>SECONDS</div>
+                    <div class="timer-box">
+                        <div id="seconds"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="inner-container">
             <div class="caption-home">
                 <h1>Where are you travelling next?</h1>
             </div>
         </div>
-
-        
 
         <div class="bg-white search-form">
             <form action="{{ route('product.search', ['menu' => 0]) }}" method="GET" id="form-search-product"
@@ -152,7 +180,7 @@
     </section>
 
     <!-- favorite destination -->
-    <section class="fav-destination">
+    {{-- <section class="fav-destination">
         <div class="inner-container">
             <div class="text-center">
                 <div class="section-title">Preferred destinations</div>
@@ -172,7 +200,7 @@
                                 <div class="fav-text fz20">{{ $favdest['name'] }}</div>
                             </div>
                         </div>
-                    @endforeach 
+                    @endforeach  --}}
                     {{-- <div class="fav-des-list" onclick="location.href='/search/0?destination=Dubai';">
                         <div class="fav-list bordered-box">
                             <div class="image-portrait-wrapper">
@@ -189,14 +217,14 @@
                             <div class="fav-text fz20">Thailand</div>
                         </div>
                     </div> --}}
-                </div>
+                {{-- </div> --}}
                 {{-- <div class="arrow-fav-wrapper">
                     <i class="fa fa-caret-left arrow-fav left-arrow"></i>
                     <i class="fa fa-caret-left arrow-fav right-arrow"></i>
                 </div> --}}
-            </div>
+            {{-- </div>
         </div>
-    </section>
+    </section> --}}
 
     <!-- favorite agent -->
     <section class="fav-agent">
@@ -224,10 +252,10 @@
     <section class="travelling-tips">
         <div class="inner-container">
             <div class="text-center">
-                <div class="section-title">Travel Essential</div>
+                <div class="section-title">Travel Destinations</div>
             </div>
             <div class="flex-wrap layout-flex space-between">
-                <a target="_blank" href="https://www.iatatravelcentre.com/world.php" title="" class="flex-two">
+                {{-- <a target="_blank" href="https://www.iatatravelcentre.com/world.php" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -243,7 +271,7 @@
                             </div>
                         </div>
                     </div>
-                </a>
+                </a> --}}
                 <a target="_blank" href="https://www.indonesia.travel/gb/en/home" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
@@ -261,7 +289,7 @@
                         </div>
                     </div>
                 </a>
-                {{-- <a target="_blank" href="https://www.malaysia.travel/" title="" class="flex-two">
+                <a target="_blank" href="https://www.malaysia.travel/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
@@ -269,7 +297,7 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Malaysia</div>
+                                <div class="tips-title">Korea Tourism Organization</div>
                                 <div class="tip-desc truncate-list" data-height="80">Be it first time visitors or seasoned travellers, our calendar is packed with activities so that there is always something new to discover.
 
 
@@ -286,7 +314,7 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Korea</div>
+                                <div class="tips-title">Taiwan Tourism</div>
                                 <div class="tip-desc truncate-list" data-height="80">South Korea has a lot to offer: a rich and unique Asian culture, amazing Buddhist temples, UNESCO World Heritage Sites, delicious and healthy cuisine and a
                                 </div>
                             </div>
@@ -301,7 +329,7 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Singapore</div>
+                                <div class="tips-title">Tourism Authority of Thailand</div>
                                 <div class="tip-desc truncate-list" data-height="80">From luxury retail to world-class international cuisines, Singapore’s most famous shopping precinct is home to a wealth of experiences.
                                 </div>
                             </div>
@@ -316,7 +344,7 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Thailand</div>
+                                <div class="tips-title">Philipines Department of Tourism</div>
                                 <div class="tip-desc truncate-list" data-height="80">Sawasdee!
                                     Per 1 November, Thailand telah menambahkan beberapa negara, termasuk Indonesia ke dalam list negara yang diperbolehkan masuk tanpa wajib menjalani karantina.
                                     
@@ -335,7 +363,35 @@
                             </div>
                         </div>
                     </div>
-                </a> --}}
+                </a>
+                <a target="_blank" href="http://www.thaiembassyjakarta.com/en/consular-services/important-information-on-visa-application/" title="" class="flex-two">
+                    <div class="tips-list bordered-box">
+                        <div class="clearfix">
+                            <div class="pull-left w40 tips-left">
+                                <div class="tips-left-image" style="background-image: url('assets/img/phuket.jpg')">
+                                </div>
+                            </div>
+                            <div class="pull-left w60 tips-right">
+                                <div class="tips-title">Japan National Tourism Organization</div>
+                                <div class="tip-desc truncate-list" data-height="80">Sawasdee!
+                                    Per 1 November, Thailand telah menambahkan beberapa negara, termasuk Indonesia ke dalam list negara yang diperbolehkan masuk tanpa wajib menjalani karantina.
+                                    
+                                    Syarat :
+                                    - Mengajukan ThailandPass (pengganti CoE) melalui link https://tp.consular.go.th/en/plan
+                                    - Persyaratan dokumen : 
+                                       * passport dengan masa berlaku min. 6 bulan
+                                       * telah melakukan full vaksinasi 
+                                       * memiliki asuransi senilai min. USD 50.000 (setara dengan Rp 700jt-an)
+                                    - Melakukan booking hotel SHA+ min. 1 malam untuk menunggu hasil RT-PCR (www thailandsha.com)
+                                    - Jika hasil PCR dinyatakan negatif, wisatawan diperbolehkan melanjutkan wisata di Thailand
+                                    
+                                    Informasi selengkapnya silahkan lihat link Royal Thai Embassy Jakarta berikut :
+                                    http://www.thaiembassyjakarta.com/en/consular-services/important-information-on-visa-application/
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -347,5 +403,46 @@
 @push('scripts')
     <script>
         new RangeInput(document.querySelector('.range'));
+    </script>
+    <script>
+        // countdown
+        function makeTimer() {
+
+            //      var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");  
+            var endTime = new Date("1 September 2022 00:00:00");         
+            endTime = (Date.parse(endTime) / 1000);
+
+            var now = new Date();
+            now = (Date.parse(now) / 1000);
+
+            var timeLeft = endTime - now;
+
+            var days = Math.floor(timeLeft / 86400); 
+            var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+            var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+            var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+            if (hours < "10") { hours = "0" + hours; }
+            if (minutes < "10") { minutes = "0" + minutes; }
+            if (seconds < "10") { seconds = "0" + seconds; }
+
+            $("#days").html(days);
+            $("#hours").html(hours);
+            $("#minutes").html(minutes);
+            $("#seconds").html(seconds);
+
+            if($('.layout-book').length <= 0){
+                if((days == 0 && hours == 0 && minutes == 0 && seconds == 0) || (days < 0)) {
+                    $('.bg-wrapper-home').removeClass('countdown');
+                    $('.inner-cd-container').remove();
+                }
+                else{
+                    $('.bg-wrapper-home').addClass('countdown');
+                    $('.inner-cd-container').show();
+                }
+            }
+        }
+
+        setInterval(function() { makeTimer(); }, 10);
     </script>
 @endpush
