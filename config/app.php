@@ -52,9 +52,9 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://astindo.ati-bv.dev'),
+    'url' => env('APP_URL', ''),
 
-    'asset_url' => env('ASSET_URL', 'https://astindo.ati-bv.dev'),
+    'asset_url' => env('ASSET_URL', ''),
 
     /*
     |--------------------------------------------------------------------------
