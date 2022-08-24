@@ -389,7 +389,11 @@
 
 @push('scripts')
     <script>
-        new RangeInput(document.querySelector('.range'));
+        const myTimeout = setTimeout(rangeSlider, 1000);
+
+        function rangeSlider() {
+          new RangeInput(document.querySelector('.range'));
+        }
     </script>
     <script>
         // countdown
