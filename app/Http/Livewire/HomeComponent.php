@@ -9,13 +9,20 @@ use Livewire\Component;
 class HomeComponent extends Component
 {
     public $favdests;
+    public $readyToLoad = false;
+
+    public function loadPosts()
+    {
+        $this->readyToLoad = true;
+    }
+
     public function render()
     {
         $agents = Agent::all();
         $this->favdests = [
             0 => [
-                'name' => 'Australia',
-                'thumbnail' => 'pref australia.jpg',
+                'name' => 'Philippines',
+                'thumbnail' => 'pref philipines.jpeg',
             ],
             // 1 => [
             //     'name' => 'Korea',
