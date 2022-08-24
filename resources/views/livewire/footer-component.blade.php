@@ -140,7 +140,7 @@
                     <div class="partner-logo" style="display: flex;">
 
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                            <img src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea" alt="" style="padding: 0">
+                            <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="https://www.visitdubai.com/">
                             <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea" alt="">
@@ -149,12 +149,12 @@
                             <img src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea" alt="">
                         </a>
                         <a target="_blank" class="img-nto" href="http://www.wisatathailand.id/">
-                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea" alt="">
+                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea" alt="" style="max-width: 75%">
                         </a>
-                        <a  class="img-nto" >
+                        <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
                             <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea" alt="">
                         </a>
-                        <a  class="img-nto">
+                        <a target="_blank" class="img-nto" href="https://www.japan.travel/id/id/">
                             <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea" alt="">
                         </a>
                         {{-- <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
@@ -207,10 +207,10 @@
                     </div>
                 </div>
                 <div class="partner-list partner-venue">
-                    <div class="bold fz12 partner-name">Organized by</div>
+                    <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo">
-                        <a href="https://dexkreasi.com" target="_blank"><img
-                                src="{{ asset('assets/img/Logo DEX.png') }}" alt="" style="max-width: 35%"> </a>
+                        <a href="https://rwcruises.com/" target="_blank"><img
+                                src="{{ asset('assets/img/rwc.png') }}" alt=""> </a>
 
                     </div>
                 </div>

@@ -180,7 +180,7 @@
     </section>
 
     <!-- favorite destination -->
-    {{-- <section class="fav-destination">
+    <section class="fav-destination">
         <div class="inner-container">
             <div class="text-center">
                 <div class="section-title">Preferred destinations</div>
@@ -200,7 +200,7 @@
                                 <div class="fav-text fz20">{{ $favdest['name'] }}</div>
                             </div>
                         </div>
-                    @endforeach  --}}
+                    @endforeach 
                     {{-- <div class="fav-des-list" onclick="location.href='/search/0?destination=Dubai';">
                         <div class="fav-list bordered-box">
                             <div class="image-portrait-wrapper">
@@ -222,9 +222,9 @@
                     <i class="fa fa-caret-left arrow-fav left-arrow"></i>
                     <i class="fa fa-caret-left arrow-fav right-arrow"></i>
                 </div> --}}
-            {{-- </div>
+            </div>
         </div>
-    </section> --}}
+    </section>
 
     <!-- favorite agent -->
     <section class="fav-agent">
