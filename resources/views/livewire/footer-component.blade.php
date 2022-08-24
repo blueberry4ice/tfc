@@ -60,7 +60,7 @@
                     <div class="partner-logo" style="display: flex;">
                         <img data-src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
                             class="ic_sq lazy">
-                        <img data-src="{{ asset('assets/img/airlines/garuda.png') }}" alt="" 
+                        <img data-src="{{ asset('assets/img/airlines/LOGO GA HORIZONTAL-01.png') }}" alt="" 
                             class="ic_sq lazy" style="max-width: 35%">
                         <img data-src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt="" 
                             class="ic_sq lazy" style="max-width: 20%">
@@ -75,21 +75,25 @@
                         <img data-src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}" 
                         alt="" class="ic_sq lazy">
                         <img data-src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr lazy" style="max-width: 30%">
-                        <img data-src="{{ asset('assets/img/airlines/sq.png') }}" alt="" class="ic_sq lazy">
+                        <img data-src="{{ asset('assets/img/airlines/singapore air.png') }}" alt="" class="ic_sq lazy">
                         <img data-src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
                             class="ic_sq lazy">
                         <img data-src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq lazy">
                     </div>
                 </div>
-                <div class="partner-list partner-group" style="width: 67%">
+                <div class="partner-list partner-group partner-support">
+                    <div class="bold fz12 partner-name">NTO Sponsor</div>
+                    <div class="partner-logo">
+                        <a target="_blank" class="support1" href="https://www.tourism.gov.ph/">
+                            <img data-src="{{ asset('assets/img/nto/Logo PDOT - DOT.png') }}" class="lazy" style="max-width: 65%" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="partner-list partner-group  partner-support" style="width: 67%">
                     <div class="bold fz12 partner-name">NTO Partners</div>
                     <div class="partner-logo" style="display: flex;">
                         <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-<<<<<<< HEAD
-                            <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea" alt="">
-=======
-                            <img data-src="{{ asset('assets/img/nto/LOGO KTO-1.png') }}" class="ic_korea lazy" alt="" style="padding: 0">
->>>>>>> 01ce5cfa94f2246c3d1bdb1b203dc755c6e5dc7b
+                            <img data-src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea lazy" alt="" style="padding: 0">
                         </a>
                         <a target="_blank" class="img-nto" href="https://www.visitdubai.com/">
                             <img data-src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea lazy" alt="">
@@ -97,27 +101,14 @@
                         <a target="_blank" class="img-nto" href="https://taiwantourism.id/">
                             <img data-src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea lazy" alt="">
                         </a>
-                        <a target="_blank" class="img-nto" href="http://www.wisatathailand.id/">
-<<<<<<< HEAD
-                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea" alt="" style="max-width: 75%">
-                        </a>
-                        <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
-                            <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea" alt="">
-                        </a>
-                        <a target="_blank" class="img-nto" href="https://www.japan.travel/id/id/">
-                            <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea" alt="">
-                        </a>
-                        {{-- <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
-                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_thai" alt="">
-=======
+                        <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
                             <img data-src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea lazy" alt="">
                         </a>
-                        <a  class="img-nto" >
+                        <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
                             <img data-src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea lazy" alt="">
                         </a>
-                        <a  class="img-nto">
+                        <a target="_blank" class="img-nto" href="http://www.japan.travel/id/id/">
                             <img data-src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea lazy" alt="">
->>>>>>> 01ce5cfa94f2246c3d1bdb1b203dc755c6e5dc7b
                         </a>
                     </div>
                 </div>
@@ -143,15 +134,8 @@
                 <div class="partner-list partner-venue">
                     <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo">
-<<<<<<< HEAD
                         <a href="https://rwcruises.com/" target="_blank"><img
                                 src="{{ asset('assets/img/rwc.png') }}" alt=""> </a>
-
-=======
-                        <a href="https://dexkreasi.com" target="_blank">
-                            <img data-src="{{ asset('assets/img/Logo DEX.png') }}" alt="" class="lazy" style="max-width: 35%"> 
-                        </a>
->>>>>>> 01ce5cfa94f2246c3d1bdb1b203dc755c6e5dc7b
                     </div>
                 </div>
             </div>

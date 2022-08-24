@@ -9,6 +9,13 @@ use Livewire\Component;
 class HomeComponent extends Component
 {
     public $favdests;
+    public $readyToLoad = false;
+
+    public function loadPosts()
+    {
+        $this->readyToLoad = true;
+    }
+
     public function render()
     {
         $agents = Agent::all();

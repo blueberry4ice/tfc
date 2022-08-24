@@ -233,7 +233,7 @@
                 <div class="section-title">Chat to your favorite Travel Agent</div>
             </div>
             <div class="fav-agent-wrapper">
-                <div class="clearfix favagent-inner-container">
+                <div wire:init="loadPosts" class="clearfix favagent-inner-container">
                     @foreach ($agents as $agent)
                         <a href="{{ $agent->url }}" target="_blank" title="">
                             <div class="fav-agent-list">
