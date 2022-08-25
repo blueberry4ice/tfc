@@ -235,13 +235,24 @@
             <div class="fav-agent-wrapper" wire:init="loadAgents">
                 <div  class="clearfix favagent-inner-container">
                     @foreach ($agents as $agent)
-                        <a href="{{ $agent->url }}" target="_blank" title="">
-                            <div class="fav-agent-list">
-                                <div class="fav-list">
-                                    <img src="{{ asset('storage/agent/'.$agent->thumbnail) }}" alt="">
-                                </div>
+                    @if ($agent->url)
+                    <a href="{{ $agent->url }}" target="_blank" title="">
+                        <div class="fav-agent-list">
+                            <div class="fav-list">
+                                <img src="{{ asset('storage/agent/'.$agent->thumbnail) }}" alt="">
                             </div>
-                        </a>
+                        </div>
+                    </a>
+                    @else
+                    <a title="">
+                        <div class="fav-agent-list">
+                            <div class="fav-list">
+                                <img src="{{ asset('storage/agent/'.$agent->thumbnail) }}" alt="">
+                            </div>
+                        </div>
+                    </a>
+                    @endif
+                        
                     @endforeach
                 </div>
             </div>
@@ -252,7 +263,7 @@
     <section class="travelling-tips">
         <div class="inner-container">
             <div class="text-center">
-                <div class="section-title">Travel Destinations</div>
+                <div class="section-title">Explore More</div>
             </div>
             <div class="flex-wrap layout-flex space-between">
                 <a target="_blank" href="https://www.iatatravelcentre.com/world.php" title="" class="flex-two">

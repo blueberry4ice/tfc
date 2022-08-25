@@ -32,6 +32,20 @@
                         <a href="https://www.telkomsel.com/" target="_blank"><img src="{{ asset('assets/img/telkomsel.png') }}" alt="" style="max-width: 80%" class="lazy"></a>
                     </div>
                 </div>
+                <div class="partner-list">
+                    <div class="bold fz12 partner-name">NTO Sponsor</div>
+                    <div class="partner-logo">
+                        <a href="https://www.tourism.gov.ph/" target="_blank"><img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" alt="" style="max-width: 90%" class="lazy"></a>
+                    </div>
+                </div>
+                {{-- <div class="partner-nto-row row1">
+                    <div class="bold fz12 partner-name">NTO Sponsor</div>
+                    <div class="partner-logo">
+                        <a target="_blank" class="support1" href="https://www.tourism.gov.ph/">
+                            <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="lazy" style="max-width: 100%" alt="">
+                        </a>
+                    </div>
+                </div> --}}
                 <div class="partner-list partner-group partner-tech">
                     <div class="bold fz12 partner-name">Technology Partner</div>
                     <div class="partner-logo">
@@ -82,14 +96,7 @@
                     </div>
                 </div>
                 <div class="partner-list partner-group partner-nto">
-                    <div class="partner-nto-row row1">
-                        <div class="bold fz12 partner-name">NTO Sponsor</div>
-                        <div class="partner-logo">
-                            <a target="_blank" class="support1" href="https://www.tourism.gov.ph/">
-                                <img src="{{ asset('assets/img/nto/Logo PDOT - DOT.png') }}" class="lazy" style="max-width: 70%" alt="">
-                            </a>
-                        </div>
-                    </div>
+                    
                     <div class="partner-nto-row row2">
                         <div class="bold fz12 partner-name">NTO Partners</div>
                         <div class="partner-logo" style="display: flex;">
@@ -105,9 +112,9 @@
                             <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
                                 <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
                             </a>
-                            <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
+                            {{-- <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
                                 <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
-                            </a>
+                            </a> --}}
                             <a target="_blank" class="img-nto" href="http://www.japan.travel/id/id/">
                                 <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea lazy" alt="">
                             </a>
@@ -127,7 +134,7 @@
                     </div>
                 </div>
                 <div class="partner-list partner-venue">
-                    <div class="bold fz12 partner-name">Venue</div>
+                    <div class="bold fz12 partner-name">Venue Partner</div>
                     <div class="partner-logo">
                         <a href="https://pikavenue.com" target="_blank">
                             <img src="{{ asset('assets/img/pik.jpg') }}" alt="" class="lazy" style="max-width: 50%"> 
