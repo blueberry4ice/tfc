@@ -138,6 +138,13 @@
                                 src="{{ asset('assets/img/rwc.png') }}" alt="" style="max-width: 125%"> </a>
                     </div>
                 </div>
+                <div class="partner-list partner-venue">
+                    <div class="bold fz12 partner-name">Media Partner</div>
+                    <div class="partner-logo">
+                        <a href="https://rwcruises.com/" target="_blank"><img
+                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 125%"> </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
