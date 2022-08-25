@@ -39,7 +39,7 @@
                             <img src="{{ asset('assets/img/galileo.png') }}" alt="" class="lazy" style="padding: 0;">
                         </a>
                         <a target="_blank" class="img-nto" href="https://atibusinessgroup.com/" style="width: 33.3334%">
-                            <img src="{{ asset('assets/img/logo-ati.png') }}" class="lazy" style="width: 50%" alt="">
+                            <img src="{{ asset('assets/img/logo-ati.png') }}" class="lazy" style="width: 60%" alt="">
                         </a>
                     </div>
                 </div>
@@ -81,36 +81,39 @@
                         <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq lazy">
                     </div>
                 </div>
-                <div class="partner-list partner-group partner-support" style="width: 41%">
-                    <div class="bold fz12 partner-name">NTO Sponsor</div>
-                    <div class="partner-logo">
-                        <a target="_blank" class="support1" href="https://www.tourism.gov.ph/" style="width: 65%">
-                            <img src="{{ asset('assets/img/nto/Logo PDOT - DOT.png') }}" class="lazy" style="max-width: 65%" alt="">
-                        </a>
+                <div class="partner-list partner-group partner-nto">
+                    <div class="partner-nto-row row1">
+                        <div class="bold fz12 partner-name">NTO Sponsor</div>
+                        <div class="partner-logo">
+                            <a target="_blank" class="support1" href="https://www.tourism.gov.ph/">
+                                <img src="{{ asset('assets/img/nto/Logo PDOT - DOT.png') }}" class="lazy" style="max-width: 70%" alt="">
+                            </a>
+                        </div>
                     </div>
-                </div>
-                <div class="partner-list partner-group  partner-support" style="width: 59%">
-                    <div class="bold fz12 partner-name">NTO Partners</div>
-                    <div class="partner-logo" style="display: flex;">
-                        <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                            <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea lazy" alt="" style="max-width: 85%">
-                        </a>
-                        <a target="_blank" class="img-nto" href="https://www.visitdubai.com/">
-                            <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea lazy" alt="">
-                        </a>
-                        <a target="_blank" class="img-nto" href="https://taiwantourism.id/">
-                            <img src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea lazy" alt="">
-                        </a>
-                        <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
-                            <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea lazy" alt="">
-                        </a>
-                        <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
-                            <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea lazy" alt="">
-                        </a>
-                        <a target="_blank" class="img-nto" href="http://www.japan.travel/id/id/">
-                            <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea lazy" alt="">
-                        </a>
+                    <div class="partner-nto-row row2">
+                        <div class="bold fz12 partner-name">NTO Partners</div>
+                        <div class="partner-logo" style="display: flex;">
+                            <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
+                                <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea lazy" alt="">
+                            </a>
+                            <a target="_blank" class="img-nto" href="https://www.visitdubai.com/">
+                                <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea lazy" alt="">
+                            </a>
+                            <a target="_blank" class="img-nto" href="https://taiwantourism.id/">
+                                <img src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
+                            </a>
+                            <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
+                                <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
+                            </a>
+                            <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
+                                <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
+                            </a>
+                            <a target="_blank" class="img-nto" href="http://www.japan.travel/id/id/">
+                                <img src="{{ asset('assets/img/nto/JNTO_logo.png') }}" class="ic_korea lazy" alt="">
+                            </a>
+                        </div>
                     </div>
+                    
                 </div>
                 <div class="partner-list partner-group partner-support" style="width: 37%">
                     <div class="bold fz12 partner-name">Supported by</div>
@@ -135,7 +138,7 @@
                     <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo">
                         <a href="https://rwcruises.com/" target="_blank"><img
-                                src="{{ asset('assets/img/rwc.png') }}" alt="" style="max-width: 125%"> </a>
+                                src="{{ asset('assets/img/rwc.png') }}" alt="" style="max-width: 130%"> </a>
                     </div>
                 </div>
             </div>
