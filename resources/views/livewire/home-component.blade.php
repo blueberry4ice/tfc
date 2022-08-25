@@ -62,7 +62,7 @@
                             <input type="text" name="destination"
                                 class="form-control js-autocomplete ui-autocomplete-input"
                                 placeholder="Type your destination here">
-                            <div class="flight-popular-box">
+                            <div class="flight-popular-box" wire:init="loadFavdests">
                                 <h6 class="bold mb0">Destinasi Populer</h6>
                                 <ul>
                                     <li>
@@ -78,9 +78,9 @@
                             <i class="fa fa-angle-down icon-select"></i>
                             <select class="custom-select form-control" name="mdestination">
                                 <option disabled selected hidden></option>
-                                @foreach ($favdests as $favdest)
-                                <option>{{ $favdest['name'] }}</option>
-                                @endforeach
+                                {{-- @foreach ($favdests as $favdest) --}}
+                                {{-- <option>{{ $favdest['name'] }}</option> --}}
+                                {{-- @endforeach --}}
 
                             </select>
                         </div> -->
@@ -93,7 +93,7 @@
                             <div class="logo-agent">
                                 <img src="">
                             </div>
-                            <div class="dropdown-list-wrapper">
+                            <div class="dropdown-list-wrapper" wire:init="loadAgents">
                                 <div class="search-agent-wrapper">
                                     <input class="search-agent-input" type="" name="" placeholder="search agent">
                                     <svg id="Capa_1" enable-background="new 0 0 515.558 515.558"
@@ -117,7 +117,7 @@
                                 <div class="vertical-absolute no-agent">No Travel Agent found.</div>
                             </div>
                         </div>
-                        <div class="form-group form-group-select custom-select-agent">
+                        <div class="form-group form-group-select custom-select-agent" wire:init="loadAgents">
                             <i class="fa fa-angle-down icon-select"></i>
                             <select class="custom-select form-control" name="magent">
                                 <option disabled selected hidden></option>
@@ -186,7 +186,7 @@
                 <div class="section-title">Preferred destinations</div>
             </div>
             <div class="fav-slider-wrapper">
-                <div class="fav-inner-container">
+                <div class="fav-inner-container" wire:init="loadFavdests">
                      @foreach ($favdests as $favdest)
                         
                         <div class="fav-des-list"
@@ -232,8 +232,8 @@
             <div class="text-center">
                 <div class="section-title">Chat to your favorite Travel Agent</div>
             </div>
-            <div class="fav-agent-wrapper">
-                <div wire:init="loadPosts" class="clearfix favagent-inner-container">
+            <div class="fav-agent-wrapper" wire:init="loadAgents">
+                <div  class="clearfix favagent-inner-container">
                     @foreach ($agents as $agent)
                         <a href="{{ $agent->url }}" target="_blank" title="">
                             <div class="fav-agent-list">
@@ -289,11 +289,11 @@
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="https://www.visitkorea.or.id/" title="" class="flex-two">
+                <a target="_blank" href="http://www.visitdubai.com/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/1.png')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/dubai.jpeg')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
@@ -308,7 +308,7 @@
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/1.png')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/korea.jpg')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
@@ -323,7 +323,7 @@
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/2.png')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/taiwan.jpeg')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
@@ -338,42 +338,44 @@
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/singapore thumbnail.jpg')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/thai.jpeg')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
                                 <div class="tips-title">Tourism Authority of Thailand</div>
-                                <div class="tip-desc truncate-list" data-height="80">The Tourism Authority of Thailand (TAT) is an organization that operates under the Thai Ministry of Tourism and Sports. TAT Jakarta or also known as Wisata Thailand, is responsible for promoting Thai tourism destinations for Indonesian tourists.
+                                <div class="tip-desc truncate-list" data-height="80">#keThailandAja
+                                    #ThailandEdisiBaru
+                                    #AmazingThailandAmazingNewChapter
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="http://" title="" class="flex-two">
+                <a target="_blank" href="http://www.wisatafilipina.com" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/phuket.jpg')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/philipines.png')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
                                 <div class="tips-title">Philipines Department of Tourism</div>
-                                <div class="tip-desc truncate-list" data-height="80">Sawasdee!
+                                <div class="tip-desc truncate-list" data-height="80">Mabuhay! From scenic beaches and landscapes to gastronomics feasts, the 7,641 islands of the Philippines welcome you to be experience the many wonders of the country.
                                 </div>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a target="_blank" href="http://" title="" class="flex-two">
+                <a target="_blank" href="https://www.japan.travel/id/id/" title="" class="flex-two">
                     <div class="tips-list bordered-box">
                         <div class="clearfix">
                             <div class="pull-left w40 tips-left">
-                                <div class="tips-left-image" style="background-image: url('assets/img/phuket.jpg')">
+                                <div class="tips-left-image" style="background-image: url('assets/img/japan.png')">
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
                                 <div class="tips-title">Japan National Tourism Organization</div>
-                                <div class="tip-desc truncate-list" data-height="80">Sawasdee!
+                                <div class="tip-desc truncate-list" data-height="80">Temukan Passionmu, Nikmati Pengalaman Tak Terlupakan di Jepang. Dapatkan ragam informasi destinasi wisata menarik di Jepang
                                 </div>
                             </div>
                         </div>
