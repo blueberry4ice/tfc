@@ -4,7 +4,7 @@
         <div class="pull-left">
             <div class="logo-area">
                 <a href="/">
-                    <img src="{{ asset('assets/img/logo-astindo-white.png') }}" alt="logo-color">
+                    <img src="{{ asset('assets/img/logo-astindo-white_jkt.png') }}" alt="logo-color">
                 </a>
             </div>
         </div>
