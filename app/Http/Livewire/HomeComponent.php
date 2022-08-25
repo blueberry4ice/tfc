@@ -10,10 +10,23 @@ class HomeComponent extends Component
 {
     public $favdests;
     public $readyToLoad = false;
+    public $readyToLoadFavdest = false;
+    public $readyToLoadAgents = false;
+
 
     public function loadPosts()
     {
         $this->readyToLoad = true;
+    }
+
+    public function loadFavdests()
+    {
+        $this->readyToLoadFavdest = true;
+    }
+
+    public function loadAgents()
+    {
+        $this->readyToLoadAgents = true;
     }
 
     public function render()
@@ -77,8 +90,8 @@ class HomeComponent extends Component
         } else {
             // print ('tidak');
             return view('livewire.home-component', [
-                'agents' => $agents,
-                'favdests' => $this->favdests,
+                'agents' => $this->readyToLoadAgents ? $agents : [],
+                'favdests' => $this->readyToLoadFavdest ? $this->favdests : [],
                 'months' => $months
                 ])->layout('layouts.base');
         }
