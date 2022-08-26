@@ -149,8 +149,10 @@
                 <div class="partner-list partner-venue">
                     <div class="bold fz12 partner-name">Media Partner</div>
                     <div class="partner-logo">
-                        <a href="https://rwcruises.com/" target="_blank"><img
-                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 70%"> </a>
+                        <a href="https://https://www.tourismvaganza.com/" target="_blank"><img
+                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" > </a>
+                                <a href="https://venuemagz.com/" target="_blank"><img
+                                    src="{{ asset('assets/img/VENUE-01.png') }}" alt=""> </a>
                     </div>
                 </div>
             </div>
