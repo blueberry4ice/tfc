@@ -146,11 +146,13 @@
                         </a>
                     </div>
                 </div>
-                <div class="partner-list partner-venue">
+                <div class="partner-list partner-venue" style="width: 40%">
                     <div class="bold fz12 partner-name">Media Partner</div>
                     <div class="partner-logo">
-                        <a href="https://rwcruises.com/" target="_blank"><img
-                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 70%"> </a>
+                        <a href="https://rwcruises.com/" target="_blank" style="width: 50%"><img
+                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 80%; padding: 0 10px"> </a>
+                        <a href="https://venuemagz.com/" target="_blank" style="width: 50%"><img
+                                src="{{ asset('assets/img/nto/venue01.png') }}" alt="" style="max-width: 85%; padding: 0 10px"> </a>
                     </div>
                 </div>
             </div>
