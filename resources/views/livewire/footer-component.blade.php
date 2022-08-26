@@ -122,14 +122,19 @@
                     
                 </div>
                 <div class="partner-list partner-group partner-support">
-                    <div class="bold fz12 partner-name">Supported by</div>
-                    <div class="partner-logo" style="display: flex;">
+                    <div class="bold fz12 partner-name">Government Support</div>
+                    <div class="partner-logo">
                         <a target="_blank" class="img-support" href="https://dinaskebudayaan.jakarta.go.id/">
                             <img src="{{ asset('assets/img/dinas.png') }}" class="lazy" alt="" style="max-width: 52%">
                         </a>
                         <a target="_blank" class="img-support" href="https://www.jakarta-tourism.go.id/">
                             <img src="{{ asset('assets/img/enjoy jakarta.png') }}" class="lazy" alt="">
                         </a>
+                    </div>
+                </div>
+                <div class="partner-list partner-group partner-support">
+                    <div class="bold fz12 partner-name">Supported by</div>
+                    <div class="partner-logo" >
                         <a target="_blank" class="img-support" href="https://rwcruises.com/">
                             <img src="{{ asset('assets/img/rwc.png') }}" class="lazy" alt="" style="max-width: 100%; padding: 0;">
                         </a>
@@ -149,17 +154,10 @@
                 <div class="partner-list partner-venue" style="width: 40%">
                     <div class="bold fz12 partner-name">Media Partner</div>
                     <div class="partner-logo">
-<<<<<<< HEAD
-                        <a href="https://https://www.tourismvaganza.com/" target="_blank"><img
-                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" > </a>
-                                <a href="https://venuemagz.com/" target="_blank"><img
-                                    src="{{ asset('assets/img/VENUE-01.png') }}" alt=""> </a>
-=======
                         <a href="https://rwcruises.com/" target="_blank" style="width: 50%"><img
                                 src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 80%; padding: 0 10px"> </a>
                         <a href="https://venuemagz.com/" target="_blank" style="width: 50%"><img
-                                src="{{ asset('assets/img/nto/venue01.png') }}" alt="" style="max-width: 85%; padding: 0 10px"> </a>
->>>>>>> d8c7d82a3d7f16a0280c335af3bcfb7150b64885
+                                src="{{ asset('assets/img/VENUE-01.png') }}" alt="" style="max-width: 85%; padding: 0 10px"> </a>
                     </div>
                 </div>
             </div>
