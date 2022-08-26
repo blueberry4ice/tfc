@@ -96,7 +96,6 @@
                     </div>
                 </div>
                 <div class="partner-list partner-group partner-nto">
-                    
                     <div class="partner-nto-row row2">
                         <div class="bold fz12 partner-name">NTO Partners</div>
                         <div class="partner-logo" style="display: flex;">
@@ -122,16 +121,25 @@
                     </div>
                     
                 </div>
-                <div class="partner-list partner-group partner-support" style="width: 37%">
-                    <div class="bold fz12 partner-name">Supported by</div>
-                    <div class="partner-logo">
+                <div class="partner-list partner-group partner-nto">
+                    <div class="partner-nto-row row2">
+                        <div class="bold fz12 partner-name">Supported by</div>
+                    <div class="partner-logo" style="display: flex;">
                         <a target="_blank" class="support1" href="https://dinaskebudayaan.jakarta.go.id/">
-                            <img src="{{ asset('assets/img/dinas.png') }}" class="lazy" style="max-width: 80%" alt="">
+                            <img src="{{ asset('assets/img/dinas.png') }}" class="lazy" style="max-width: 130%" alt="">
                         </a>
                         <a target="_blank" class="support2" href="https://www.jakarta-tourism.go.id/">
                             <img src="{{ asset('assets/img/enjoy jakarta.png') }}" class="lazy" style="max-width: 90%" alt="">
                         </a>
+                        <a target="_blank" class="support1" href="https://rwcruises.com/">
+                            <img src="{{ asset('assets/img/rwc.png') }}" class="lazy" style="max-width: 200%" alt="">
+                        </a>
+                        <a target="_blank" class="support2" href="https://www.stb.gov.sg/">
+                            <img src="{{ asset('assets/img/sg tourism.png') }}" class="lazy" style="max-width: 70%" alt="">
+                        </a>
                     </div>
+                    </div>
+                    
                 </div>
                 <div class="partner-list partner-venue">
                     <div class="bold fz12 partner-name">Venue Partner</div>
@@ -139,13 +147,6 @@
                         <a href="https://pikavenue.com" target="_blank">
                             <img src="{{ asset('assets/img/pik.jpg') }}" alt="" class="lazy" style="max-width: 50%"> 
                         </a>
-                    </div>
-                </div>
-                <div class="partner-list partner-venue">
-                    <div class="bold fz12 partner-name">Supported by</div>
-                    <div class="partner-logo">
-                        <a href="https://rwcruises.com/" target="_blank"><img
-                                src="{{ asset('assets/img/rwc.png') }}" alt="" style="max-width: 130%"> </a>
                     </div>
                 </div>
                 <div class="partner-list partner-venue">

@@ -308,7 +308,7 @@
                                 </div>
                             </div>
                             <div class="pull-left w60 tips-right">
-                                <div class="tips-title">Dubai</div>
+                                <div class="tips-title">Dubai Tourism</div>
                                 <div class="tip-desc truncate-list" data-height="80">Welcome to Dubai - where anything is possible
                                 </div>
                             </div>
