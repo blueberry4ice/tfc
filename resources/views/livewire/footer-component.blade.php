@@ -62,7 +62,7 @@
                     <div class="partner-logo" style="display: flex;">
                         <img src="{{ asset('assets/img/airlines/ana.png') }}" alt="" class="ic_sq lazy">
                         <img src="{{ asset('assets/img/airlines/cathaypacific_master-logo_vertical_green_en.png') }}"
-                            alt="" class="ic_sq lazy">
+                            alt="" class="ic_sq lazy" style="max-width: 30%">
                         <img src="{{ asset('assets/img/airlines/Logo type Citilink-01 hijau.png') }}" alt=""
                             class="ic_sq lazy">
                         <img src="{{ asset('assets/img/airlines/01 Intl-Sig-SkyTeam-4C.jpg') }}" alt=""
@@ -75,24 +75,24 @@
                         <img src="{{ asset('assets/img/airlines/EVA STAR LOGO-1-2.1v-01.jpg') }}" alt=""
                             class="ic_sq lazy">
                         <img src="{{ asset('assets/img/airlines/LOGO GA HORIZONTAL-01.png') }}" alt="" 
-                            class="ic_sq lazy" style="max-width: 35%">
+                            class="ic_sq lazy" style="max-width: 45%">
                         <img src="{{ asset('assets/img/airlines/Japan Airlines Logo White_Square.png') }}" alt="" 
                             class="ic_sq lazy" style="max-width: 20%">
                         <img src="{{ asset('assets/img/airlines/MH_Logo.png') }}" alt=""
-                            class="ic_sq lazy" style="width: 35%">
+                            class="ic_sq lazy" style="max-width: 37%">
                         <img src="{{ asset('assets/img/airlines/PAS_Logo_Final_220107.png') }}" alt=""
-                            class="ic_sq lazy" style="width: 35%">
+                            class="ic_sq lazy" style="max-width: 35%">
                         <img src="{{ asset('assets/img/airlines/4-Star PAL logo 2-liner W-01.png') }}" alt=""
-                            class="ic_sq lazy" style="width: 35%">
+                            class="ic_sq lazy" style="max-width: 35%">
                     </div>
                     <div class="partner-logo" style="display: flex;">
                         <img src="{{ asset('assets/img/airlines/QANTAS_SOA_Masterbrand_Horizontal_RGB_190816.jpg') }}" 
                         alt="" class="ic_sq lazy">
                         <img src="{{ asset('assets/img/airlines/qr.png') }}" alt="" class="ic_qr lazy" style="max-width: 30%">
-                        <img src="{{ asset('assets/img/airlines/singapore air.png') }}" alt="" class="ic_sq lazy" style="padding: 0; max-width: 100%; max-height: 160%;">
+                        <img src="{{ asset('assets/img/airlines/singapore air.png') }}" alt="" class="ic_sq lazy" style="padding: 0; max-width: 100%; max-height: 170%;">
                         <img src="{{ asset('assets/img/airlines/LOGO SRIWIJAYA AIR HORIZONTAL FC.png') }}" alt=""
-                            class="ic_sq lazy">
-                        <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq lazy">
+                            class="ic_sq lazy" style="max-width: 30%;">
+                        <img src="{{ asset('assets/img/airlines/LOGO NAM AIR HOTIZONTAL FC.png') }}" alt="" class="ic_sq lazy" style="max-width: 30%;">
                     </div>
                 </div>
                 <div class="partner-list partner-group partner-nto">
@@ -100,16 +100,16 @@
                         <div class="bold fz12 partner-name">NTO Partners</div>
                         <div class="partner-logo" style="display: flex;">
                             <a target="_blank" class="img-nto" href="https://www.visitkorea.or.id/">
-                                <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea lazy" alt="">
+                                <img src="{{ asset('assets/img/nto/korea-nto.jpg') }}" class="ic_korea lazy" alt="" style="max-width: 75%;">
                             </a>
                             <a target="_blank" class="img-nto" href="https://www.visitdubai.com/">
                                 <img src="{{ asset('assets/img/nto/Dubai Brand_Color_RGB (1).png') }}" class="ic_korea lazy" alt="">
                             </a>
                             <a target="_blank" class="img-nto" href="https://taiwantourism.id/">
-                                <img src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
+                                <img src="{{ asset('assets/img/nto/TaiwanLogo THOA_red.jpg') }}" class="ic_korea lazy" alt="" style="padding: 0">
                             </a>
                             <a target="_blank" class="img-nto" href="https://www.wisatathailand.id/">
-                                <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
+                                <img src="{{ asset('assets/img/nto/thai-nto.png') }}" class="ic_korea lazy" alt="" style="padding: 0">
                             </a>
                             {{-- <a target="_blank" class="img-nto" href="http://www.wisatafilipina.com">
                                 <img src="{{ asset('assets/img/nto/IMFITP_Colored (1).png') }}" class="ic_korea lazy" alt="" style="max-width: 100%">
@@ -121,31 +121,28 @@
                     </div>
                     
                 </div>
-                <div class="partner-list partner-group partner-nto">
-                    <div class="partner-nto-row row2">
-                        <div class="bold fz12 partner-name">Supported by</div>
+                <div class="partner-list partner-group partner-support">
+                    <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo" style="display: flex;">
-                        <a target="_blank" class="support1" href="https://dinaskebudayaan.jakarta.go.id/">
-                            <img src="{{ asset('assets/img/dinas.png') }}" class="lazy" style="max-width: 130%" alt="">
+                        <a target="_blank" class="img-support" href="https://dinaskebudayaan.jakarta.go.id/">
+                            <img src="{{ asset('assets/img/dinas.png') }}" class="lazy" alt="" style="max-width: 52%">
                         </a>
-                        <a target="_blank" class="support2" href="https://www.jakarta-tourism.go.id/">
-                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" class="lazy" style="max-width: 90%" alt="">
+                        <a target="_blank" class="img-support" href="https://www.jakarta-tourism.go.id/">
+                            <img src="{{ asset('assets/img/enjoy jakarta.png') }}" class="lazy" alt="">
                         </a>
-                        <a target="_blank" class="support1" href="https://rwcruises.com/">
-                            <img src="{{ asset('assets/img/rwc.png') }}" class="lazy" style="max-width: 200%" alt="">
+                        <a target="_blank" class="img-support" href="https://rwcruises.com/">
+                            <img src="{{ asset('assets/img/rwc.png') }}" class="lazy" alt="" style="max-width: 100%; padding: 0;">
                         </a>
-                        <a target="_blank" class="support2" href="https://www.stb.gov.sg/">
-                            <img src="{{ asset('assets/img/sg tourism.png') }}" class="lazy" style="max-width: 70%" alt="">
+                        <a target="_blank" class="img-support" href="https://www.stb.gov.sg/">
+                            <img src="{{ asset('assets/img/sg tourism.png') }}" class="lazy" alt="">
                         </a>
                     </div>
-                    </div>
-                    
                 </div>
                 <div class="partner-list partner-venue">
                     <div class="bold fz12 partner-name">Venue Partner</div>
                     <div class="partner-logo">
                         <a href="https://pikavenue.com" target="_blank">
-                            <img src="{{ asset('assets/img/pik.jpg') }}" alt="" class="lazy" style="max-width: 50%"> 
+                            <img src="{{ asset('assets/img/pik.jpg') }}" alt="" class="lazy" style="max-width: 38%"> 
                         </a>
                     </div>
                 </div>
@@ -153,7 +150,7 @@
                     <div class="bold fz12 partner-name">Media Partner</div>
                     <div class="partner-logo">
                         <a href="https://rwcruises.com/" target="_blank"><img
-                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 125%"> </a>
+                                src="{{ asset('assets/img/tourismvaganza.png') }}" alt="" style="max-width: 70%"> </a>
                     </div>
                 </div>
             </div>
