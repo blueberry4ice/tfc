@@ -136,7 +136,7 @@
                     <div class="bold fz12 partner-name">Supported by</div>
                     <div class="partner-logo" >
                         <a target="_blank" class="img-support" href="https://rwcruises.com/">
-                            <img src="{{ asset('assets/img/rwc.png') }}" class="lazy" alt="" style="max-width: 100%; padding: 0;">
+                            <img src="{{ asset('assets/img/rwc.png') }}" class="lazy" alt="" style="max-width: 110%; padding: 0;">
                         </a>
                         <a target="_blank" class="img-support" href="https://www.stb.gov.sg/">
                             <img src="{{ asset('assets/img/sg tourism.png') }}" class="lazy" alt="">
